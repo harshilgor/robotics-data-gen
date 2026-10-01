@@ -1,5 +1,11 @@
 # Canonical architecture implementation ledger
 
+**Completeness correction:** the final source audit found partial implementations
+and missing local integrations. This table records delivered scope, not full
+architecture completion. See `architecture-final-audit.md` for the remaining
+semantic/compiler bridge, scene/domain realization, discovery/capability coverage,
+Advisor feedback, held-out evaluation, repeated adaptive loop and versioning gaps.
+
 Source: user-updated `original-architecture.md`, all 53 sections. First runtime:
 local synthetic, as requested. Existing APIs and supplied briefs are preserved.
 
