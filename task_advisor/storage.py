@@ -6,8 +6,8 @@ from .core import canonical, validate_annotation, validate_episode
 
 
 class Store:
-    def __init__(self, path):
-        self.db = sqlite3.connect(path)
+    def __init__(self, path=None, *, connection=None):
+        self.db = connection if connection is not None else sqlite3.connect(path)
         self.db.executescript("""
             CREATE TABLE IF NOT EXISTS tasks (identity TEXT PRIMARY KEY, payload TEXT NOT NULL);
             CREATE TABLE IF NOT EXISTS episodes (identity TEXT PRIMARY KEY, payload TEXT NOT NULL);

@@ -9,6 +9,7 @@ from datetime import datetime
 from typing import Protocol
 
 from taskgen.core import fingerprint, validate
+from taskgen.parameters import check_values
 from .core import number, task_annotation, validate_episode
 
 CHECKS = {"kinematics", "collision", "physics", "reset_stability"}
@@ -68,12 +69,15 @@ def compile_instrumentation(task, instance, evidence, *, lift_height=.02):
         values = instance.get(group, {})
         if set(values) != set(task[group]):
             raise ValueError("instance parameter schema mismatch")
-        for key, value in values.items():
-            number(value, key, *task[group][key])
+        check_values(task[group], values)
     physical_evidence(task, instance, evidence)
     number(lift_height, "lift_height", .000001)
     mapping = {"reach": "near", "grasp": "held", "lift": "lifted",
                "transport": "at_target", "push": "at_target", "release": "placed"}
+    if task["schema_version"] == "1.2":
+        from semantics import default_registry
+        registry = default_registry()
+        mapping = {node["skill"]: registry.get("execution_skill", node["skill"])["measured_predicate"] for node in task["task_graph"]}
     bindings = {n["id"]: mapping[n["skill"]] for n in task["task_graph"]}
     bindings["goal"] = task["success"]["predicate"]
     bindings["lift_height"] = lift_height
@@ -88,10 +92,26 @@ def measured_predicates(frame, tolerance, lift_height):
             raise ValueError(f"{key} must be measured boolean")
     held = frame["grasp_contact"] and frame["gripper_closed"]
     at_target = frame["object_target_distance"] <= tolerance
-    return {"near": frame["eef_object_distance"] <= tolerance, "held": held,
+    result = {"near": frame["eef_object_distance"] <= tolerance, "held": held,
             "lifted": held and frame["height_above_reset"] >= lift_height,
             "at_target": at_target,
             "placed": at_target and not held and frame["target_support"] and frame["object_speed"] <= .01}
+    if "extended_measurements" in frame:
+        metrics = frame["extended_measurements"]
+        expected = {"orientation_error", "insertion_depth", "required_insertion_depth", "drawer_open_fraction", "obstacle_clearance", "stack_support"}
+        if not isinstance(metrics, dict) or set(metrics) != expected:
+            raise ValueError("extended measured predicate schema mismatch")
+        for key in expected - {"stack_support"}:
+            number(metrics[key], key, 0)
+        if type(metrics["stack_support"]) is not bool:
+            raise ValueError("stack support requires measured boolean")
+        result.update(oriented=held and metrics["orientation_error"] <= .05,
+                      aligned=held and at_target and metrics["orientation_error"] <= .05,
+                      inserted=held and metrics["insertion_depth"] >= metrics["required_insertion_depth"],
+                      opened=metrics["drawer_open_fraction"] >= .9,
+                      avoided_obstacle=held and at_target and metrics["obstacle_clearance"] >= .01,
+                      stacked=at_target and not held and metrics["stack_support"] and frame["object_speed"] <= .01)
+    return result
 
 
 class EpisodeTracker:
@@ -129,13 +149,16 @@ class EpisodeTracker:
             raise ValueError("simulation time must increase")
         number(frame.get("reward"), "reward")
         c = self.compiled
+        if c.task["schema_version"] == "1.2" and "extended_measurements" not in frame:
+            raise ValueError("extended task requires measured predicate telemetry")
         predicates = measured_predicates(frame, c.instance["theta"]["tolerance"], c.bindings["lift_height"])
         stages = self.annotation["subgoals"]
         active = next((s for s in stages if self.results[s["id"]] is not True), None)
         # One stage per frame prevents one static observation completing a sequence.
         if active and all(self.results[d] is True for d in active["depends_on"]):
             self.results[active["id"]] = predicates[c.bindings[active["id"]]]
-        intentional_release = active is not None and active["capability"] == "release"
+        active_skill = next((n["skill"] for n in c.task["task_graph"] if active and n["id"] == active["id"]), None)
+        intentional_release = active_skill in ("release", "stack")
         self.collisions += int(frame["collision"] and not self.was_collision)
         self.grasp_losses += int(self.was_held and not predicates["held"] and not intentional_release)
         self.was_collision, self.was_held = frame["collision"], predicates["held"]

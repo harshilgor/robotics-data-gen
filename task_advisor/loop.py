@@ -9,6 +9,7 @@ import math
 import random
 import sqlite3
 from contextlib import nullcontext
+from taskgen.parameters import domain, validate_domain, intersect_domain
 
 from taskgen.core import fingerprint, validate
 from .core import canonical, number, task_annotation, validate_episode
@@ -39,9 +40,10 @@ def quotas(weights, total):
 
 class Repository:
     """Uses the Advisor Store connection so episode and assignment commits are atomic."""
-    def __init__(self, store):
+    def __init__(self, store, *, payload_store=None):
         self.store = store
         self.db = store.db
+        self.payload_store = payload_store
         self.db.executescript("""
             CREATE TABLE IF NOT EXISTS loop_records (
                 kind TEXT, identity TEXT, payload TEXT NOT NULL, PRIMARY KEY(kind,identity));
@@ -53,6 +55,8 @@ class Repository:
 
     def put(self, kind, identity, payload):
         text_id(identity)
+        if kind == "trajectory" and getattr(self, "payload_store", None) is not None:
+            payload = {"external_payload": self.payload_store.put(payload)}
         data = canonical(payload)
         row = self.db.execute("SELECT payload FROM loop_records WHERE kind=? AND identity=?", (kind, identity)).fetchone()
         if row:
@@ -63,10 +67,17 @@ class Repository:
     def get(self, kind, identity):
         row = self.db.execute("SELECT payload FROM loop_records WHERE kind=? AND identity=?", (kind, identity)).fetchone()
         if not row: raise ValueError(f"unknown {kind}: {identity}")
-        return json.loads(row[0])
+        return self._decode_payload(kind, json.loads(row[0]))
+
+    def _decode_payload(self, kind, payload):
+        if kind == "trajectory" and set(payload) == {"external_payload"}:
+            if getattr(self, "payload_store", None) is None:
+                raise ValueError("external trajectory storage must be configured to read this repository")
+            return self.payload_store.get(payload["external_payload"])
+        return payload
 
     def records(self, kind):
-        return [json.loads(row[0]) for row in self.db.execute(
+        return [self._decode_payload(kind, json.loads(row[0])) for row in self.db.execute(
             "SELECT payload FROM loop_records WHERE kind=? ORDER BY identity", (kind,))]
 
 
@@ -90,13 +101,17 @@ class TaskLibrary:
         for controller in controllers: text_id(controller)
         schema = contract.get("parameter_schema", {})
         if set(schema) != set(task["theta"]) | set(task["phi"]): raise ValueError("parameter schema mismatch")
-        for key, spec in schema.items():
-            group = "theta" if key in task["theta"] else "phi"
-            if spec.get("bounds") != task[group][key] or spec.get("sampling_role") != group:
-                raise ValueError("parameter range/role mismatch")
-            if spec.get("application_stage") not in ("build", "reset", "step") or spec.get("type") != "float":
-                raise ValueError("V1 parameters require float and explicit application stage")
-            text_id(spec.get("units"))
+        if contract.get("schema_version") == "2.0":
+            from .curriculum import validate_contract
+            validate_contract(task, contract)
+        else:
+            for key, spec in schema.items():
+                group = "theta" if key in task["theta"] else "phi"
+                if spec.get("bounds") != task[group][key] or spec.get("sampling_role") != group:
+                    raise ValueError("parameter range/role mismatch")
+                if spec.get("application_stage") not in ("build", "reset", "step") or spec.get("type") != "float":
+                    raise ValueError("V1 parameters require float and explicit application stage")
+                text_id(spec.get("units"))
         # Evidence describes the declared envelope, never implicit whole-family approval.
         evidence = contract.get("validation_evidence", {})
         for key in ("report_id", "validator_version", "simulator_version"): text_id(evidence.get(key))
@@ -104,14 +119,14 @@ class TaskLibrary:
         envelope = evidence.get("envelope", {})
         if set(envelope) != set(schema): raise ValueError("explicit validated envelope required")
         for key, bounds in envelope.items():
-            if not isinstance(bounds, list) or len(bounds) != 2: raise ValueError("invalid envelope")
-            number(bounds[0], key, *schema[key]["bounds"])
-            number(bounds[1], key, bounds[0], schema[key]["bounds"][1])
+            validate_domain(bounds)
+            if intersect_domain(bounds, schema[key]) != bounds: raise ValueError("invalid envelope")
         checks = evidence.get("checks", {})
         if set(checks) != {"kinematics", "collision", "physics", "reset_stability"} or any(v is not True for v in checks.values()):
             raise ValueError("physical envelope checks required")
         record = {"task": deepcopy(task), "contract": deepcopy(contract), "annotation": task_annotation(task)}
-        with self.repo.db if transactional else nullcontext():
+        from task_library.governance import transaction
+        with transaction(self.repo.db) if transactional else nullcontext():
             self.repo.put("artifact", contract["compiled_artifact_reference"], artifact)
             self.repo.put("family", canonical([expected["family_id"], expected["family_version"]]), record)
         return record
@@ -130,11 +145,17 @@ class TaskLibrary:
 
 class CurriculumSampler:
     """Advisor allocations are honored; unsupported requests yield shortfalls."""
-    def __init__(self, repository, library, constructors, validators):
+    def __init__(self, repository, library, constructors=None, validators=None, *, registry=None):
         self.repo, self.library = repository, library
-        self.constructors, self.validators = constructors, validators
+        self.constructors, self.validators = constructors or {}, validators or {}
+        self.registry = registry
 
-    def sample(self, directive, *, total, seed, controller_id, purpose="training", max_attempts=4, experiment=None):
+    def sample(self, directive, *, total=None, seed=None, controller_id=None, purpose="training", max_attempts=4, experiment=None, now=None):
+        if directive.get("schema_version") == "2.0":
+            from .curriculum import sample_batch
+            if any(v is not None for v in (total, seed, controller_id)) or experiment is not None:
+                raise ValueError("v2 execution settings are frozen inside directive")
+            return sample_batch(self, directive, now=now)
         integer(total, "total")
         integer(seed, "seed")
         integer(max_attempts, "attempt limit", 1)
@@ -247,31 +268,46 @@ class AssignmentScheduler:
         if compatibility_key != assignment["execution_compatibility_key"]: raise ValueError("worker incompatible")
         with self.repo.db:
             self.repo.db.execute("BEGIN IMMEDIATE")
+            if assignment.get("schema_version") == "2.0":
+                from .execution import check_lease
+                check_lease(self, assignment, now=now)
+            elif hasattr(self.library, "assert_sample_allowed"):
+                self.library.assert_sample_allowed(self.library.get_family(assignment["family_id"], assignment["family_version"]), assignment["instance"])
             row = self.repo.db.execute("SELECT state,attempt,deadline FROM assignment_state WHERE identity=?", (identity,)).fetchone()
-            if not row or row[0] in ("completed", "cancelled"): raise ValueError("assignment unavailable")
+            if not row or row[0] in ("completed", "cancelled", "failed", "expired"): raise ValueError("assignment unavailable")
             if row[0] in ("leased", "running"):
                 if row[2] > now: raise ValueError("live lease exists")
                 self.repo.db.execute("UPDATE execution_attempts SET status='expired' WHERE identity=?", (row[1],))
+                self.repo.put("attempt_expiry", row[1], {"assignment_id": identity, "at": now, "reason": "lease_expired"})
             self.repo.db.execute("INSERT INTO execution_attempts VALUES (?,?,'leased')", (attempt, identity))
+            self.repo.put("attempt_metadata", attempt, {"assignment_id": identity, "worker": worker, "leased_at": now})
             self.repo.db.execute("UPDATE assignment_state SET state='leased',attempt=?,worker=?,deadline=? WHERE identity=?", (attempt, worker, now+ttl, identity))
         return assignment
 
     def renew(self, identity, attempt, *, now, ttl):
         number(ttl, "ttl", .001); number(now, "clock", 0)
+        assignment = self.repo.get("assignment", identity)
+        if assignment.get("window", {}).get("expires_at", float("inf")) <= now: raise ValueError("directive expired")
         with self.repo.db:
             cursor = self.repo.db.execute("UPDATE assignment_state SET deadline=? WHERE identity=? AND attempt=? AND state IN ('leased','running') AND deadline>?", (now+ttl, identity, attempt, now))
             if cursor.rowcount != 1: raise ValueError("stale lease")
 
     def start(self, identity, attempt, *, now):
         number(now, "clock", 0)
+        assignment = self.repo.get("assignment", identity)
+        if assignment.get("window", {}).get("expires_at", float("inf")) <= now: raise ValueError("directive expired")
         with self.repo.db:
             cursor = self.repo.db.execute("UPDATE assignment_state SET state='running' WHERE identity=? AND attempt=? AND state='leased' AND deadline>?", (identity, attempt, now))
             if cursor.rowcount != 1: raise ValueError("stale or invalid attempt")
             self.repo.db.execute("UPDATE execution_attempts SET status='running' WHERE identity=?", (attempt,))
+            self.repo.put("attempt_start", attempt, {"assignment_id": identity, "started_at": now})
 
     def complete(self, identity, attempt, episode, *, now):
         number(now, "clock", 0)
         assignment = self.repo.get("assignment", identity)
+        if assignment.get("schema_version") == "2.0":
+            from .execution import complete
+            return complete(self, assignment, attempt, episode, now=now)
         if assignment["episode_purpose"] != "training": raise ValueError("demonstrations require separate recorder")
         record = self.library.get_family(assignment["family_id"], assignment["family_version"])
         annotation = record["annotation"]
@@ -291,7 +327,8 @@ class AssignmentScheduler:
             raise ValueError("realized reset state required")
         validate_episode(episode, {(annotation["family_id"], annotation["family_version"]): annotation})
         result = {"assignment_id": identity, "attempt_id": attempt, "episode": episode}
-        with self.repo.db:
+        from task_library.governance import transaction
+        with transaction(self.repo.db):
             old = self.repo.db.execute("SELECT payload FROM loop_records WHERE kind='completion' AND identity=?", (identity,)).fetchone()
             if old:
                 if old[0] != canonical(result): raise ValueError("conflicting completion")
@@ -306,11 +343,12 @@ class AssignmentScheduler:
     def interrupt(self, identity, attempt, *, now, reason):
         text_id(reason)
         number(now, "clock", 0)
-        with self.repo.db:
+        from task_library.governance import transaction
+        with transaction(self.repo.db):
             row = self.repo.db.execute("SELECT state,attempt,deadline FROM assignment_state WHERE identity=?", (identity,)).fetchone()
             if not row or row[1] != attempt or row[0] not in ("leased", "running") or row[2] <= now:
                 raise ValueError("stale execution attempt")
-            self.repo.put("interruption", attempt, {"assignment_id": identity, "reason": reason})
+            self.repo.put("interruption", attempt, {"assignment_id": identity, "reason": reason, "execution_status": "incomplete", "at": now})
             self.repo.db.execute("UPDATE execution_attempts SET status='interrupted' WHERE identity=?", (attempt,))
             self.repo.db.execute("UPDATE assignment_state SET state='pending',attempt=NULL,worker=NULL,deadline=NULL WHERE identity=?", (identity,))
 
@@ -318,9 +356,25 @@ class AssignmentScheduler:
         with self.repo.db:
             cursor = self.repo.db.execute("UPDATE assignment_state SET state='cancelled' WHERE identity=? AND state='pending'", (identity,))
             if cursor.rowcount != 1: raise ValueError("only pending assignments can be cancelled")
+            self.repo.put("cancellation", identity, {"assignment_id": identity, "explicit": True})
+
+    def fail(self, identity, attempt, *, now, reason, retry=False):
+        from .execution import fail
+        return fail(self, identity, attempt, now=now, reason=reason, retry=retry)
+
+    def expire(self, *, now):
+        from .execution import expire
+        return expire(self, now=now)
+
+    def diagnostics(self, request_id):
+        from .execution import diagnostics
+        return diagnostics(self, request_id)
 
     def feedback(self, request_id):
         batch = self.repo.get("sampling", request_id)
+        if batch["request"]["directive"].get("schema_version") == "2.0":
+            from .execution import feedback
+            return feedback(self, request_id)
         ids = {a["assignment_id"] for a in batch["assignments"]}
         states = [row for row in self.repo.db.execute("SELECT identity,state FROM assignment_state") if row[0] in ids]
         completed = sum(row[1] == "completed" for row in states)
@@ -351,7 +405,8 @@ class AssignmentRecorder:
     The worker supplies realized state after reset, before taking actions.
     """
     def __init__(self, scheduler, assignment_id, attempt_id, *, realized_parameters,
-                 initial_state, simulator_version, environment_version, clock):
+                 initial_state, simulator_version, environment_version, clock,
+                 controller_version=None, software_versions=None, trajectory=None):
         self.scheduler, self.identity, self.attempt = scheduler, assignment_id, attempt_id
         assignment = scheduler.repo.get("assignment", assignment_id)
         contract = scheduler.library.get_sampling_contract(assignment["family_id"], assignment["family_version"])
@@ -359,9 +414,18 @@ class AssignmentRecorder:
             "realized_parameters": deepcopy(realized_parameters), "initial_state": deepcopy(initial_state),
             "simulator_version": simulator_version, "environment_version": environment_version,
             "compiler_version": contract["compiler_version"], "controller_id": assignment["controller_id"]}
+        if assignment.get("schema_version") == "2.0":
+            text_id(controller_version)
+            if not isinstance(software_versions, dict) or not software_versions:
+                raise ValueError("software versions required")
+            for value in software_versions.values(): text_id(value)
+            self.execution["controller_version"] = controller_version
+            self.execution["software_versions"] = deepcopy(software_versions)
+        self.trajectory = trajectory
         self.clock = clock
 
     def record(self, annotation, episode):
         episode = deepcopy(episode)
         episode["assignment_execution"] = deepcopy(self.execution)
+        if self.trajectory is not None: episode["trajectory"] = deepcopy(self.trajectory)
         self.scheduler.complete(self.identity, self.attempt, episode, now=self.clock())

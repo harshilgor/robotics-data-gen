@@ -1,0 +1,5636 @@
+{
+  "adapter_events": [
+    [
+      "env0",
+      "build",
+      {
+        "friction": 0.33985647077190706,
+        "mass": 0.05583190762825499,
+        "object_size": 0.02962949352644486,
+        "surface": "mat"
+      }
+    ],
+    [
+      "env0",
+      "install",
+      "3be00c8e2dfd780b33ca5aa208ebb8f65ce3997687ca822ed5d470af54ba6a1b"
+    ],
+    [
+      "env0",
+      "apply_reset",
+      {
+        "corridor_width": 0.07666315855736973,
+        "obstacle_count": 0,
+        "target_distance": 0.11059740389040873,
+        "tolerance": 0.018129483813437507
+      }
+    ],
+    [
+      "env0",
+      "reset",
+      {
+        "object": "object",
+        "predicate": "near",
+        "tolerance_parameter": "tolerance"
+      }
+    ],
+    [
+      "env0",
+      "apply_step",
+      {
+        "sensor_gain": 0.9719847018659166
+      }
+    ],
+    [
+      "env1",
+      "build",
+      {
+        "friction": 0.6568810858989285,
+        "mass": 0.11643266602397916,
+        "object_size": 0.03506668144511129,
+        "surface": "tray"
+      }
+    ],
+    [
+      "env1",
+      "install",
+      "fcb04a8fe08b5f3b90119889bbe17fc383913be1bd9a303f8d0905976dbc3f90"
+    ],
+    [
+      "env1",
+      "apply_reset",
+      {
+        "corridor_width": 0.072346809595973,
+        "obstacle_count": 1,
+        "target_distance": 0.09131330169514276,
+        "tolerance": 0.012171156539521657
+      }
+    ],
+    [
+      "env1",
+      "reset",
+      {
+        "object": "object",
+        "predicate": "near",
+        "tolerance_parameter": "tolerance"
+      }
+    ],
+    [
+      "env1",
+      "apply_step",
+      {
+        "sensor_gain": 1.0333140483492107
+      }
+    ],
+    [
+      "env2",
+      "build",
+      {
+        "friction": 0.7742842383633436,
+        "mass": 0.07414609393305016,
+        "object_size": 0.022209555920531584,
+        "surface": "tray"
+      }
+    ],
+    [
+      "env2",
+      "install",
+      "16eff3e4c23ea7cc9e4b464f3e572e3530a229209e3de116b6f5a54c417dd476"
+    ],
+    [
+      "env2",
+      "apply_reset",
+      {
+        "corridor_width": 0.07254967741172565,
+        "obstacle_count": 2,
+        "target_distance": 0.1480296376448908,
+        "tolerance": 0.02878188961313101
+      }
+    ],
+    [
+      "env2",
+      "reset",
+      {
+        "object": "object",
+        "predicate": "near",
+        "tolerance_parameter": "tolerance"
+      }
+    ],
+    [
+      "env2",
+      "apply_step",
+      {
+        "sensor_gain": 1.0707019064843866
+      }
+    ],
+    [
+      "env0",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env0",
+      "pre_reset_frame",
+      1
+    ],
+    [
+      "env0",
+      "abandon"
+    ],
+    [
+      "env0",
+      "build",
+      {
+        "friction": 0.33985647077190706,
+        "mass": 0.05583190762825499,
+        "object_size": 0.02962949352644486,
+        "surface": "mat"
+      }
+    ],
+    [
+      "env0",
+      "install",
+      "3be00c8e2dfd780b33ca5aa208ebb8f65ce3997687ca822ed5d470af54ba6a1b"
+    ],
+    [
+      "env0",
+      "apply_reset",
+      {
+        "corridor_width": 0.07666315855736973,
+        "obstacle_count": 0,
+        "target_distance": 0.11059740389040873,
+        "tolerance": 0.018129483813437507
+      }
+    ],
+    [
+      "env0",
+      "reset",
+      {
+        "object": "object",
+        "predicate": "near",
+        "tolerance_parameter": "tolerance"
+      }
+    ],
+    [
+      "env0",
+      "apply_step",
+      {
+        "sensor_gain": 0.9719847018659166
+      }
+    ],
+    [
+      "env1",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env1",
+      "pre_reset_frame",
+      1
+    ],
+    [
+      "env2",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env2",
+      "pre_reset_frame",
+      1
+    ],
+    [
+      "env0",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env0",
+      "pre_reset_frame",
+      1
+    ],
+    [
+      "env1",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env1",
+      "pre_reset_frame",
+      2
+    ],
+    [
+      "env1",
+      "finalized"
+    ],
+    [
+      "env2",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env2",
+      "pre_reset_frame",
+      2
+    ],
+    [
+      "env2",
+      "finalized"
+    ],
+    [
+      "env0",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env0",
+      "pre_reset_frame",
+      2
+    ],
+    [
+      "env0",
+      "finalized"
+    ],
+    [
+      "env0",
+      "build",
+      {
+        "friction": 0.5211890254071274,
+        "mass": 0.12651159264292214,
+        "object_size": 0.031358289725468516,
+        "surface": "mat"
+      }
+    ],
+    [
+      "env0",
+      "install",
+      "e841950a2c75ae77ae8b763a9109c340c140fe97223dabb9fd61fef71ed6ef8d"
+    ],
+    [
+      "env0",
+      "apply_reset",
+      {
+        "corridor_width": 0.0778095713672939,
+        "obstacle_count": 3,
+        "target_distance": 0.04903706099689145,
+        "tolerance": 0.03907473692349415
+      }
+    ],
+    [
+      "env0",
+      "reset",
+      {
+        "object": "object",
+        "predicate": "near",
+        "tolerance_parameter": "tolerance"
+      }
+    ],
+    [
+      "env0",
+      "apply_step",
+      {
+        "sensor_gain": 0.9157626806461826
+      }
+    ],
+    [
+      "env0",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env0",
+      "pre_reset_frame",
+      1
+    ],
+    [
+      "env0",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env0",
+      "pre_reset_frame",
+      2
+    ],
+    [
+      "env0",
+      "finalized"
+    ],
+    [
+      "env1",
+      "build",
+      {
+        "friction": 0.4869890413392291,
+        "mass": 0.09711148753665635,
+        "object_size": 0.03991362570552686,
+        "surface": "tray"
+      }
+    ],
+    [
+      "env1",
+      "install",
+      "6c1c7035427c660739efdb6410f8962e8d8c709b5da8d43efe1fb8fbf7f6b471"
+    ],
+    [
+      "env1",
+      "apply_reset",
+      {
+        "corridor_width": 0.074958009904119,
+        "obstacle_count": 1,
+        "target_distance": 0.07155605398149177,
+        "tolerance": 0.019237976276932262
+      }
+    ],
+    [
+      "env1",
+      "reset",
+      {
+        "object": "object",
+        "predicate": "at_target",
+        "tolerance_parameter": "tolerance"
+      }
+    ],
+    [
+      "env1",
+      "apply_step",
+      {
+        "sensor_gain": 0.907965854298349
+      }
+    ],
+    [
+      "env1",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env1",
+      "pre_reset_frame",
+      1
+    ],
+    [
+      "env1",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env1",
+      "pre_reset_frame",
+      2
+    ],
+    [
+      "env1",
+      "finalized"
+    ],
+    [
+      "env2",
+      "build",
+      {
+        "friction": 0.5700883700967943,
+        "mass": 0.14625112976543175,
+        "object_size": 0.02204319624924823,
+        "surface": "mat"
+      }
+    ],
+    [
+      "env2",
+      "install",
+      "b2a6b0b0bf1bb177bb259bec66fc8d5d5642fde46ce374c3d2bc6efe4f74e6f7"
+    ],
+    [
+      "env2",
+      "apply_reset",
+      {
+        "corridor_width": 0.07604893020746117,
+        "obstacle_count": 3,
+        "target_distance": 0.041598513719853576,
+        "tolerance": 0.011492766921114575
+      }
+    ],
+    [
+      "env2",
+      "reset",
+      {
+        "object": "object",
+        "predicate": "at_target",
+        "tolerance_parameter": "tolerance"
+      }
+    ],
+    [
+      "env2",
+      "apply_step",
+      {
+        "sensor_gain": 1.0605659223047579
+      }
+    ],
+    [
+      "env2",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env2",
+      "pre_reset_frame",
+      1
+    ],
+    [
+      "env2",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env2",
+      "pre_reset_frame",
+      2
+    ],
+    [
+      "env2",
+      "finalized"
+    ],
+    [
+      "env0",
+      "build",
+      {
+        "friction": 0.3869553965870813,
+        "mass": 0.05731863464086796,
+        "object_size": 0.03379589933248707,
+        "surface": "tray"
+      }
+    ],
+    [
+      "env0",
+      "install",
+      "6141e6f4953d06e79cc2fc58fa0a8a7abcea0c8deb07bdb5092869ce20991818"
+    ],
+    [
+      "env0",
+      "apply_reset",
+      {
+        "corridor_width": 0.07968833220263383,
+        "obstacle_count": 2,
+        "target_distance": 0.13291136484379015,
+        "tolerance": 0.02989721360097894
+      }
+    ],
+    [
+      "env0",
+      "reset",
+      {
+        "object": "object",
+        "predicate": "at_target",
+        "tolerance_parameter": "tolerance"
+      }
+    ],
+    [
+      "env0",
+      "apply_step",
+      {
+        "sensor_gain": 1.0364104665563325
+      }
+    ],
+    [
+      "env0",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env0",
+      "pre_reset_frame",
+      1
+    ],
+    [
+      "env0",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env0",
+      "pre_reset_frame",
+      2
+    ],
+    [
+      "env0",
+      "finalized"
+    ],
+    [
+      "env1",
+      "build",
+      {
+        "friction": 0.7933514643294048,
+        "mass": 0.08775630768415577,
+        "object_size": 0.027288141100840716,
+        "surface": "mat"
+      }
+    ],
+    [
+      "env1",
+      "install",
+      "ccceaa2b732ccc8d59227d3c99ae2f8e2763096a567cd223ca7025b89c1bc3f4"
+    ],
+    [
+      "env1",
+      "apply_reset",
+      {
+        "corridor_width": 0.07216654952412518,
+        "obstacle_count": 0,
+        "target_distance": 0.11592305041123405,
+        "tolerance": 0.03641982400108951
+      }
+    ],
+    [
+      "env1",
+      "reset",
+      {
+        "object": "object",
+        "predicate": "at_target",
+        "tolerance_parameter": "tolerance"
+      }
+    ],
+    [
+      "env1",
+      "apply_step",
+      {
+        "sensor_gain": 0.9797747655337383
+      }
+    ],
+    [
+      "env1",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env1",
+      "pre_reset_frame",
+      1
+    ],
+    [
+      "env1",
+      "controller",
+      {
+        "id": "synthetic-controller",
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "purpose": "training",
+        "version": "v1"
+      }
+    ],
+    [
+      "env1",
+      "pre_reset_frame",
+      2
+    ],
+    [
+      "env1",
+      "finalized"
+    ]
+  ],
+  "attempts": [
+    [
+      "attempt-0",
+      "3be00c8e2dfd780b33ca5aa208ebb8f65ce3997687ca822ed5d470af54ba6a1b",
+      "interrupted"
+    ],
+    [
+      "attempt-1",
+      "fcb04a8fe08b5f3b90119889bbe17fc383913be1bd9a303f8d0905976dbc3f90",
+      "completed"
+    ],
+    [
+      "attempt-2",
+      "16eff3e4c23ea7cc9e4b464f3e572e3530a229209e3de116b6f5a54c417dd476",
+      "completed"
+    ],
+    [
+      "attempt-3",
+      "e841950a2c75ae77ae8b763a9109c340c140fe97223dabb9fd61fef71ed6ef8d",
+      "completed"
+    ],
+    [
+      "attempt-4",
+      "6c1c7035427c660739efdb6410f8962e8d8c709b5da8d43efe1fb8fbf7f6b471",
+      "completed"
+    ],
+    [
+      "attempt-5",
+      "b2a6b0b0bf1bb177bb259bec66fc8d5d5642fde46ce374c3d2bc6efe4f74e6f7",
+      "completed"
+    ],
+    [
+      "attempt-6",
+      "6141e6f4953d06e79cc2fc58fa0a8a7abcea0c8deb07bdb5092869ce20991818",
+      "completed"
+    ],
+    [
+      "attempt-7",
+      "ccceaa2b732ccc8d59227d3c99ae2f8e2763096a567cd223ca7025b89c1bc3f4",
+      "completed"
+    ],
+    [
+      "retry-attempt",
+      "3be00c8e2dfd780b33ca5aa208ebb8f65ce3997687ca822ed5d470af54ba6a1b",
+      "completed"
+    ]
+  ],
+  "batch": {
+    "assignments": [
+      {
+        "action_schema_id": "joint_target_v1",
+        "assignment_id": "3be00c8e2dfd780b33ca5aa208ebb8f65ce3997687ca822ed5d470af54ba6a1b",
+        "category": "learn",
+        "compiled_artifact_hash": "3a851172783d2bc504a471fec6490a30ffdd3e89a66c14767f86ab631aecde84",
+        "compiled_artifact_reference": "synthetic-b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+        "controller_id": "synthetic-controller",
+        "controller_version": "v1",
+        "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+        "directive_version": 1,
+        "embodiment_id": "so101",
+        "environment_parameters": {
+          "friction": 0.33985647077190706,
+          "mass": 0.05583190762825499,
+          "sensor_gain": 0.9719847018659166,
+          "surface": "mat"
+        },
+        "episode_purpose": "training",
+        "execution_compatibility_key": "c3d1ade85925be205da9d386ada462ecd42e84864a1372cf7e835f5bd286da34",
+        "fallback_from_region_id": null,
+        "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+        "family_version": 1,
+        "goal_specification": {
+          "object": "object",
+          "predicate": "near",
+          "tolerance_parameter": "tolerance"
+        },
+        "initial_state_specification": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "instance": {
+          "family": "reach",
+          "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+          "index": 0,
+          "phi": {
+            "friction": 0.33985647077190706,
+            "mass": 0.05583190762825499,
+            "sensor_gain": 0.9719847018659166,
+            "surface": "mat"
+          },
+          "provenance": {
+            "generator_seed": 10604444641670162017,
+            "generator_version": "0.1.0"
+          },
+          "revision": 1,
+          "schema_version": "1.0",
+          "seed": 10604444641670162017,
+          "theta": {
+            "corridor_width": 0.07666315855736973,
+            "object_size": 0.02962949352644486,
+            "obstacle_count": 0,
+            "target_distance": 0.11059740389040873,
+            "tolerance": 0.018129483813437507
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "simulation_approved": false,
+            "structurally_valid": true
+          }
+        },
+        "observation_schema_id": "state_v1",
+        "ordinal": 0,
+        "origin_region": {
+          "categorical_filters": {},
+          "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+          "family_version": 1,
+          "parameter_restrictions": {
+            "corridor_width": [
+              0.07,
+              0.08
+            ]
+          },
+          "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6",
+          "region_version": 1,
+          "weight": 0.5
+        },
+        "physical_evidence": {
+          "checks": {
+            "collision": true,
+            "kinematics": true,
+            "physics": true,
+            "reset_stability": true
+          },
+          "evidence_label": "SYNTHETIC SOFTWARE FIXTURE ONLY: no actual simulator, physics validation or learning performance",
+          "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+          "instance_id": "65a052597914ce7ce7fb95b763fa745ef3df20e2be7e26d17cbab0e5732fc802",
+          "report_id": "synthetic-only-65a052597914ce7ce7fb95b763fa745ef3df20e2be7e26d17cbab0e5732fc802",
+          "simulator_version": "synthetic-simulator-v1",
+          "validator_version": "synthetic-validator-v1"
+        },
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "recording_profile": {
+          "trajectory": true
+        },
+        "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6",
+        "region_version": 1,
+        "retry_evidence_policy": "first_valid_completion_per_assignment",
+        "sampling_request_id": "a18f38ab6a8cdd7da4f9263ecc6f58befd38b218802e7176bac78854ca7a79d5",
+        "sampling_seed": 10604444641670162017,
+        "schema_version": "2.0",
+        "task_parameters": {
+          "corridor_width": 0.07666315855736973,
+          "object_size": 0.02962949352644486,
+          "obstacle_count": 0,
+          "target_distance": 0.11059740389040873,
+          "tolerance": 0.018129483813437507
+        },
+        "validation_result": {
+          "feasibility_status": "supported_envelope",
+          "geometric_or_kinematic_checks": "passed",
+          "instantiation_validity": "valid",
+          "reference_controller_evidence": {
+            "status": "not_run"
+          },
+          "report_id": "synthetic-only-65a052597914ce7ce7fb95b763fa745ef3df20e2be7e26d17cbab0e5732fc802"
+        },
+        "window": {
+          "expires_at": 100.0,
+          "starts_at": 0.0,
+          "window_id": "synthetic-window-v1"
+        }
+      },
+      {
+        "action_schema_id": "joint_target_v1",
+        "assignment_id": "fcb04a8fe08b5f3b90119889bbe17fc383913be1bd9a303f8d0905976dbc3f90",
+        "category": "learn",
+        "compiled_artifact_hash": "3a851172783d2bc504a471fec6490a30ffdd3e89a66c14767f86ab631aecde84",
+        "compiled_artifact_reference": "synthetic-b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+        "controller_id": "synthetic-controller",
+        "controller_version": "v1",
+        "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+        "directive_version": 1,
+        "embodiment_id": "so101",
+        "environment_parameters": {
+          "friction": 0.6568810858989285,
+          "mass": 0.11643266602397916,
+          "sensor_gain": 1.0333140483492107,
+          "surface": "tray"
+        },
+        "episode_purpose": "training",
+        "execution_compatibility_key": "03012f043a3a964a711bdc76c4d0d5af8d312e2eaed8efa99b1c733ae48116cb",
+        "fallback_from_region_id": null,
+        "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+        "family_version": 1,
+        "goal_specification": {
+          "object": "object",
+          "predicate": "near",
+          "tolerance_parameter": "tolerance"
+        },
+        "initial_state_specification": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "instance": {
+          "family": "reach",
+          "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+          "index": 0,
+          "phi": {
+            "friction": 0.6568810858989285,
+            "mass": 0.11643266602397916,
+            "sensor_gain": 1.0333140483492107,
+            "surface": "tray"
+          },
+          "provenance": {
+            "generator_seed": 1051288096286920314,
+            "generator_version": "0.1.0"
+          },
+          "revision": 1,
+          "schema_version": "1.0",
+          "seed": 1051288096286920314,
+          "theta": {
+            "corridor_width": 0.072346809595973,
+            "object_size": 0.03506668144511129,
+            "obstacle_count": 1,
+            "target_distance": 0.09131330169514276,
+            "tolerance": 0.012171156539521657
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "simulation_approved": false,
+            "structurally_valid": true
+          }
+        },
+        "observation_schema_id": "state_v1",
+        "ordinal": 1,
+        "origin_region": {
+          "categorical_filters": {},
+          "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+          "family_version": 1,
+          "parameter_restrictions": {
+            "corridor_width": [
+              0.07,
+              0.08
+            ]
+          },
+          "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6",
+          "region_version": 1,
+          "weight": 0.5
+        },
+        "physical_evidence": {
+          "checks": {
+            "collision": true,
+            "kinematics": true,
+            "physics": true,
+            "reset_stability": true
+          },
+          "evidence_label": "SYNTHETIC SOFTWARE FIXTURE ONLY: no actual simulator, physics validation or learning performance",
+          "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+          "instance_id": "d3a3597c0215b364efd8ff85116f79a73b7a04b8fd75749a97c59bc9c88360e1",
+          "report_id": "synthetic-only-d3a3597c0215b364efd8ff85116f79a73b7a04b8fd75749a97c59bc9c88360e1",
+          "simulator_version": "synthetic-simulator-v1",
+          "validator_version": "synthetic-validator-v1"
+        },
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "recording_profile": {
+          "trajectory": true
+        },
+        "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6",
+        "region_version": 1,
+        "retry_evidence_policy": "first_valid_completion_per_assignment",
+        "sampling_request_id": "a18f38ab6a8cdd7da4f9263ecc6f58befd38b218802e7176bac78854ca7a79d5",
+        "sampling_seed": 1051288096286920314,
+        "schema_version": "2.0",
+        "task_parameters": {
+          "corridor_width": 0.072346809595973,
+          "object_size": 0.03506668144511129,
+          "obstacle_count": 1,
+          "target_distance": 0.09131330169514276,
+          "tolerance": 0.012171156539521657
+        },
+        "validation_result": {
+          "feasibility_status": "supported_envelope",
+          "geometric_or_kinematic_checks": "passed",
+          "instantiation_validity": "valid",
+          "reference_controller_evidence": {
+            "status": "not_run"
+          },
+          "report_id": "synthetic-only-d3a3597c0215b364efd8ff85116f79a73b7a04b8fd75749a97c59bc9c88360e1"
+        },
+        "window": {
+          "expires_at": 100.0,
+          "starts_at": 0.0,
+          "window_id": "synthetic-window-v1"
+        }
+      },
+      {
+        "action_schema_id": "joint_target_v1",
+        "assignment_id": "16eff3e4c23ea7cc9e4b464f3e572e3530a229209e3de116b6f5a54c417dd476",
+        "category": "learn",
+        "compiled_artifact_hash": "3a851172783d2bc504a471fec6490a30ffdd3e89a66c14767f86ab631aecde84",
+        "compiled_artifact_reference": "synthetic-b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+        "controller_id": "synthetic-controller",
+        "controller_version": "v1",
+        "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+        "directive_version": 1,
+        "embodiment_id": "so101",
+        "environment_parameters": {
+          "friction": 0.7742842383633436,
+          "mass": 0.07414609393305016,
+          "sensor_gain": 1.0707019064843866,
+          "surface": "tray"
+        },
+        "episode_purpose": "training",
+        "execution_compatibility_key": "363a13699ebb165b8b6fc68b574e1a03dbf05dab2f5ebe3944b77563197b43e3",
+        "fallback_from_region_id": null,
+        "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+        "family_version": 1,
+        "goal_specification": {
+          "object": "object",
+          "predicate": "near",
+          "tolerance_parameter": "tolerance"
+        },
+        "initial_state_specification": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "instance": {
+          "family": "reach",
+          "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+          "index": 0,
+          "phi": {
+            "friction": 0.7742842383633436,
+            "mass": 0.07414609393305016,
+            "sensor_gain": 1.0707019064843866,
+            "surface": "tray"
+          },
+          "provenance": {
+            "generator_seed": 13105461581442896914,
+            "generator_version": "0.1.0"
+          },
+          "revision": 1,
+          "schema_version": "1.0",
+          "seed": 13105461581442896914,
+          "theta": {
+            "corridor_width": 0.07254967741172565,
+            "object_size": 0.022209555920531584,
+            "obstacle_count": 2,
+            "target_distance": 0.1480296376448908,
+            "tolerance": 0.02878188961313101
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "simulation_approved": false,
+            "structurally_valid": true
+          }
+        },
+        "observation_schema_id": "state_v1",
+        "ordinal": 2,
+        "origin_region": {
+          "categorical_filters": {},
+          "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+          "family_version": 1,
+          "parameter_restrictions": {
+            "corridor_width": [
+              0.07,
+              0.08
+            ]
+          },
+          "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6",
+          "region_version": 1,
+          "weight": 0.5
+        },
+        "physical_evidence": {
+          "checks": {
+            "collision": true,
+            "kinematics": true,
+            "physics": true,
+            "reset_stability": true
+          },
+          "evidence_label": "SYNTHETIC SOFTWARE FIXTURE ONLY: no actual simulator, physics validation or learning performance",
+          "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+          "instance_id": "2ccb02837d6a556c94c3b22cac84a151d9be208a4945a4360a3798cc3b711e6b",
+          "report_id": "synthetic-only-2ccb02837d6a556c94c3b22cac84a151d9be208a4945a4360a3798cc3b711e6b",
+          "simulator_version": "synthetic-simulator-v1",
+          "validator_version": "synthetic-validator-v1"
+        },
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "recording_profile": {
+          "trajectory": true
+        },
+        "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6",
+        "region_version": 1,
+        "retry_evidence_policy": "first_valid_completion_per_assignment",
+        "sampling_request_id": "a18f38ab6a8cdd7da4f9263ecc6f58befd38b218802e7176bac78854ca7a79d5",
+        "sampling_seed": 13105461581442896914,
+        "schema_version": "2.0",
+        "task_parameters": {
+          "corridor_width": 0.07254967741172565,
+          "object_size": 0.022209555920531584,
+          "obstacle_count": 2,
+          "target_distance": 0.1480296376448908,
+          "tolerance": 0.02878188961313101
+        },
+        "validation_result": {
+          "feasibility_status": "supported_envelope",
+          "geometric_or_kinematic_checks": "passed",
+          "instantiation_validity": "valid",
+          "reference_controller_evidence": {
+            "status": "not_run"
+          },
+          "report_id": "synthetic-only-2ccb02837d6a556c94c3b22cac84a151d9be208a4945a4360a3798cc3b711e6b"
+        },
+        "window": {
+          "expires_at": 100.0,
+          "starts_at": 0.0,
+          "window_id": "synthetic-window-v1"
+        }
+      },
+      {
+        "action_schema_id": "joint_target_v1",
+        "assignment_id": "e841950a2c75ae77ae8b763a9109c340c140fe97223dabb9fd61fef71ed6ef8d",
+        "category": "learn",
+        "compiled_artifact_hash": "3a851172783d2bc504a471fec6490a30ffdd3e89a66c14767f86ab631aecde84",
+        "compiled_artifact_reference": "synthetic-b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+        "controller_id": "synthetic-controller",
+        "controller_version": "v1",
+        "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+        "directive_version": 1,
+        "embodiment_id": "so101",
+        "environment_parameters": {
+          "friction": 0.5211890254071274,
+          "mass": 0.12651159264292214,
+          "sensor_gain": 0.9157626806461826,
+          "surface": "mat"
+        },
+        "episode_purpose": "training",
+        "execution_compatibility_key": "b9503a4498fa478ff519fb78ff6152488e8c35029877d48dd45959dc25846928",
+        "fallback_from_region_id": null,
+        "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+        "family_version": 1,
+        "goal_specification": {
+          "object": "object",
+          "predicate": "near",
+          "tolerance_parameter": "tolerance"
+        },
+        "initial_state_specification": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "instance": {
+          "family": "reach",
+          "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+          "index": 0,
+          "phi": {
+            "friction": 0.5211890254071274,
+            "mass": 0.12651159264292214,
+            "sensor_gain": 0.9157626806461826,
+            "surface": "mat"
+          },
+          "provenance": {
+            "generator_seed": 5317586601671654167,
+            "generator_version": "0.1.0"
+          },
+          "revision": 1,
+          "schema_version": "1.0",
+          "seed": 5317586601671654167,
+          "theta": {
+            "corridor_width": 0.0778095713672939,
+            "object_size": 0.031358289725468516,
+            "obstacle_count": 3,
+            "target_distance": 0.04903706099689145,
+            "tolerance": 0.03907473692349415
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "simulation_approved": false,
+            "structurally_valid": true
+          }
+        },
+        "observation_schema_id": "state_v1",
+        "ordinal": 3,
+        "origin_region": {
+          "categorical_filters": {},
+          "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+          "family_version": 1,
+          "parameter_restrictions": {
+            "corridor_width": [
+              0.07,
+              0.08
+            ]
+          },
+          "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6",
+          "region_version": 1,
+          "weight": 0.5
+        },
+        "physical_evidence": {
+          "checks": {
+            "collision": true,
+            "kinematics": true,
+            "physics": true,
+            "reset_stability": true
+          },
+          "evidence_label": "SYNTHETIC SOFTWARE FIXTURE ONLY: no actual simulator, physics validation or learning performance",
+          "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+          "instance_id": "943322cad7b59c1f0e060502303ab5d7e29457c6721897dae8253139046594af",
+          "report_id": "synthetic-only-943322cad7b59c1f0e060502303ab5d7e29457c6721897dae8253139046594af",
+          "simulator_version": "synthetic-simulator-v1",
+          "validator_version": "synthetic-validator-v1"
+        },
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "recording_profile": {
+          "trajectory": true
+        },
+        "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6",
+        "region_version": 1,
+        "retry_evidence_policy": "first_valid_completion_per_assignment",
+        "sampling_request_id": "a18f38ab6a8cdd7da4f9263ecc6f58befd38b218802e7176bac78854ca7a79d5",
+        "sampling_seed": 5317586601671654167,
+        "schema_version": "2.0",
+        "task_parameters": {
+          "corridor_width": 0.0778095713672939,
+          "object_size": 0.031358289725468516,
+          "obstacle_count": 3,
+          "target_distance": 0.04903706099689145,
+          "tolerance": 0.03907473692349415
+        },
+        "validation_result": {
+          "feasibility_status": "supported_envelope",
+          "geometric_or_kinematic_checks": "passed",
+          "instantiation_validity": "valid",
+          "reference_controller_evidence": {
+            "status": "not_run"
+          },
+          "report_id": "synthetic-only-943322cad7b59c1f0e060502303ab5d7e29457c6721897dae8253139046594af"
+        },
+        "window": {
+          "expires_at": 100.0,
+          "starts_at": 0.0,
+          "window_id": "synthetic-window-v1"
+        }
+      },
+      {
+        "action_schema_id": "joint_target_v1",
+        "assignment_id": "6c1c7035427c660739efdb6410f8962e8d8c709b5da8d43efe1fb8fbf7f6b471",
+        "category": "learn",
+        "compiled_artifact_hash": "1ae63edeb96960a8d2326aaf49aabd3a775e0887dd2f0feca7c27d9269f77d97",
+        "compiled_artifact_reference": "synthetic-2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+        "controller_id": "synthetic-controller",
+        "controller_version": "v1",
+        "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+        "directive_version": 1,
+        "embodiment_id": "so101",
+        "environment_parameters": {
+          "friction": 0.4869890413392291,
+          "mass": 0.09711148753665635,
+          "sensor_gain": 0.907965854298349,
+          "surface": "tray"
+        },
+        "episode_purpose": "training",
+        "execution_compatibility_key": "e8a54814ddeb31f8f2df4cd2cad573fb3c98420172fb454ed4821cf645ae8e79",
+        "fallback_from_region_id": null,
+        "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+        "family_version": 1,
+        "goal_specification": {
+          "object": "object",
+          "predicate": "at_target",
+          "tolerance_parameter": "tolerance"
+        },
+        "initial_state_specification": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "instance": {
+          "family": "push",
+          "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+          "index": 0,
+          "phi": {
+            "friction": 0.4869890413392291,
+            "mass": 0.09711148753665635,
+            "sensor_gain": 0.907965854298349,
+            "surface": "tray"
+          },
+          "provenance": {
+            "generator_seed": 9317462422343266220,
+            "generator_version": "0.1.0"
+          },
+          "revision": 1,
+          "schema_version": "1.0",
+          "seed": 9317462422343266220,
+          "theta": {
+            "corridor_width": 0.074958009904119,
+            "object_size": 0.03991362570552686,
+            "obstacle_count": 1,
+            "target_distance": 0.07155605398149177,
+            "tolerance": 0.019237976276932262
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "simulation_approved": false,
+            "structurally_valid": true
+          }
+        },
+        "observation_schema_id": "state_v1",
+        "ordinal": 4,
+        "origin_region": {
+          "categorical_filters": {},
+          "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+          "family_version": 1,
+          "parameter_restrictions": {
+            "corridor_width": [
+              0.07,
+              0.08
+            ]
+          },
+          "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8",
+          "region_version": 1,
+          "weight": 0.5
+        },
+        "physical_evidence": {
+          "checks": {
+            "collision": true,
+            "kinematics": true,
+            "physics": true,
+            "reset_stability": true
+          },
+          "evidence_label": "SYNTHETIC SOFTWARE FIXTURE ONLY: no actual simulator, physics validation or learning performance",
+          "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+          "instance_id": "ae9029d55c60b5c12c28137ced32018f50426ef7de4ee6aacc6e5876945a87fe",
+          "report_id": "synthetic-only-ae9029d55c60b5c12c28137ced32018f50426ef7de4ee6aacc6e5876945a87fe",
+          "simulator_version": "synthetic-simulator-v1",
+          "validator_version": "synthetic-validator-v1"
+        },
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "recording_profile": {
+          "trajectory": true
+        },
+        "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8",
+        "region_version": 1,
+        "retry_evidence_policy": "first_valid_completion_per_assignment",
+        "sampling_request_id": "a18f38ab6a8cdd7da4f9263ecc6f58befd38b218802e7176bac78854ca7a79d5",
+        "sampling_seed": 9317462422343266220,
+        "schema_version": "2.0",
+        "task_parameters": {
+          "corridor_width": 0.074958009904119,
+          "object_size": 0.03991362570552686,
+          "obstacle_count": 1,
+          "target_distance": 0.07155605398149177,
+          "tolerance": 0.019237976276932262
+        },
+        "validation_result": {
+          "feasibility_status": "supported_envelope",
+          "geometric_or_kinematic_checks": "passed",
+          "instantiation_validity": "valid",
+          "reference_controller_evidence": {
+            "status": "not_run"
+          },
+          "report_id": "synthetic-only-ae9029d55c60b5c12c28137ced32018f50426ef7de4ee6aacc6e5876945a87fe"
+        },
+        "window": {
+          "expires_at": 100.0,
+          "starts_at": 0.0,
+          "window_id": "synthetic-window-v1"
+        }
+      },
+      {
+        "action_schema_id": "joint_target_v1",
+        "assignment_id": "b2a6b0b0bf1bb177bb259bec66fc8d5d5642fde46ce374c3d2bc6efe4f74e6f7",
+        "category": "learn",
+        "compiled_artifact_hash": "1ae63edeb96960a8d2326aaf49aabd3a775e0887dd2f0feca7c27d9269f77d97",
+        "compiled_artifact_reference": "synthetic-2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+        "controller_id": "synthetic-controller",
+        "controller_version": "v1",
+        "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+        "directive_version": 1,
+        "embodiment_id": "so101",
+        "environment_parameters": {
+          "friction": 0.5700883700967943,
+          "mass": 0.14625112976543175,
+          "sensor_gain": 1.0605659223047579,
+          "surface": "mat"
+        },
+        "episode_purpose": "training",
+        "execution_compatibility_key": "af67981aa853282f8b980fdc213bd8e648ddca4ad5c41bd53875694447ac1e0b",
+        "fallback_from_region_id": null,
+        "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+        "family_version": 1,
+        "goal_specification": {
+          "object": "object",
+          "predicate": "at_target",
+          "tolerance_parameter": "tolerance"
+        },
+        "initial_state_specification": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "instance": {
+          "family": "push",
+          "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+          "index": 0,
+          "phi": {
+            "friction": 0.5700883700967943,
+            "mass": 0.14625112976543175,
+            "sensor_gain": 1.0605659223047579,
+            "surface": "mat"
+          },
+          "provenance": {
+            "generator_seed": 2228871809490493610,
+            "generator_version": "0.1.0"
+          },
+          "revision": 1,
+          "schema_version": "1.0",
+          "seed": 2228871809490493610,
+          "theta": {
+            "corridor_width": 0.07604893020746117,
+            "object_size": 0.02204319624924823,
+            "obstacle_count": 3,
+            "target_distance": 0.041598513719853576,
+            "tolerance": 0.011492766921114575
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "simulation_approved": false,
+            "structurally_valid": true
+          }
+        },
+        "observation_schema_id": "state_v1",
+        "ordinal": 5,
+        "origin_region": {
+          "categorical_filters": {},
+          "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+          "family_version": 1,
+          "parameter_restrictions": {
+            "corridor_width": [
+              0.07,
+              0.08
+            ]
+          },
+          "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8",
+          "region_version": 1,
+          "weight": 0.5
+        },
+        "physical_evidence": {
+          "checks": {
+            "collision": true,
+            "kinematics": true,
+            "physics": true,
+            "reset_stability": true
+          },
+          "evidence_label": "SYNTHETIC SOFTWARE FIXTURE ONLY: no actual simulator, physics validation or learning performance",
+          "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+          "instance_id": "db539615258444f9d2ef6967e0cd7c6d91f0ca95a75404457466f3d196764dec",
+          "report_id": "synthetic-only-db539615258444f9d2ef6967e0cd7c6d91f0ca95a75404457466f3d196764dec",
+          "simulator_version": "synthetic-simulator-v1",
+          "validator_version": "synthetic-validator-v1"
+        },
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "recording_profile": {
+          "trajectory": true
+        },
+        "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8",
+        "region_version": 1,
+        "retry_evidence_policy": "first_valid_completion_per_assignment",
+        "sampling_request_id": "a18f38ab6a8cdd7da4f9263ecc6f58befd38b218802e7176bac78854ca7a79d5",
+        "sampling_seed": 2228871809490493610,
+        "schema_version": "2.0",
+        "task_parameters": {
+          "corridor_width": 0.07604893020746117,
+          "object_size": 0.02204319624924823,
+          "obstacle_count": 3,
+          "target_distance": 0.041598513719853576,
+          "tolerance": 0.011492766921114575
+        },
+        "validation_result": {
+          "feasibility_status": "supported_envelope",
+          "geometric_or_kinematic_checks": "passed",
+          "instantiation_validity": "valid",
+          "reference_controller_evidence": {
+            "status": "not_run"
+          },
+          "report_id": "synthetic-only-db539615258444f9d2ef6967e0cd7c6d91f0ca95a75404457466f3d196764dec"
+        },
+        "window": {
+          "expires_at": 100.0,
+          "starts_at": 0.0,
+          "window_id": "synthetic-window-v1"
+        }
+      },
+      {
+        "action_schema_id": "joint_target_v1",
+        "assignment_id": "6141e6f4953d06e79cc2fc58fa0a8a7abcea0c8deb07bdb5092869ce20991818",
+        "category": "learn",
+        "compiled_artifact_hash": "1ae63edeb96960a8d2326aaf49aabd3a775e0887dd2f0feca7c27d9269f77d97",
+        "compiled_artifact_reference": "synthetic-2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+        "controller_id": "synthetic-controller",
+        "controller_version": "v1",
+        "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+        "directive_version": 1,
+        "embodiment_id": "so101",
+        "environment_parameters": {
+          "friction": 0.3869553965870813,
+          "mass": 0.05731863464086796,
+          "sensor_gain": 1.0364104665563325,
+          "surface": "tray"
+        },
+        "episode_purpose": "training",
+        "execution_compatibility_key": "be7593d36f2164a0b75b2794f46557dd9690d6863ad2329fbb1e12e5995412ad",
+        "fallback_from_region_id": null,
+        "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+        "family_version": 1,
+        "goal_specification": {
+          "object": "object",
+          "predicate": "at_target",
+          "tolerance_parameter": "tolerance"
+        },
+        "initial_state_specification": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "instance": {
+          "family": "push",
+          "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+          "index": 0,
+          "phi": {
+            "friction": 0.3869553965870813,
+            "mass": 0.05731863464086796,
+            "sensor_gain": 1.0364104665563325,
+            "surface": "tray"
+          },
+          "provenance": {
+            "generator_seed": 14533219082400483723,
+            "generator_version": "0.1.0"
+          },
+          "revision": 1,
+          "schema_version": "1.0",
+          "seed": 14533219082400483723,
+          "theta": {
+            "corridor_width": 0.07968833220263383,
+            "object_size": 0.03379589933248707,
+            "obstacle_count": 2,
+            "target_distance": 0.13291136484379015,
+            "tolerance": 0.02989721360097894
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "simulation_approved": false,
+            "structurally_valid": true
+          }
+        },
+        "observation_schema_id": "state_v1",
+        "ordinal": 6,
+        "origin_region": {
+          "categorical_filters": {},
+          "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+          "family_version": 1,
+          "parameter_restrictions": {
+            "corridor_width": [
+              0.07,
+              0.08
+            ]
+          },
+          "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8",
+          "region_version": 1,
+          "weight": 0.5
+        },
+        "physical_evidence": {
+          "checks": {
+            "collision": true,
+            "kinematics": true,
+            "physics": true,
+            "reset_stability": true
+          },
+          "evidence_label": "SYNTHETIC SOFTWARE FIXTURE ONLY: no actual simulator, physics validation or learning performance",
+          "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+          "instance_id": "cf4c638b1f7e06e47b60c6f26464235067123bd58337b9af350cca8e4862f063",
+          "report_id": "synthetic-only-cf4c638b1f7e06e47b60c6f26464235067123bd58337b9af350cca8e4862f063",
+          "simulator_version": "synthetic-simulator-v1",
+          "validator_version": "synthetic-validator-v1"
+        },
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "recording_profile": {
+          "trajectory": true
+        },
+        "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8",
+        "region_version": 1,
+        "retry_evidence_policy": "first_valid_completion_per_assignment",
+        "sampling_request_id": "a18f38ab6a8cdd7da4f9263ecc6f58befd38b218802e7176bac78854ca7a79d5",
+        "sampling_seed": 14533219082400483723,
+        "schema_version": "2.0",
+        "task_parameters": {
+          "corridor_width": 0.07968833220263383,
+          "object_size": 0.03379589933248707,
+          "obstacle_count": 2,
+          "target_distance": 0.13291136484379015,
+          "tolerance": 0.02989721360097894
+        },
+        "validation_result": {
+          "feasibility_status": "supported_envelope",
+          "geometric_or_kinematic_checks": "passed",
+          "instantiation_validity": "valid",
+          "reference_controller_evidence": {
+            "status": "not_run"
+          },
+          "report_id": "synthetic-only-cf4c638b1f7e06e47b60c6f26464235067123bd58337b9af350cca8e4862f063"
+        },
+        "window": {
+          "expires_at": 100.0,
+          "starts_at": 0.0,
+          "window_id": "synthetic-window-v1"
+        }
+      },
+      {
+        "action_schema_id": "joint_target_v1",
+        "assignment_id": "ccceaa2b732ccc8d59227d3c99ae2f8e2763096a567cd223ca7025b89c1bc3f4",
+        "category": "learn",
+        "compiled_artifact_hash": "1ae63edeb96960a8d2326aaf49aabd3a775e0887dd2f0feca7c27d9269f77d97",
+        "compiled_artifact_reference": "synthetic-2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+        "controller_id": "synthetic-controller",
+        "controller_version": "v1",
+        "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+        "directive_version": 1,
+        "embodiment_id": "so101",
+        "environment_parameters": {
+          "friction": 0.7933514643294048,
+          "mass": 0.08775630768415577,
+          "sensor_gain": 0.9797747655337383,
+          "surface": "mat"
+        },
+        "episode_purpose": "training",
+        "execution_compatibility_key": "88b6d50100397d8bd3a9271b70647dce242dd07d10f3a53da81c13384f97f8fb",
+        "fallback_from_region_id": null,
+        "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+        "family_version": 1,
+        "goal_specification": {
+          "object": "object",
+          "predicate": "at_target",
+          "tolerance_parameter": "tolerance"
+        },
+        "initial_state_specification": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "instance": {
+          "family": "push",
+          "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+          "index": 0,
+          "phi": {
+            "friction": 0.7933514643294048,
+            "mass": 0.08775630768415577,
+            "sensor_gain": 0.9797747655337383,
+            "surface": "mat"
+          },
+          "provenance": {
+            "generator_seed": 16822955060883794545,
+            "generator_version": "0.1.0"
+          },
+          "revision": 1,
+          "schema_version": "1.0",
+          "seed": 16822955060883794545,
+          "theta": {
+            "corridor_width": 0.07216654952412518,
+            "object_size": 0.027288141100840716,
+            "obstacle_count": 0,
+            "target_distance": 0.11592305041123405,
+            "tolerance": 0.03641982400108951
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "simulation_approved": false,
+            "structurally_valid": true
+          }
+        },
+        "observation_schema_id": "state_v1",
+        "ordinal": 7,
+        "origin_region": {
+          "categorical_filters": {},
+          "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+          "family_version": 1,
+          "parameter_restrictions": {
+            "corridor_width": [
+              0.07,
+              0.08
+            ]
+          },
+          "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8",
+          "region_version": 1,
+          "weight": 0.5
+        },
+        "physical_evidence": {
+          "checks": {
+            "collision": true,
+            "kinematics": true,
+            "physics": true,
+            "reset_stability": true
+          },
+          "evidence_label": "SYNTHETIC SOFTWARE FIXTURE ONLY: no actual simulator, physics validation or learning performance",
+          "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+          "instance_id": "9f6c23687967b5e7fa7d635d7cf45fc6ad39868a33ba7cb0d41e897c63b6291f",
+          "report_id": "synthetic-only-9f6c23687967b5e7fa7d635d7cf45fc6ad39868a33ba7cb0d41e897c63b6291f",
+          "simulator_version": "synthetic-simulator-v1",
+          "validator_version": "synthetic-validator-v1"
+        },
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "recording_profile": {
+          "trajectory": true
+        },
+        "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8",
+        "region_version": 1,
+        "retry_evidence_policy": "first_valid_completion_per_assignment",
+        "sampling_request_id": "a18f38ab6a8cdd7da4f9263ecc6f58befd38b218802e7176bac78854ca7a79d5",
+        "sampling_seed": 16822955060883794545,
+        "schema_version": "2.0",
+        "task_parameters": {
+          "corridor_width": 0.07216654952412518,
+          "object_size": 0.027288141100840716,
+          "obstacle_count": 0,
+          "target_distance": 0.11592305041123405,
+          "tolerance": 0.03641982400108951
+        },
+        "validation_result": {
+          "feasibility_status": "supported_envelope",
+          "geometric_or_kinematic_checks": "passed",
+          "instantiation_validity": "valid",
+          "reference_controller_evidence": {
+            "status": "not_run"
+          },
+          "report_id": "synthetic-only-9f6c23687967b5e7fa7d635d7cf45fc6ad39868a33ba7cb0d41e897c63b6291f"
+        },
+        "window": {
+          "expires_at": 100.0,
+          "starts_at": 0.0,
+          "window_id": "synthetic-window-v1"
+        }
+      }
+    ],
+    "category_quotas": {
+      "explore": 0,
+      "learn": 8,
+      "retain": 0,
+      "unallocated": 0
+    },
+    "coverage_shortfalls": [],
+    "diagnostics": [
+      {
+        "accepted": 4,
+        "category": "learn",
+        "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+        "fallback_from_region_id": null,
+        "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+        "family_version": 1,
+        "generated": 4,
+        "reasons": {},
+        "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6",
+        "region_version": 1,
+        "rejected": 0,
+        "requested": 4,
+        "shortfall": 0
+      },
+      {
+        "accepted": 4,
+        "category": "learn",
+        "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+        "fallback_from_region_id": null,
+        "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+        "family_version": 1,
+        "generated": 4,
+        "reasons": {},
+        "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8",
+        "region_version": 1,
+        "rejected": 0,
+        "requested": 4,
+        "shortfall": 0
+      }
+    ],
+    "fallbacks": [],
+    "groups": {
+      "03012f043a3a964a711bdc76c4d0d5af8d312e2eaed8efa99b1c733ae48116cb": [
+        "fcb04a8fe08b5f3b90119889bbe17fc383913be1bd9a303f8d0905976dbc3f90"
+      ],
+      "363a13699ebb165b8b6fc68b574e1a03dbf05dab2f5ebe3944b77563197b43e3": [
+        "16eff3e4c23ea7cc9e4b464f3e572e3530a229209e3de116b6f5a54c417dd476"
+      ],
+      "88b6d50100397d8bd3a9271b70647dce242dd07d10f3a53da81c13384f97f8fb": [
+        "ccceaa2b732ccc8d59227d3c99ae2f8e2763096a567cd223ca7025b89c1bc3f4"
+      ],
+      "af67981aa853282f8b980fdc213bd8e648ddca4ad5c41bd53875694447ac1e0b": [
+        "b2a6b0b0bf1bb177bb259bec66fc8d5d5642fde46ce374c3d2bc6efe4f74e6f7"
+      ],
+      "b9503a4498fa478ff519fb78ff6152488e8c35029877d48dd45959dc25846928": [
+        "e841950a2c75ae77ae8b763a9109c340c140fe97223dabb9fd61fef71ed6ef8d"
+      ],
+      "be7593d36f2164a0b75b2794f46557dd9690d6863ad2329fbb1e12e5995412ad": [
+        "6141e6f4953d06e79cc2fc58fa0a8a7abcea0c8deb07bdb5092869ce20991818"
+      ],
+      "c3d1ade85925be205da9d386ada462ecd42e84864a1372cf7e835f5bd286da34": [
+        "3be00c8e2dfd780b33ca5aa208ebb8f65ce3997687ca822ed5d470af54ba6a1b"
+      ],
+      "e8a54814ddeb31f8f2df4cd2cad573fb3c98420172fb454ed4821cf645ae8e79": [
+        "6c1c7035427c660739efdb6410f8962e8d8c709b5da8d43efe1fb8fbf7f6b471"
+      ]
+    },
+    "request": {
+      "algorithm": "constraint-stratified-v2",
+      "directive": {
+        "advisor_directive_id": "2b08955ba28acd30da86af8771e0a4a56df7abb762a214e4dc7eca5d91813d24",
+        "allowed_fallbacks": [],
+        "category_allocations": {
+          "explore": 0.0,
+          "learn": 1.0,
+          "retain": 0.0
+        },
+        "controller_id": "synthetic-controller",
+        "controller_version": "v1",
+        "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+        "directive_version": 1,
+        "diversity": {
+          "balanced_categorical": true,
+          "dimensions": [],
+          "mode": "allow_repetition"
+        },
+        "embodiment_id": "so101",
+        "episode_purpose": "training",
+        "exclusions": [],
+        "family_region_allocations": {
+          "explore": [],
+          "learn": [
+            {
+              "categorical_filters": {},
+              "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+              "family_version": 1,
+              "parameter_restrictions": {
+                "corridor_width": [
+                  0.07,
+                  0.08
+                ]
+              },
+              "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8",
+              "region_version": 1,
+              "weight": 0.5
+            },
+            {
+              "categorical_filters": {},
+              "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+              "family_version": 1,
+              "parameter_restrictions": {
+                "corridor_width": [
+                  0.07,
+                  0.08
+                ]
+              },
+              "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6",
+              "region_version": 1,
+              "weight": 0.5
+            }
+          ],
+          "retain": []
+        },
+        "max_candidate_attempts": 8,
+        "minimum_coverage_requirements": [],
+        "policy_checkpoint_id": "synthetic-checkpoint-v1",
+        "recording_profile": {
+          "trajectory": true
+        },
+        "schema_version": "2.0",
+        "seed": 42,
+        "total_episode_budget": 8,
+        "unresolved_advisor_targets": [],
+        "window": {
+          "expires_at": 100.0,
+          "starts_at": 0.0,
+          "window_id": "synthetic-window-v1"
+        }
+      },
+      "library_snapshot": "35412713f5cf7177e89161b7a0a1c0e7b70d851aa3a697ad006c40a476c18145",
+      "seed": 42,
+      "total": 8
+    },
+    "request_id": "a18f38ab6a8cdd7da4f9263ecc6f58befd38b218802e7176bac78854ca7a79d5",
+    "shortfall": 0,
+    "unallocated_region_budgets": {
+      "explore": 0,
+      "learn": 0,
+      "retain": 0
+    },
+    "unresolved_advisor_targets": []
+  },
+  "feedback": {
+    "diagnostics": {
+      "budget_shortfall": 0,
+      "coverage_shortfalls": [],
+      "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+      "fallbacks": [],
+      "request_id": "a18f38ab6a8cdd7da4f9263ecc6f58befd38b218802e7176bac78854ca7a79d5",
+      "rollups": {
+        "category": [
+          {
+            "accepted": 8,
+            "cancelled": 0,
+            "category": "learn",
+            "completed": 8,
+            "executed": 8,
+            "expired_attempts": 0,
+            "failed_attempts": 0,
+            "fallback_assignments": 0,
+            "fallback_requested": 0,
+            "generated": 8,
+            "interrupted_attempts": 1,
+            "primary_shortfall": 0,
+            "region_distributions": [
+              {
+                "accepted": {
+                  "corridor_width": {
+                    "counts": {
+                      "0.072346809595973": 1,
+                      "0.07254967741172565": 1,
+                      "0.07666315855736973": 1,
+                      "0.0778095713672939": 1
+                    },
+                    "maximum": 0.0778095713672939,
+                    "mean": 0.07484230423309057,
+                    "minimum": 0.072346809595973,
+                    "values": [
+                      0.07666315855736973,
+                      0.072346809595973,
+                      0.07254967741172565,
+                      0.0778095713672939
+                    ]
+                  },
+                  "friction": {
+                    "counts": {
+                      "0.33985647077190706": 1,
+                      "0.5211890254071274": 1,
+                      "0.6568810858989285": 1,
+                      "0.7742842383633436": 1
+                    },
+                    "maximum": 0.7742842383633436,
+                    "mean": 0.5730527051103267,
+                    "minimum": 0.33985647077190706,
+                    "values": [
+                      0.33985647077190706,
+                      0.6568810858989285,
+                      0.7742842383633436,
+                      0.5211890254071274
+                    ]
+                  },
+                  "mass": {
+                    "counts": {
+                      "0.05583190762825499": 1,
+                      "0.07414609393305016": 1,
+                      "0.11643266602397916": 1,
+                      "0.12651159264292214": 1
+                    },
+                    "maximum": 0.12651159264292214,
+                    "mean": 0.09323056505705161,
+                    "minimum": 0.05583190762825499,
+                    "values": [
+                      0.05583190762825499,
+                      0.11643266602397916,
+                      0.07414609393305016,
+                      0.12651159264292214
+                    ]
+                  },
+                  "object_size": {
+                    "counts": {
+                      "0.022209555920531584": 1,
+                      "0.02962949352644486": 1,
+                      "0.031358289725468516": 1,
+                      "0.03506668144511129": 1
+                    },
+                    "maximum": 0.03506668144511129,
+                    "mean": 0.029566005154389063,
+                    "minimum": 0.022209555920531584,
+                    "values": [
+                      0.02962949352644486,
+                      0.03506668144511129,
+                      0.022209555920531584,
+                      0.031358289725468516
+                    ]
+                  },
+                  "obstacle_count": {
+                    "counts": {
+                      "0": 1,
+                      "1": 1,
+                      "2": 1,
+                      "3": 1
+                    },
+                    "maximum": 3,
+                    "mean": 1.5,
+                    "minimum": 0,
+                    "values": [
+                      0,
+                      1,
+                      2,
+                      3
+                    ]
+                  },
+                  "sensor_gain": {
+                    "counts": {
+                      "0.9157626806461826": 1,
+                      "0.9719847018659166": 1,
+                      "1.0333140483492107": 1,
+                      "1.0707019064843866": 1
+                    },
+                    "maximum": 1.0707019064843866,
+                    "mean": 0.9979408343364241,
+                    "minimum": 0.9157626806461826,
+                    "values": [
+                      0.9719847018659166,
+                      1.0333140483492107,
+                      1.0707019064843866,
+                      0.9157626806461826
+                    ]
+                  },
+                  "surface": {
+                    "counts": {
+                      "\"mat\"": 2,
+                      "\"tray\"": 2
+                    },
+                    "values": [
+                      "mat",
+                      "tray",
+                      "tray",
+                      "mat"
+                    ]
+                  },
+                  "target_distance": {
+                    "counts": {
+                      "0.04903706099689145": 1,
+                      "0.09131330169514276": 1,
+                      "0.11059740389040873": 1,
+                      "0.1480296376448908": 1
+                    },
+                    "maximum": 0.1480296376448908,
+                    "mean": 0.09974435105683344,
+                    "minimum": 0.04903706099689145,
+                    "values": [
+                      0.11059740389040873,
+                      0.09131330169514276,
+                      0.1480296376448908,
+                      0.04903706099689145
+                    ]
+                  },
+                  "tolerance": {
+                    "counts": {
+                      "0.012171156539521657": 1,
+                      "0.018129483813437507": 1,
+                      "0.02878188961313101": 1,
+                      "0.03907473692349415": 1
+                    },
+                    "maximum": 0.03907473692349415,
+                    "mean": 0.02453931672239608,
+                    "minimum": 0.012171156539521657,
+                    "values": [
+                      0.018129483813437507,
+                      0.012171156539521657,
+                      0.02878188961313101,
+                      0.03907473692349415
+                    ]
+                  }
+                },
+                "executed": {
+                  "corridor_width": {
+                    "counts": {
+                      "0.072346809595973": 1,
+                      "0.07254967741172565": 1,
+                      "0.07666315855736973": 1,
+                      "0.0778095713672939": 1
+                    },
+                    "maximum": 0.0778095713672939,
+                    "mean": 0.07484230423309057,
+                    "minimum": 0.072346809595973,
+                    "values": [
+                      0.07254967741172565,
+                      0.0778095713672939,
+                      0.072346809595973,
+                      0.07666315855736973
+                    ]
+                  },
+                  "friction": {
+                    "counts": {
+                      "0.33985647077190706": 1,
+                      "0.5211890254071274": 1,
+                      "0.6568810858989285": 1,
+                      "0.7742842383633436": 1
+                    },
+                    "maximum": 0.7742842383633436,
+                    "mean": 0.5730527051103267,
+                    "minimum": 0.33985647077190706,
+                    "values": [
+                      0.7742842383633436,
+                      0.5211890254071274,
+                      0.6568810858989285,
+                      0.33985647077190706
+                    ]
+                  },
+                  "mass": {
+                    "counts": {
+                      "0.05583190762825499": 1,
+                      "0.07414609393305016": 1,
+                      "0.11643266602397916": 1,
+                      "0.12651159264292214": 1
+                    },
+                    "maximum": 0.12651159264292214,
+                    "mean": 0.09323056505705161,
+                    "minimum": 0.05583190762825499,
+                    "values": [
+                      0.07414609393305016,
+                      0.12651159264292214,
+                      0.11643266602397916,
+                      0.05583190762825499
+                    ]
+                  },
+                  "object_size": {
+                    "counts": {
+                      "0.022209555920531584": 1,
+                      "0.02962949352644486": 1,
+                      "0.031358289725468516": 1,
+                      "0.03506668144511129": 1
+                    },
+                    "maximum": 0.03506668144511129,
+                    "mean": 0.029566005154389063,
+                    "minimum": 0.022209555920531584,
+                    "values": [
+                      0.022209555920531584,
+                      0.031358289725468516,
+                      0.03506668144511129,
+                      0.02962949352644486
+                    ]
+                  },
+                  "obstacle_count": {
+                    "counts": {
+                      "0": 1,
+                      "1": 1,
+                      "2": 1,
+                      "3": 1
+                    },
+                    "maximum": 3,
+                    "mean": 1.5,
+                    "minimum": 0,
+                    "values": [
+                      2,
+                      3,
+                      1,
+                      0
+                    ]
+                  },
+                  "sensor_gain": {
+                    "counts": {
+                      "0.9157626806461826": 1,
+                      "0.9719847018659166": 1,
+                      "1.0333140483492107": 1,
+                      "1.0707019064843866": 1
+                    },
+                    "maximum": 1.0707019064843866,
+                    "mean": 0.9979408343364241,
+                    "minimum": 0.9157626806461826,
+                    "values": [
+                      1.0707019064843866,
+                      0.9157626806461826,
+                      1.0333140483492107,
+                      0.9719847018659166
+                    ]
+                  },
+                  "surface": {
+                    "counts": {
+                      "\"mat\"": 2,
+                      "\"tray\"": 2
+                    },
+                    "values": [
+                      "tray",
+                      "mat",
+                      "tray",
+                      "mat"
+                    ]
+                  },
+                  "target_distance": {
+                    "counts": {
+                      "0.04903706099689145": 1,
+                      "0.09131330169514276": 1,
+                      "0.11059740389040873": 1,
+                      "0.1480296376448908": 1
+                    },
+                    "maximum": 0.1480296376448908,
+                    "mean": 0.09974435105683344,
+                    "minimum": 0.04903706099689145,
+                    "values": [
+                      0.1480296376448908,
+                      0.04903706099689145,
+                      0.09131330169514276,
+                      0.11059740389040873
+                    ]
+                  },
+                  "tolerance": {
+                    "counts": {
+                      "0.012171156539521657": 1,
+                      "0.018129483813437507": 1,
+                      "0.02878188961313101": 1,
+                      "0.03907473692349415": 1
+                    },
+                    "maximum": 0.03907473692349415,
+                    "mean": 0.02453931672239608,
+                    "minimum": 0.012171156539521657,
+                    "values": [
+                      0.02878188961313101,
+                      0.03907473692349415,
+                      0.012171156539521657,
+                      0.018129483813437507
+                    ]
+                  }
+                },
+                "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6"
+              },
+              {
+                "accepted": {
+                  "corridor_width": {
+                    "counts": {
+                      "0.07216654952412518": 1,
+                      "0.074958009904119": 1,
+                      "0.07604893020746117": 1,
+                      "0.07968833220263383": 1
+                    },
+                    "maximum": 0.07968833220263383,
+                    "mean": 0.0757154554595848,
+                    "minimum": 0.07216654952412518,
+                    "values": [
+                      0.074958009904119,
+                      0.07604893020746117,
+                      0.07968833220263383,
+                      0.07216654952412518
+                    ]
+                  },
+                  "friction": {
+                    "counts": {
+                      "0.3869553965870813": 1,
+                      "0.4869890413392291": 1,
+                      "0.5700883700967943": 1,
+                      "0.7933514643294048": 1
+                    },
+                    "maximum": 0.7933514643294048,
+                    "mean": 0.5593460680881274,
+                    "minimum": 0.3869553965870813,
+                    "values": [
+                      0.4869890413392291,
+                      0.5700883700967943,
+                      0.3869553965870813,
+                      0.7933514643294048
+                    ]
+                  },
+                  "mass": {
+                    "counts": {
+                      "0.05731863464086796": 1,
+                      "0.08775630768415577": 1,
+                      "0.09711148753665635": 1,
+                      "0.14625112976543175": 1
+                    },
+                    "maximum": 0.14625112976543175,
+                    "mean": 0.09710938990677796,
+                    "minimum": 0.05731863464086796,
+                    "values": [
+                      0.09711148753665635,
+                      0.14625112976543175,
+                      0.05731863464086796,
+                      0.08775630768415577
+                    ]
+                  },
+                  "object_size": {
+                    "counts": {
+                      "0.02204319624924823": 1,
+                      "0.027288141100840716": 1,
+                      "0.03379589933248707": 1,
+                      "0.03991362570552686": 1
+                    },
+                    "maximum": 0.03991362570552686,
+                    "mean": 0.03076021559702572,
+                    "minimum": 0.02204319624924823,
+                    "values": [
+                      0.03991362570552686,
+                      0.02204319624924823,
+                      0.03379589933248707,
+                      0.027288141100840716
+                    ]
+                  },
+                  "obstacle_count": {
+                    "counts": {
+                      "0": 1,
+                      "1": 1,
+                      "2": 1,
+                      "3": 1
+                    },
+                    "maximum": 3,
+                    "mean": 1.5,
+                    "minimum": 0,
+                    "values": [
+                      1,
+                      3,
+                      2,
+                      0
+                    ]
+                  },
+                  "sensor_gain": {
+                    "counts": {
+                      "0.907965854298349": 1,
+                      "0.9797747655337383": 1,
+                      "1.0364104665563325": 1,
+                      "1.0605659223047579": 1
+                    },
+                    "maximum": 1.0605659223047579,
+                    "mean": 0.9961792521732944,
+                    "minimum": 0.907965854298349,
+                    "values": [
+                      0.907965854298349,
+                      1.0605659223047579,
+                      1.0364104665563325,
+                      0.9797747655337383
+                    ]
+                  },
+                  "surface": {
+                    "counts": {
+                      "\"mat\"": 2,
+                      "\"tray\"": 2
+                    },
+                    "values": [
+                      "tray",
+                      "mat",
+                      "tray",
+                      "mat"
+                    ]
+                  },
+                  "target_distance": {
+                    "counts": {
+                      "0.041598513719853576": 1,
+                      "0.07155605398149177": 1,
+                      "0.11592305041123405": 1,
+                      "0.13291136484379015": 1
+                    },
+                    "maximum": 0.13291136484379015,
+                    "mean": 0.09049724573909239,
+                    "minimum": 0.041598513719853576,
+                    "values": [
+                      0.07155605398149177,
+                      0.041598513719853576,
+                      0.13291136484379015,
+                      0.11592305041123405
+                    ]
+                  },
+                  "tolerance": {
+                    "counts": {
+                      "0.011492766921114575": 1,
+                      "0.019237976276932262": 1,
+                      "0.02989721360097894": 1,
+                      "0.03641982400108951": 1
+                    },
+                    "maximum": 0.03641982400108951,
+                    "mean": 0.02426194520002882,
+                    "minimum": 0.011492766921114575,
+                    "values": [
+                      0.019237976276932262,
+                      0.011492766921114575,
+                      0.02989721360097894,
+                      0.03641982400108951
+                    ]
+                  }
+                },
+                "executed": {
+                  "corridor_width": {
+                    "counts": {
+                      "0.07216654952412518": 1,
+                      "0.074958009904119": 1,
+                      "0.07604893020746117": 1,
+                      "0.07968833220263383": 1
+                    },
+                    "maximum": 0.07968833220263383,
+                    "mean": 0.0757154554595848,
+                    "minimum": 0.07216654952412518,
+                    "values": [
+                      0.074958009904119,
+                      0.07216654952412518,
+                      0.07968833220263383,
+                      0.07604893020746117
+                    ]
+                  },
+                  "friction": {
+                    "counts": {
+                      "0.3869553965870813": 1,
+                      "0.4869890413392291": 1,
+                      "0.5700883700967943": 1,
+                      "0.7933514643294048": 1
+                    },
+                    "maximum": 0.7933514643294048,
+                    "mean": 0.5593460680881274,
+                    "minimum": 0.3869553965870813,
+                    "values": [
+                      0.4869890413392291,
+                      0.7933514643294048,
+                      0.3869553965870813,
+                      0.5700883700967943
+                    ]
+                  },
+                  "mass": {
+                    "counts": {
+                      "0.05731863464086796": 1,
+                      "0.08775630768415577": 1,
+                      "0.09711148753665635": 1,
+                      "0.14625112976543175": 1
+                    },
+                    "maximum": 0.14625112976543175,
+                    "mean": 0.09710938990677796,
+                    "minimum": 0.05731863464086796,
+                    "values": [
+                      0.09711148753665635,
+                      0.08775630768415577,
+                      0.05731863464086796,
+                      0.14625112976543175
+                    ]
+                  },
+                  "object_size": {
+                    "counts": {
+                      "0.02204319624924823": 1,
+                      "0.027288141100840716": 1,
+                      "0.03379589933248707": 1,
+                      "0.03991362570552686": 1
+                    },
+                    "maximum": 0.03991362570552686,
+                    "mean": 0.03076021559702572,
+                    "minimum": 0.02204319624924823,
+                    "values": [
+                      0.03991362570552686,
+                      0.027288141100840716,
+                      0.03379589933248707,
+                      0.02204319624924823
+                    ]
+                  },
+                  "obstacle_count": {
+                    "counts": {
+                      "0": 1,
+                      "1": 1,
+                      "2": 1,
+                      "3": 1
+                    },
+                    "maximum": 3,
+                    "mean": 1.5,
+                    "minimum": 0,
+                    "values": [
+                      1,
+                      0,
+                      2,
+                      3
+                    ]
+                  },
+                  "sensor_gain": {
+                    "counts": {
+                      "0.907965854298349": 1,
+                      "0.9797747655337383": 1,
+                      "1.0364104665563325": 1,
+                      "1.0605659223047579": 1
+                    },
+                    "maximum": 1.0605659223047579,
+                    "mean": 0.9961792521732944,
+                    "minimum": 0.907965854298349,
+                    "values": [
+                      0.907965854298349,
+                      0.9797747655337383,
+                      1.0364104665563325,
+                      1.0605659223047579
+                    ]
+                  },
+                  "surface": {
+                    "counts": {
+                      "\"mat\"": 2,
+                      "\"tray\"": 2
+                    },
+                    "values": [
+                      "tray",
+                      "mat",
+                      "tray",
+                      "mat"
+                    ]
+                  },
+                  "target_distance": {
+                    "counts": {
+                      "0.041598513719853576": 1,
+                      "0.07155605398149177": 1,
+                      "0.11592305041123405": 1,
+                      "0.13291136484379015": 1
+                    },
+                    "maximum": 0.13291136484379015,
+                    "mean": 0.09049724573909239,
+                    "minimum": 0.041598513719853576,
+                    "values": [
+                      0.07155605398149177,
+                      0.11592305041123405,
+                      0.13291136484379015,
+                      0.041598513719853576
+                    ]
+                  },
+                  "tolerance": {
+                    "counts": {
+                      "0.011492766921114575": 1,
+                      "0.019237976276932262": 1,
+                      "0.02989721360097894": 1,
+                      "0.03641982400108951": 1
+                    },
+                    "maximum": 0.03641982400108951,
+                    "mean": 0.02426194520002882,
+                    "minimum": 0.011492766921114575,
+                    "values": [
+                      0.019237976276932262,
+                      0.03641982400108951,
+                      0.02989721360097894,
+                      0.011492766921114575
+                    ]
+                  }
+                },
+                "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8"
+              }
+            ],
+            "rejected": 0,
+            "rejection_reasons": {},
+            "remaining_shortfall": 0,
+            "requested": 8,
+            "sampling_latency_seconds": 0.01106262300072558,
+            "scheduled": 8,
+            "worker_wait_seconds": [
+              1.0,
+              1.0,
+              1.0,
+              2.0,
+              2.0,
+              2.0,
+              2.0,
+              2.0,
+              2.0
+            ]
+          }
+        ],
+        "directive": [
+          {
+            "accepted": 8,
+            "cancelled": 0,
+            "completed": 8,
+            "executed": 8,
+            "expired_attempts": 0,
+            "failed_attempts": 0,
+            "fallback_assignments": 0,
+            "fallback_requested": 0,
+            "generated": 8,
+            "interrupted_attempts": 1,
+            "primary_shortfall": 0,
+            "region_distributions": [
+              {
+                "accepted": {
+                  "corridor_width": {
+                    "counts": {
+                      "0.072346809595973": 1,
+                      "0.07254967741172565": 1,
+                      "0.07666315855736973": 1,
+                      "0.0778095713672939": 1
+                    },
+                    "maximum": 0.0778095713672939,
+                    "mean": 0.07484230423309057,
+                    "minimum": 0.072346809595973,
+                    "values": [
+                      0.07666315855736973,
+                      0.072346809595973,
+                      0.07254967741172565,
+                      0.0778095713672939
+                    ]
+                  },
+                  "friction": {
+                    "counts": {
+                      "0.33985647077190706": 1,
+                      "0.5211890254071274": 1,
+                      "0.6568810858989285": 1,
+                      "0.7742842383633436": 1
+                    },
+                    "maximum": 0.7742842383633436,
+                    "mean": 0.5730527051103267,
+                    "minimum": 0.33985647077190706,
+                    "values": [
+                      0.33985647077190706,
+                      0.6568810858989285,
+                      0.7742842383633436,
+                      0.5211890254071274
+                    ]
+                  },
+                  "mass": {
+                    "counts": {
+                      "0.05583190762825499": 1,
+                      "0.07414609393305016": 1,
+                      "0.11643266602397916": 1,
+                      "0.12651159264292214": 1
+                    },
+                    "maximum": 0.12651159264292214,
+                    "mean": 0.09323056505705161,
+                    "minimum": 0.05583190762825499,
+                    "values": [
+                      0.05583190762825499,
+                      0.11643266602397916,
+                      0.07414609393305016,
+                      0.12651159264292214
+                    ]
+                  },
+                  "object_size": {
+                    "counts": {
+                      "0.022209555920531584": 1,
+                      "0.02962949352644486": 1,
+                      "0.031358289725468516": 1,
+                      "0.03506668144511129": 1
+                    },
+                    "maximum": 0.03506668144511129,
+                    "mean": 0.029566005154389063,
+                    "minimum": 0.022209555920531584,
+                    "values": [
+                      0.02962949352644486,
+                      0.03506668144511129,
+                      0.022209555920531584,
+                      0.031358289725468516
+                    ]
+                  },
+                  "obstacle_count": {
+                    "counts": {
+                      "0": 1,
+                      "1": 1,
+                      "2": 1,
+                      "3": 1
+                    },
+                    "maximum": 3,
+                    "mean": 1.5,
+                    "minimum": 0,
+                    "values": [
+                      0,
+                      1,
+                      2,
+                      3
+                    ]
+                  },
+                  "sensor_gain": {
+                    "counts": {
+                      "0.9157626806461826": 1,
+                      "0.9719847018659166": 1,
+                      "1.0333140483492107": 1,
+                      "1.0707019064843866": 1
+                    },
+                    "maximum": 1.0707019064843866,
+                    "mean": 0.9979408343364241,
+                    "minimum": 0.9157626806461826,
+                    "values": [
+                      0.9719847018659166,
+                      1.0333140483492107,
+                      1.0707019064843866,
+                      0.9157626806461826
+                    ]
+                  },
+                  "surface": {
+                    "counts": {
+                      "\"mat\"": 2,
+                      "\"tray\"": 2
+                    },
+                    "values": [
+                      "mat",
+                      "tray",
+                      "tray",
+                      "mat"
+                    ]
+                  },
+                  "target_distance": {
+                    "counts": {
+                      "0.04903706099689145": 1,
+                      "0.09131330169514276": 1,
+                      "0.11059740389040873": 1,
+                      "0.1480296376448908": 1
+                    },
+                    "maximum": 0.1480296376448908,
+                    "mean": 0.09974435105683344,
+                    "minimum": 0.04903706099689145,
+                    "values": [
+                      0.11059740389040873,
+                      0.09131330169514276,
+                      0.1480296376448908,
+                      0.04903706099689145
+                    ]
+                  },
+                  "tolerance": {
+                    "counts": {
+                      "0.012171156539521657": 1,
+                      "0.018129483813437507": 1,
+                      "0.02878188961313101": 1,
+                      "0.03907473692349415": 1
+                    },
+                    "maximum": 0.03907473692349415,
+                    "mean": 0.02453931672239608,
+                    "minimum": 0.012171156539521657,
+                    "values": [
+                      0.018129483813437507,
+                      0.012171156539521657,
+                      0.02878188961313101,
+                      0.03907473692349415
+                    ]
+                  }
+                },
+                "executed": {
+                  "corridor_width": {
+                    "counts": {
+                      "0.072346809595973": 1,
+                      "0.07254967741172565": 1,
+                      "0.07666315855736973": 1,
+                      "0.0778095713672939": 1
+                    },
+                    "maximum": 0.0778095713672939,
+                    "mean": 0.07484230423309057,
+                    "minimum": 0.072346809595973,
+                    "values": [
+                      0.07254967741172565,
+                      0.0778095713672939,
+                      0.072346809595973,
+                      0.07666315855736973
+                    ]
+                  },
+                  "friction": {
+                    "counts": {
+                      "0.33985647077190706": 1,
+                      "0.5211890254071274": 1,
+                      "0.6568810858989285": 1,
+                      "0.7742842383633436": 1
+                    },
+                    "maximum": 0.7742842383633436,
+                    "mean": 0.5730527051103267,
+                    "minimum": 0.33985647077190706,
+                    "values": [
+                      0.7742842383633436,
+                      0.5211890254071274,
+                      0.6568810858989285,
+                      0.33985647077190706
+                    ]
+                  },
+                  "mass": {
+                    "counts": {
+                      "0.05583190762825499": 1,
+                      "0.07414609393305016": 1,
+                      "0.11643266602397916": 1,
+                      "0.12651159264292214": 1
+                    },
+                    "maximum": 0.12651159264292214,
+                    "mean": 0.09323056505705161,
+                    "minimum": 0.05583190762825499,
+                    "values": [
+                      0.07414609393305016,
+                      0.12651159264292214,
+                      0.11643266602397916,
+                      0.05583190762825499
+                    ]
+                  },
+                  "object_size": {
+                    "counts": {
+                      "0.022209555920531584": 1,
+                      "0.02962949352644486": 1,
+                      "0.031358289725468516": 1,
+                      "0.03506668144511129": 1
+                    },
+                    "maximum": 0.03506668144511129,
+                    "mean": 0.029566005154389063,
+                    "minimum": 0.022209555920531584,
+                    "values": [
+                      0.022209555920531584,
+                      0.031358289725468516,
+                      0.03506668144511129,
+                      0.02962949352644486
+                    ]
+                  },
+                  "obstacle_count": {
+                    "counts": {
+                      "0": 1,
+                      "1": 1,
+                      "2": 1,
+                      "3": 1
+                    },
+                    "maximum": 3,
+                    "mean": 1.5,
+                    "minimum": 0,
+                    "values": [
+                      2,
+                      3,
+                      1,
+                      0
+                    ]
+                  },
+                  "sensor_gain": {
+                    "counts": {
+                      "0.9157626806461826": 1,
+                      "0.9719847018659166": 1,
+                      "1.0333140483492107": 1,
+                      "1.0707019064843866": 1
+                    },
+                    "maximum": 1.0707019064843866,
+                    "mean": 0.9979408343364241,
+                    "minimum": 0.9157626806461826,
+                    "values": [
+                      1.0707019064843866,
+                      0.9157626806461826,
+                      1.0333140483492107,
+                      0.9719847018659166
+                    ]
+                  },
+                  "surface": {
+                    "counts": {
+                      "\"mat\"": 2,
+                      "\"tray\"": 2
+                    },
+                    "values": [
+                      "tray",
+                      "mat",
+                      "tray",
+                      "mat"
+                    ]
+                  },
+                  "target_distance": {
+                    "counts": {
+                      "0.04903706099689145": 1,
+                      "0.09131330169514276": 1,
+                      "0.11059740389040873": 1,
+                      "0.1480296376448908": 1
+                    },
+                    "maximum": 0.1480296376448908,
+                    "mean": 0.09974435105683344,
+                    "minimum": 0.04903706099689145,
+                    "values": [
+                      0.1480296376448908,
+                      0.04903706099689145,
+                      0.09131330169514276,
+                      0.11059740389040873
+                    ]
+                  },
+                  "tolerance": {
+                    "counts": {
+                      "0.012171156539521657": 1,
+                      "0.018129483813437507": 1,
+                      "0.02878188961313101": 1,
+                      "0.03907473692349415": 1
+                    },
+                    "maximum": 0.03907473692349415,
+                    "mean": 0.02453931672239608,
+                    "minimum": 0.012171156539521657,
+                    "values": [
+                      0.02878188961313101,
+                      0.03907473692349415,
+                      0.012171156539521657,
+                      0.018129483813437507
+                    ]
+                  }
+                },
+                "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6"
+              },
+              {
+                "accepted": {
+                  "corridor_width": {
+                    "counts": {
+                      "0.07216654952412518": 1,
+                      "0.074958009904119": 1,
+                      "0.07604893020746117": 1,
+                      "0.07968833220263383": 1
+                    },
+                    "maximum": 0.07968833220263383,
+                    "mean": 0.0757154554595848,
+                    "minimum": 0.07216654952412518,
+                    "values": [
+                      0.074958009904119,
+                      0.07604893020746117,
+                      0.07968833220263383,
+                      0.07216654952412518
+                    ]
+                  },
+                  "friction": {
+                    "counts": {
+                      "0.3869553965870813": 1,
+                      "0.4869890413392291": 1,
+                      "0.5700883700967943": 1,
+                      "0.7933514643294048": 1
+                    },
+                    "maximum": 0.7933514643294048,
+                    "mean": 0.5593460680881274,
+                    "minimum": 0.3869553965870813,
+                    "values": [
+                      0.4869890413392291,
+                      0.5700883700967943,
+                      0.3869553965870813,
+                      0.7933514643294048
+                    ]
+                  },
+                  "mass": {
+                    "counts": {
+                      "0.05731863464086796": 1,
+                      "0.08775630768415577": 1,
+                      "0.09711148753665635": 1,
+                      "0.14625112976543175": 1
+                    },
+                    "maximum": 0.14625112976543175,
+                    "mean": 0.09710938990677796,
+                    "minimum": 0.05731863464086796,
+                    "values": [
+                      0.09711148753665635,
+                      0.14625112976543175,
+                      0.05731863464086796,
+                      0.08775630768415577
+                    ]
+                  },
+                  "object_size": {
+                    "counts": {
+                      "0.02204319624924823": 1,
+                      "0.027288141100840716": 1,
+                      "0.03379589933248707": 1,
+                      "0.03991362570552686": 1
+                    },
+                    "maximum": 0.03991362570552686,
+                    "mean": 0.03076021559702572,
+                    "minimum": 0.02204319624924823,
+                    "values": [
+                      0.03991362570552686,
+                      0.02204319624924823,
+                      0.03379589933248707,
+                      0.027288141100840716
+                    ]
+                  },
+                  "obstacle_count": {
+                    "counts": {
+                      "0": 1,
+                      "1": 1,
+                      "2": 1,
+                      "3": 1
+                    },
+                    "maximum": 3,
+                    "mean": 1.5,
+                    "minimum": 0,
+                    "values": [
+                      1,
+                      3,
+                      2,
+                      0
+                    ]
+                  },
+                  "sensor_gain": {
+                    "counts": {
+                      "0.907965854298349": 1,
+                      "0.9797747655337383": 1,
+                      "1.0364104665563325": 1,
+                      "1.0605659223047579": 1
+                    },
+                    "maximum": 1.0605659223047579,
+                    "mean": 0.9961792521732944,
+                    "minimum": 0.907965854298349,
+                    "values": [
+                      0.907965854298349,
+                      1.0605659223047579,
+                      1.0364104665563325,
+                      0.9797747655337383
+                    ]
+                  },
+                  "surface": {
+                    "counts": {
+                      "\"mat\"": 2,
+                      "\"tray\"": 2
+                    },
+                    "values": [
+                      "tray",
+                      "mat",
+                      "tray",
+                      "mat"
+                    ]
+                  },
+                  "target_distance": {
+                    "counts": {
+                      "0.041598513719853576": 1,
+                      "0.07155605398149177": 1,
+                      "0.11592305041123405": 1,
+                      "0.13291136484379015": 1
+                    },
+                    "maximum": 0.13291136484379015,
+                    "mean": 0.09049724573909239,
+                    "minimum": 0.041598513719853576,
+                    "values": [
+                      0.07155605398149177,
+                      0.041598513719853576,
+                      0.13291136484379015,
+                      0.11592305041123405
+                    ]
+                  },
+                  "tolerance": {
+                    "counts": {
+                      "0.011492766921114575": 1,
+                      "0.019237976276932262": 1,
+                      "0.02989721360097894": 1,
+                      "0.03641982400108951": 1
+                    },
+                    "maximum": 0.03641982400108951,
+                    "mean": 0.02426194520002882,
+                    "minimum": 0.011492766921114575,
+                    "values": [
+                      0.019237976276932262,
+                      0.011492766921114575,
+                      0.02989721360097894,
+                      0.03641982400108951
+                    ]
+                  }
+                },
+                "executed": {
+                  "corridor_width": {
+                    "counts": {
+                      "0.07216654952412518": 1,
+                      "0.074958009904119": 1,
+                      "0.07604893020746117": 1,
+                      "0.07968833220263383": 1
+                    },
+                    "maximum": 0.07968833220263383,
+                    "mean": 0.0757154554595848,
+                    "minimum": 0.07216654952412518,
+                    "values": [
+                      0.074958009904119,
+                      0.07216654952412518,
+                      0.07968833220263383,
+                      0.07604893020746117
+                    ]
+                  },
+                  "friction": {
+                    "counts": {
+                      "0.3869553965870813": 1,
+                      "0.4869890413392291": 1,
+                      "0.5700883700967943": 1,
+                      "0.7933514643294048": 1
+                    },
+                    "maximum": 0.7933514643294048,
+                    "mean": 0.5593460680881274,
+                    "minimum": 0.3869553965870813,
+                    "values": [
+                      0.4869890413392291,
+                      0.7933514643294048,
+                      0.3869553965870813,
+                      0.5700883700967943
+                    ]
+                  },
+                  "mass": {
+                    "counts": {
+                      "0.05731863464086796": 1,
+                      "0.08775630768415577": 1,
+                      "0.09711148753665635": 1,
+                      "0.14625112976543175": 1
+                    },
+                    "maximum": 0.14625112976543175,
+                    "mean": 0.09710938990677796,
+                    "minimum": 0.05731863464086796,
+                    "values": [
+                      0.09711148753665635,
+                      0.08775630768415577,
+                      0.05731863464086796,
+                      0.14625112976543175
+                    ]
+                  },
+                  "object_size": {
+                    "counts": {
+                      "0.02204319624924823": 1,
+                      "0.027288141100840716": 1,
+                      "0.03379589933248707": 1,
+                      "0.03991362570552686": 1
+                    },
+                    "maximum": 0.03991362570552686,
+                    "mean": 0.03076021559702572,
+                    "minimum": 0.02204319624924823,
+                    "values": [
+                      0.03991362570552686,
+                      0.027288141100840716,
+                      0.03379589933248707,
+                      0.02204319624924823
+                    ]
+                  },
+                  "obstacle_count": {
+                    "counts": {
+                      "0": 1,
+                      "1": 1,
+                      "2": 1,
+                      "3": 1
+                    },
+                    "maximum": 3,
+                    "mean": 1.5,
+                    "minimum": 0,
+                    "values": [
+                      1,
+                      0,
+                      2,
+                      3
+                    ]
+                  },
+                  "sensor_gain": {
+                    "counts": {
+                      "0.907965854298349": 1,
+                      "0.9797747655337383": 1,
+                      "1.0364104665563325": 1,
+                      "1.0605659223047579": 1
+                    },
+                    "maximum": 1.0605659223047579,
+                    "mean": 0.9961792521732944,
+                    "minimum": 0.907965854298349,
+                    "values": [
+                      0.907965854298349,
+                      0.9797747655337383,
+                      1.0364104665563325,
+                      1.0605659223047579
+                    ]
+                  },
+                  "surface": {
+                    "counts": {
+                      "\"mat\"": 2,
+                      "\"tray\"": 2
+                    },
+                    "values": [
+                      "tray",
+                      "mat",
+                      "tray",
+                      "mat"
+                    ]
+                  },
+                  "target_distance": {
+                    "counts": {
+                      "0.041598513719853576": 1,
+                      "0.07155605398149177": 1,
+                      "0.11592305041123405": 1,
+                      "0.13291136484379015": 1
+                    },
+                    "maximum": 0.13291136484379015,
+                    "mean": 0.09049724573909239,
+                    "minimum": 0.041598513719853576,
+                    "values": [
+                      0.07155605398149177,
+                      0.11592305041123405,
+                      0.13291136484379015,
+                      0.041598513719853576
+                    ]
+                  },
+                  "tolerance": {
+                    "counts": {
+                      "0.011492766921114575": 1,
+                      "0.019237976276932262": 1,
+                      "0.02989721360097894": 1,
+                      "0.03641982400108951": 1
+                    },
+                    "maximum": 0.03641982400108951,
+                    "mean": 0.02426194520002882,
+                    "minimum": 0.011492766921114575,
+                    "values": [
+                      0.019237976276932262,
+                      0.03641982400108951,
+                      0.02989721360097894,
+                      0.011492766921114575
+                    ]
+                  }
+                },
+                "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8"
+              }
+            ],
+            "rejected": 0,
+            "rejection_reasons": {},
+            "remaining_shortfall": 0,
+            "requested": 8,
+            "sampling_latency_seconds": 0.01106262300072558,
+            "scheduled": 8,
+            "worker_wait_seconds": [
+              1.0,
+              1.0,
+              1.0,
+              2.0,
+              2.0,
+              2.0,
+              2.0,
+              2.0,
+              2.0
+            ]
+          }
+        ],
+        "family": [
+          {
+            "accepted": 4,
+            "cancelled": 0,
+            "completed": 4,
+            "executed": 4,
+            "expired_attempts": 0,
+            "failed_attempts": 0,
+            "fallback_assignments": 0,
+            "fallback_requested": 0,
+            "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+            "family_version": 1,
+            "generated": 4,
+            "interrupted_attempts": 0,
+            "primary_shortfall": 0,
+            "region_distributions": [
+              {
+                "accepted": {
+                  "corridor_width": {
+                    "counts": {
+                      "0.07216654952412518": 1,
+                      "0.074958009904119": 1,
+                      "0.07604893020746117": 1,
+                      "0.07968833220263383": 1
+                    },
+                    "maximum": 0.07968833220263383,
+                    "mean": 0.0757154554595848,
+                    "minimum": 0.07216654952412518,
+                    "values": [
+                      0.074958009904119,
+                      0.07604893020746117,
+                      0.07968833220263383,
+                      0.07216654952412518
+                    ]
+                  },
+                  "friction": {
+                    "counts": {
+                      "0.3869553965870813": 1,
+                      "0.4869890413392291": 1,
+                      "0.5700883700967943": 1,
+                      "0.7933514643294048": 1
+                    },
+                    "maximum": 0.7933514643294048,
+                    "mean": 0.5593460680881274,
+                    "minimum": 0.3869553965870813,
+                    "values": [
+                      0.4869890413392291,
+                      0.5700883700967943,
+                      0.3869553965870813,
+                      0.7933514643294048
+                    ]
+                  },
+                  "mass": {
+                    "counts": {
+                      "0.05731863464086796": 1,
+                      "0.08775630768415577": 1,
+                      "0.09711148753665635": 1,
+                      "0.14625112976543175": 1
+                    },
+                    "maximum": 0.14625112976543175,
+                    "mean": 0.09710938990677796,
+                    "minimum": 0.05731863464086796,
+                    "values": [
+                      0.09711148753665635,
+                      0.14625112976543175,
+                      0.05731863464086796,
+                      0.08775630768415577
+                    ]
+                  },
+                  "object_size": {
+                    "counts": {
+                      "0.02204319624924823": 1,
+                      "0.027288141100840716": 1,
+                      "0.03379589933248707": 1,
+                      "0.03991362570552686": 1
+                    },
+                    "maximum": 0.03991362570552686,
+                    "mean": 0.03076021559702572,
+                    "minimum": 0.02204319624924823,
+                    "values": [
+                      0.03991362570552686,
+                      0.02204319624924823,
+                      0.03379589933248707,
+                      0.027288141100840716
+                    ]
+                  },
+                  "obstacle_count": {
+                    "counts": {
+                      "0": 1,
+                      "1": 1,
+                      "2": 1,
+                      "3": 1
+                    },
+                    "maximum": 3,
+                    "mean": 1.5,
+                    "minimum": 0,
+                    "values": [
+                      1,
+                      3,
+                      2,
+                      0
+                    ]
+                  },
+                  "sensor_gain": {
+                    "counts": {
+                      "0.907965854298349": 1,
+                      "0.9797747655337383": 1,
+                      "1.0364104665563325": 1,
+                      "1.0605659223047579": 1
+                    },
+                    "maximum": 1.0605659223047579,
+                    "mean": 0.9961792521732944,
+                    "minimum": 0.907965854298349,
+                    "values": [
+                      0.907965854298349,
+                      1.0605659223047579,
+                      1.0364104665563325,
+                      0.9797747655337383
+                    ]
+                  },
+                  "surface": {
+                    "counts": {
+                      "\"mat\"": 2,
+                      "\"tray\"": 2
+                    },
+                    "values": [
+                      "tray",
+                      "mat",
+                      "tray",
+                      "mat"
+                    ]
+                  },
+                  "target_distance": {
+                    "counts": {
+                      "0.041598513719853576": 1,
+                      "0.07155605398149177": 1,
+                      "0.11592305041123405": 1,
+                      "0.13291136484379015": 1
+                    },
+                    "maximum": 0.13291136484379015,
+                    "mean": 0.09049724573909239,
+                    "minimum": 0.041598513719853576,
+                    "values": [
+                      0.07155605398149177,
+                      0.041598513719853576,
+                      0.13291136484379015,
+                      0.11592305041123405
+                    ]
+                  },
+                  "tolerance": {
+                    "counts": {
+                      "0.011492766921114575": 1,
+                      "0.019237976276932262": 1,
+                      "0.02989721360097894": 1,
+                      "0.03641982400108951": 1
+                    },
+                    "maximum": 0.03641982400108951,
+                    "mean": 0.02426194520002882,
+                    "minimum": 0.011492766921114575,
+                    "values": [
+                      0.019237976276932262,
+                      0.011492766921114575,
+                      0.02989721360097894,
+                      0.03641982400108951
+                    ]
+                  }
+                },
+                "executed": {
+                  "corridor_width": {
+                    "counts": {
+                      "0.07216654952412518": 1,
+                      "0.074958009904119": 1,
+                      "0.07604893020746117": 1,
+                      "0.07968833220263383": 1
+                    },
+                    "maximum": 0.07968833220263383,
+                    "mean": 0.0757154554595848,
+                    "minimum": 0.07216654952412518,
+                    "values": [
+                      0.074958009904119,
+                      0.07216654952412518,
+                      0.07968833220263383,
+                      0.07604893020746117
+                    ]
+                  },
+                  "friction": {
+                    "counts": {
+                      "0.3869553965870813": 1,
+                      "0.4869890413392291": 1,
+                      "0.5700883700967943": 1,
+                      "0.7933514643294048": 1
+                    },
+                    "maximum": 0.7933514643294048,
+                    "mean": 0.5593460680881274,
+                    "minimum": 0.3869553965870813,
+                    "values": [
+                      0.4869890413392291,
+                      0.7933514643294048,
+                      0.3869553965870813,
+                      0.5700883700967943
+                    ]
+                  },
+                  "mass": {
+                    "counts": {
+                      "0.05731863464086796": 1,
+                      "0.08775630768415577": 1,
+                      "0.09711148753665635": 1,
+                      "0.14625112976543175": 1
+                    },
+                    "maximum": 0.14625112976543175,
+                    "mean": 0.09710938990677796,
+                    "minimum": 0.05731863464086796,
+                    "values": [
+                      0.09711148753665635,
+                      0.08775630768415577,
+                      0.05731863464086796,
+                      0.14625112976543175
+                    ]
+                  },
+                  "object_size": {
+                    "counts": {
+                      "0.02204319624924823": 1,
+                      "0.027288141100840716": 1,
+                      "0.03379589933248707": 1,
+                      "0.03991362570552686": 1
+                    },
+                    "maximum": 0.03991362570552686,
+                    "mean": 0.03076021559702572,
+                    "minimum": 0.02204319624924823,
+                    "values": [
+                      0.03991362570552686,
+                      0.027288141100840716,
+                      0.03379589933248707,
+                      0.02204319624924823
+                    ]
+                  },
+                  "obstacle_count": {
+                    "counts": {
+                      "0": 1,
+                      "1": 1,
+                      "2": 1,
+                      "3": 1
+                    },
+                    "maximum": 3,
+                    "mean": 1.5,
+                    "minimum": 0,
+                    "values": [
+                      1,
+                      0,
+                      2,
+                      3
+                    ]
+                  },
+                  "sensor_gain": {
+                    "counts": {
+                      "0.907965854298349": 1,
+                      "0.9797747655337383": 1,
+                      "1.0364104665563325": 1,
+                      "1.0605659223047579": 1
+                    },
+                    "maximum": 1.0605659223047579,
+                    "mean": 0.9961792521732944,
+                    "minimum": 0.907965854298349,
+                    "values": [
+                      0.907965854298349,
+                      0.9797747655337383,
+                      1.0364104665563325,
+                      1.0605659223047579
+                    ]
+                  },
+                  "surface": {
+                    "counts": {
+                      "\"mat\"": 2,
+                      "\"tray\"": 2
+                    },
+                    "values": [
+                      "tray",
+                      "mat",
+                      "tray",
+                      "mat"
+                    ]
+                  },
+                  "target_distance": {
+                    "counts": {
+                      "0.041598513719853576": 1,
+                      "0.07155605398149177": 1,
+                      "0.11592305041123405": 1,
+                      "0.13291136484379015": 1
+                    },
+                    "maximum": 0.13291136484379015,
+                    "mean": 0.09049724573909239,
+                    "minimum": 0.041598513719853576,
+                    "values": [
+                      0.07155605398149177,
+                      0.11592305041123405,
+                      0.13291136484379015,
+                      0.041598513719853576
+                    ]
+                  },
+                  "tolerance": {
+                    "counts": {
+                      "0.011492766921114575": 1,
+                      "0.019237976276932262": 1,
+                      "0.02989721360097894": 1,
+                      "0.03641982400108951": 1
+                    },
+                    "maximum": 0.03641982400108951,
+                    "mean": 0.02426194520002882,
+                    "minimum": 0.011492766921114575,
+                    "values": [
+                      0.019237976276932262,
+                      0.03641982400108951,
+                      0.02989721360097894,
+                      0.011492766921114575
+                    ]
+                  }
+                },
+                "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8"
+              }
+            ],
+            "rejected": 0,
+            "rejection_reasons": {},
+            "remaining_shortfall": 0,
+            "requested": 4,
+            "sampling_latency_seconds": 0.01106262300072558,
+            "scheduled": 4,
+            "worker_wait_seconds": [
+              2.0,
+              2.0,
+              2.0,
+              2.0
+            ]
+          },
+          {
+            "accepted": 4,
+            "cancelled": 0,
+            "completed": 4,
+            "executed": 4,
+            "expired_attempts": 0,
+            "failed_attempts": 0,
+            "fallback_assignments": 0,
+            "fallback_requested": 0,
+            "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+            "family_version": 1,
+            "generated": 4,
+            "interrupted_attempts": 1,
+            "primary_shortfall": 0,
+            "region_distributions": [
+              {
+                "accepted": {
+                  "corridor_width": {
+                    "counts": {
+                      "0.072346809595973": 1,
+                      "0.07254967741172565": 1,
+                      "0.07666315855736973": 1,
+                      "0.0778095713672939": 1
+                    },
+                    "maximum": 0.0778095713672939,
+                    "mean": 0.07484230423309057,
+                    "minimum": 0.072346809595973,
+                    "values": [
+                      0.07666315855736973,
+                      0.072346809595973,
+                      0.07254967741172565,
+                      0.0778095713672939
+                    ]
+                  },
+                  "friction": {
+                    "counts": {
+                      "0.33985647077190706": 1,
+                      "0.5211890254071274": 1,
+                      "0.6568810858989285": 1,
+                      "0.7742842383633436": 1
+                    },
+                    "maximum": 0.7742842383633436,
+                    "mean": 0.5730527051103267,
+                    "minimum": 0.33985647077190706,
+                    "values": [
+                      0.33985647077190706,
+                      0.6568810858989285,
+                      0.7742842383633436,
+                      0.5211890254071274
+                    ]
+                  },
+                  "mass": {
+                    "counts": {
+                      "0.05583190762825499": 1,
+                      "0.07414609393305016": 1,
+                      "0.11643266602397916": 1,
+                      "0.12651159264292214": 1
+                    },
+                    "maximum": 0.12651159264292214,
+                    "mean": 0.09323056505705161,
+                    "minimum": 0.05583190762825499,
+                    "values": [
+                      0.05583190762825499,
+                      0.11643266602397916,
+                      0.07414609393305016,
+                      0.12651159264292214
+                    ]
+                  },
+                  "object_size": {
+                    "counts": {
+                      "0.022209555920531584": 1,
+                      "0.02962949352644486": 1,
+                      "0.031358289725468516": 1,
+                      "0.03506668144511129": 1
+                    },
+                    "maximum": 0.03506668144511129,
+                    "mean": 0.029566005154389063,
+                    "minimum": 0.022209555920531584,
+                    "values": [
+                      0.02962949352644486,
+                      0.03506668144511129,
+                      0.022209555920531584,
+                      0.031358289725468516
+                    ]
+                  },
+                  "obstacle_count": {
+                    "counts": {
+                      "0": 1,
+                      "1": 1,
+                      "2": 1,
+                      "3": 1
+                    },
+                    "maximum": 3,
+                    "mean": 1.5,
+                    "minimum": 0,
+                    "values": [
+                      0,
+                      1,
+                      2,
+                      3
+                    ]
+                  },
+                  "sensor_gain": {
+                    "counts": {
+                      "0.9157626806461826": 1,
+                      "0.9719847018659166": 1,
+                      "1.0333140483492107": 1,
+                      "1.0707019064843866": 1
+                    },
+                    "maximum": 1.0707019064843866,
+                    "mean": 0.9979408343364241,
+                    "minimum": 0.9157626806461826,
+                    "values": [
+                      0.9719847018659166,
+                      1.0333140483492107,
+                      1.0707019064843866,
+                      0.9157626806461826
+                    ]
+                  },
+                  "surface": {
+                    "counts": {
+                      "\"mat\"": 2,
+                      "\"tray\"": 2
+                    },
+                    "values": [
+                      "mat",
+                      "tray",
+                      "tray",
+                      "mat"
+                    ]
+                  },
+                  "target_distance": {
+                    "counts": {
+                      "0.04903706099689145": 1,
+                      "0.09131330169514276": 1,
+                      "0.11059740389040873": 1,
+                      "0.1480296376448908": 1
+                    },
+                    "maximum": 0.1480296376448908,
+                    "mean": 0.09974435105683344,
+                    "minimum": 0.04903706099689145,
+                    "values": [
+                      0.11059740389040873,
+                      0.09131330169514276,
+                      0.1480296376448908,
+                      0.04903706099689145
+                    ]
+                  },
+                  "tolerance": {
+                    "counts": {
+                      "0.012171156539521657": 1,
+                      "0.018129483813437507": 1,
+                      "0.02878188961313101": 1,
+                      "0.03907473692349415": 1
+                    },
+                    "maximum": 0.03907473692349415,
+                    "mean": 0.02453931672239608,
+                    "minimum": 0.012171156539521657,
+                    "values": [
+                      0.018129483813437507,
+                      0.012171156539521657,
+                      0.02878188961313101,
+                      0.03907473692349415
+                    ]
+                  }
+                },
+                "executed": {
+                  "corridor_width": {
+                    "counts": {
+                      "0.072346809595973": 1,
+                      "0.07254967741172565": 1,
+                      "0.07666315855736973": 1,
+                      "0.0778095713672939": 1
+                    },
+                    "maximum": 0.0778095713672939,
+                    "mean": 0.07484230423309057,
+                    "minimum": 0.072346809595973,
+                    "values": [
+                      0.07254967741172565,
+                      0.0778095713672939,
+                      0.072346809595973,
+                      0.07666315855736973
+                    ]
+                  },
+                  "friction": {
+                    "counts": {
+                      "0.33985647077190706": 1,
+                      "0.5211890254071274": 1,
+                      "0.6568810858989285": 1,
+                      "0.7742842383633436": 1
+                    },
+                    "maximum": 0.7742842383633436,
+                    "mean": 0.5730527051103267,
+                    "minimum": 0.33985647077190706,
+                    "values": [
+                      0.7742842383633436,
+                      0.5211890254071274,
+                      0.6568810858989285,
+                      0.33985647077190706
+                    ]
+                  },
+                  "mass": {
+                    "counts": {
+                      "0.05583190762825499": 1,
+                      "0.07414609393305016": 1,
+                      "0.11643266602397916": 1,
+                      "0.12651159264292214": 1
+                    },
+                    "maximum": 0.12651159264292214,
+                    "mean": 0.09323056505705161,
+                    "minimum": 0.05583190762825499,
+                    "values": [
+                      0.07414609393305016,
+                      0.12651159264292214,
+                      0.11643266602397916,
+                      0.05583190762825499
+                    ]
+                  },
+                  "object_size": {
+                    "counts": {
+                      "0.022209555920531584": 1,
+                      "0.02962949352644486": 1,
+                      "0.031358289725468516": 1,
+                      "0.03506668144511129": 1
+                    },
+                    "maximum": 0.03506668144511129,
+                    "mean": 0.029566005154389063,
+                    "minimum": 0.022209555920531584,
+                    "values": [
+                      0.022209555920531584,
+                      0.031358289725468516,
+                      0.03506668144511129,
+                      0.02962949352644486
+                    ]
+                  },
+                  "obstacle_count": {
+                    "counts": {
+                      "0": 1,
+                      "1": 1,
+                      "2": 1,
+                      "3": 1
+                    },
+                    "maximum": 3,
+                    "mean": 1.5,
+                    "minimum": 0,
+                    "values": [
+                      2,
+                      3,
+                      1,
+                      0
+                    ]
+                  },
+                  "sensor_gain": {
+                    "counts": {
+                      "0.9157626806461826": 1,
+                      "0.9719847018659166": 1,
+                      "1.0333140483492107": 1,
+                      "1.0707019064843866": 1
+                    },
+                    "maximum": 1.0707019064843866,
+                    "mean": 0.9979408343364241,
+                    "minimum": 0.9157626806461826,
+                    "values": [
+                      1.0707019064843866,
+                      0.9157626806461826,
+                      1.0333140483492107,
+                      0.9719847018659166
+                    ]
+                  },
+                  "surface": {
+                    "counts": {
+                      "\"mat\"": 2,
+                      "\"tray\"": 2
+                    },
+                    "values": [
+                      "tray",
+                      "mat",
+                      "tray",
+                      "mat"
+                    ]
+                  },
+                  "target_distance": {
+                    "counts": {
+                      "0.04903706099689145": 1,
+                      "0.09131330169514276": 1,
+                      "0.11059740389040873": 1,
+                      "0.1480296376448908": 1
+                    },
+                    "maximum": 0.1480296376448908,
+                    "mean": 0.09974435105683344,
+                    "minimum": 0.04903706099689145,
+                    "values": [
+                      0.1480296376448908,
+                      0.04903706099689145,
+                      0.09131330169514276,
+                      0.11059740389040873
+                    ]
+                  },
+                  "tolerance": {
+                    "counts": {
+                      "0.012171156539521657": 1,
+                      "0.018129483813437507": 1,
+                      "0.02878188961313101": 1,
+                      "0.03907473692349415": 1
+                    },
+                    "maximum": 0.03907473692349415,
+                    "mean": 0.02453931672239608,
+                    "minimum": 0.012171156539521657,
+                    "values": [
+                      0.02878188961313101,
+                      0.03907473692349415,
+                      0.012171156539521657,
+                      0.018129483813437507
+                    ]
+                  }
+                },
+                "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6"
+              }
+            ],
+            "rejected": 0,
+            "rejection_reasons": {},
+            "remaining_shortfall": 0,
+            "requested": 4,
+            "sampling_latency_seconds": 0.01106262300072558,
+            "scheduled": 4,
+            "worker_wait_seconds": [
+              1.0,
+              1.0,
+              1.0,
+              2.0,
+              2.0
+            ]
+          }
+        ]
+      },
+      "rows": [
+        {
+          "accepted": 4,
+          "accepted_distribution": {
+            "corridor_width": {
+              "counts": {
+                "0.072346809595973": 1,
+                "0.07254967741172565": 1,
+                "0.07666315855736973": 1,
+                "0.0778095713672939": 1
+              },
+              "maximum": 0.0778095713672939,
+              "mean": 0.07484230423309057,
+              "minimum": 0.072346809595973,
+              "values": [
+                0.07666315855736973,
+                0.072346809595973,
+                0.07254967741172565,
+                0.0778095713672939
+              ]
+            },
+            "friction": {
+              "counts": {
+                "0.33985647077190706": 1,
+                "0.5211890254071274": 1,
+                "0.6568810858989285": 1,
+                "0.7742842383633436": 1
+              },
+              "maximum": 0.7742842383633436,
+              "mean": 0.5730527051103267,
+              "minimum": 0.33985647077190706,
+              "values": [
+                0.33985647077190706,
+                0.6568810858989285,
+                0.7742842383633436,
+                0.5211890254071274
+              ]
+            },
+            "mass": {
+              "counts": {
+                "0.05583190762825499": 1,
+                "0.07414609393305016": 1,
+                "0.11643266602397916": 1,
+                "0.12651159264292214": 1
+              },
+              "maximum": 0.12651159264292214,
+              "mean": 0.09323056505705161,
+              "minimum": 0.05583190762825499,
+              "values": [
+                0.05583190762825499,
+                0.11643266602397916,
+                0.07414609393305016,
+                0.12651159264292214
+              ]
+            },
+            "object_size": {
+              "counts": {
+                "0.022209555920531584": 1,
+                "0.02962949352644486": 1,
+                "0.031358289725468516": 1,
+                "0.03506668144511129": 1
+              },
+              "maximum": 0.03506668144511129,
+              "mean": 0.029566005154389063,
+              "minimum": 0.022209555920531584,
+              "values": [
+                0.02962949352644486,
+                0.03506668144511129,
+                0.022209555920531584,
+                0.031358289725468516
+              ]
+            },
+            "obstacle_count": {
+              "counts": {
+                "0": 1,
+                "1": 1,
+                "2": 1,
+                "3": 1
+              },
+              "maximum": 3,
+              "mean": 1.5,
+              "minimum": 0,
+              "values": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            "sensor_gain": {
+              "counts": {
+                "0.9157626806461826": 1,
+                "0.9719847018659166": 1,
+                "1.0333140483492107": 1,
+                "1.0707019064843866": 1
+              },
+              "maximum": 1.0707019064843866,
+              "mean": 0.9979408343364241,
+              "minimum": 0.9157626806461826,
+              "values": [
+                0.9719847018659166,
+                1.0333140483492107,
+                1.0707019064843866,
+                0.9157626806461826
+              ]
+            },
+            "surface": {
+              "counts": {
+                "\"mat\"": 2,
+                "\"tray\"": 2
+              },
+              "values": [
+                "mat",
+                "tray",
+                "tray",
+                "mat"
+              ]
+            },
+            "target_distance": {
+              "counts": {
+                "0.04903706099689145": 1,
+                "0.09131330169514276": 1,
+                "0.11059740389040873": 1,
+                "0.1480296376448908": 1
+              },
+              "maximum": 0.1480296376448908,
+              "mean": 0.09974435105683344,
+              "minimum": 0.04903706099689145,
+              "values": [
+                0.11059740389040873,
+                0.09131330169514276,
+                0.1480296376448908,
+                0.04903706099689145
+              ]
+            },
+            "tolerance": {
+              "counts": {
+                "0.012171156539521657": 1,
+                "0.018129483813437507": 1,
+                "0.02878188961313101": 1,
+                "0.03907473692349415": 1
+              },
+              "maximum": 0.03907473692349415,
+              "mean": 0.02453931672239608,
+              "minimum": 0.012171156539521657,
+              "values": [
+                0.018129483813437507,
+                0.012171156539521657,
+                0.02878188961313101,
+                0.03907473692349415
+              ]
+            }
+          },
+          "cancelled": 0,
+          "category": "learn",
+          "completed": 4,
+          "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+          "executed": 4,
+          "executed_distribution": {
+            "corridor_width": {
+              "counts": {
+                "0.072346809595973": 1,
+                "0.07254967741172565": 1,
+                "0.07666315855736973": 1,
+                "0.0778095713672939": 1
+              },
+              "maximum": 0.0778095713672939,
+              "mean": 0.07484230423309057,
+              "minimum": 0.072346809595973,
+              "values": [
+                0.07254967741172565,
+                0.0778095713672939,
+                0.072346809595973,
+                0.07666315855736973
+              ]
+            },
+            "friction": {
+              "counts": {
+                "0.33985647077190706": 1,
+                "0.5211890254071274": 1,
+                "0.6568810858989285": 1,
+                "0.7742842383633436": 1
+              },
+              "maximum": 0.7742842383633436,
+              "mean": 0.5730527051103267,
+              "minimum": 0.33985647077190706,
+              "values": [
+                0.7742842383633436,
+                0.5211890254071274,
+                0.6568810858989285,
+                0.33985647077190706
+              ]
+            },
+            "mass": {
+              "counts": {
+                "0.05583190762825499": 1,
+                "0.07414609393305016": 1,
+                "0.11643266602397916": 1,
+                "0.12651159264292214": 1
+              },
+              "maximum": 0.12651159264292214,
+              "mean": 0.09323056505705161,
+              "minimum": 0.05583190762825499,
+              "values": [
+                0.07414609393305016,
+                0.12651159264292214,
+                0.11643266602397916,
+                0.05583190762825499
+              ]
+            },
+            "object_size": {
+              "counts": {
+                "0.022209555920531584": 1,
+                "0.02962949352644486": 1,
+                "0.031358289725468516": 1,
+                "0.03506668144511129": 1
+              },
+              "maximum": 0.03506668144511129,
+              "mean": 0.029566005154389063,
+              "minimum": 0.022209555920531584,
+              "values": [
+                0.022209555920531584,
+                0.031358289725468516,
+                0.03506668144511129,
+                0.02962949352644486
+              ]
+            },
+            "obstacle_count": {
+              "counts": {
+                "0": 1,
+                "1": 1,
+                "2": 1,
+                "3": 1
+              },
+              "maximum": 3,
+              "mean": 1.5,
+              "minimum": 0,
+              "values": [
+                2,
+                3,
+                1,
+                0
+              ]
+            },
+            "sensor_gain": {
+              "counts": {
+                "0.9157626806461826": 1,
+                "0.9719847018659166": 1,
+                "1.0333140483492107": 1,
+                "1.0707019064843866": 1
+              },
+              "maximum": 1.0707019064843866,
+              "mean": 0.9979408343364241,
+              "minimum": 0.9157626806461826,
+              "values": [
+                1.0707019064843866,
+                0.9157626806461826,
+                1.0333140483492107,
+                0.9719847018659166
+              ]
+            },
+            "surface": {
+              "counts": {
+                "\"mat\"": 2,
+                "\"tray\"": 2
+              },
+              "values": [
+                "tray",
+                "mat",
+                "tray",
+                "mat"
+              ]
+            },
+            "target_distance": {
+              "counts": {
+                "0.04903706099689145": 1,
+                "0.09131330169514276": 1,
+                "0.11059740389040873": 1,
+                "0.1480296376448908": 1
+              },
+              "maximum": 0.1480296376448908,
+              "mean": 0.09974435105683344,
+              "minimum": 0.04903706099689145,
+              "values": [
+                0.1480296376448908,
+                0.04903706099689145,
+                0.09131330169514276,
+                0.11059740389040873
+              ]
+            },
+            "tolerance": {
+              "counts": {
+                "0.012171156539521657": 1,
+                "0.018129483813437507": 1,
+                "0.02878188961313101": 1,
+                "0.03907473692349415": 1
+              },
+              "maximum": 0.03907473692349415,
+              "mean": 0.02453931672239608,
+              "minimum": 0.012171156539521657,
+              "values": [
+                0.02878188961313101,
+                0.03907473692349415,
+                0.012171156539521657,
+                0.018129483813437507
+              ]
+            }
+          },
+          "expired_attempts": 0,
+          "failed_attempts": 0,
+          "fallback_assignments": 0,
+          "fallback_from_region_id": null,
+          "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+          "family_version": 1,
+          "generated": 4,
+          "interrupted_attempts": 1,
+          "reasons": {},
+          "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6",
+          "region_version": 1,
+          "rejected": 0,
+          "requested": 4,
+          "sampling_latency_seconds": 0.01106262300072558,
+          "scheduled": 4,
+          "shortfall": 0,
+          "started_attempts": 5,
+          "worker_wait_seconds": [
+            1.0,
+            1.0,
+            1.0,
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "accepted": 4,
+          "accepted_distribution": {
+            "corridor_width": {
+              "counts": {
+                "0.07216654952412518": 1,
+                "0.074958009904119": 1,
+                "0.07604893020746117": 1,
+                "0.07968833220263383": 1
+              },
+              "maximum": 0.07968833220263383,
+              "mean": 0.0757154554595848,
+              "minimum": 0.07216654952412518,
+              "values": [
+                0.074958009904119,
+                0.07604893020746117,
+                0.07968833220263383,
+                0.07216654952412518
+              ]
+            },
+            "friction": {
+              "counts": {
+                "0.3869553965870813": 1,
+                "0.4869890413392291": 1,
+                "0.5700883700967943": 1,
+                "0.7933514643294048": 1
+              },
+              "maximum": 0.7933514643294048,
+              "mean": 0.5593460680881274,
+              "minimum": 0.3869553965870813,
+              "values": [
+                0.4869890413392291,
+                0.5700883700967943,
+                0.3869553965870813,
+                0.7933514643294048
+              ]
+            },
+            "mass": {
+              "counts": {
+                "0.05731863464086796": 1,
+                "0.08775630768415577": 1,
+                "0.09711148753665635": 1,
+                "0.14625112976543175": 1
+              },
+              "maximum": 0.14625112976543175,
+              "mean": 0.09710938990677796,
+              "minimum": 0.05731863464086796,
+              "values": [
+                0.09711148753665635,
+                0.14625112976543175,
+                0.05731863464086796,
+                0.08775630768415577
+              ]
+            },
+            "object_size": {
+              "counts": {
+                "0.02204319624924823": 1,
+                "0.027288141100840716": 1,
+                "0.03379589933248707": 1,
+                "0.03991362570552686": 1
+              },
+              "maximum": 0.03991362570552686,
+              "mean": 0.03076021559702572,
+              "minimum": 0.02204319624924823,
+              "values": [
+                0.03991362570552686,
+                0.02204319624924823,
+                0.03379589933248707,
+                0.027288141100840716
+              ]
+            },
+            "obstacle_count": {
+              "counts": {
+                "0": 1,
+                "1": 1,
+                "2": 1,
+                "3": 1
+              },
+              "maximum": 3,
+              "mean": 1.5,
+              "minimum": 0,
+              "values": [
+                1,
+                3,
+                2,
+                0
+              ]
+            },
+            "sensor_gain": {
+              "counts": {
+                "0.907965854298349": 1,
+                "0.9797747655337383": 1,
+                "1.0364104665563325": 1,
+                "1.0605659223047579": 1
+              },
+              "maximum": 1.0605659223047579,
+              "mean": 0.9961792521732944,
+              "minimum": 0.907965854298349,
+              "values": [
+                0.907965854298349,
+                1.0605659223047579,
+                1.0364104665563325,
+                0.9797747655337383
+              ]
+            },
+            "surface": {
+              "counts": {
+                "\"mat\"": 2,
+                "\"tray\"": 2
+              },
+              "values": [
+                "tray",
+                "mat",
+                "tray",
+                "mat"
+              ]
+            },
+            "target_distance": {
+              "counts": {
+                "0.041598513719853576": 1,
+                "0.07155605398149177": 1,
+                "0.11592305041123405": 1,
+                "0.13291136484379015": 1
+              },
+              "maximum": 0.13291136484379015,
+              "mean": 0.09049724573909239,
+              "minimum": 0.041598513719853576,
+              "values": [
+                0.07155605398149177,
+                0.041598513719853576,
+                0.13291136484379015,
+                0.11592305041123405
+              ]
+            },
+            "tolerance": {
+              "counts": {
+                "0.011492766921114575": 1,
+                "0.019237976276932262": 1,
+                "0.02989721360097894": 1,
+                "0.03641982400108951": 1
+              },
+              "maximum": 0.03641982400108951,
+              "mean": 0.02426194520002882,
+              "minimum": 0.011492766921114575,
+              "values": [
+                0.019237976276932262,
+                0.011492766921114575,
+                0.02989721360097894,
+                0.03641982400108951
+              ]
+            }
+          },
+          "cancelled": 0,
+          "category": "learn",
+          "completed": 4,
+          "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+          "executed": 4,
+          "executed_distribution": {
+            "corridor_width": {
+              "counts": {
+                "0.07216654952412518": 1,
+                "0.074958009904119": 1,
+                "0.07604893020746117": 1,
+                "0.07968833220263383": 1
+              },
+              "maximum": 0.07968833220263383,
+              "mean": 0.0757154554595848,
+              "minimum": 0.07216654952412518,
+              "values": [
+                0.074958009904119,
+                0.07216654952412518,
+                0.07968833220263383,
+                0.07604893020746117
+              ]
+            },
+            "friction": {
+              "counts": {
+                "0.3869553965870813": 1,
+                "0.4869890413392291": 1,
+                "0.5700883700967943": 1,
+                "0.7933514643294048": 1
+              },
+              "maximum": 0.7933514643294048,
+              "mean": 0.5593460680881274,
+              "minimum": 0.3869553965870813,
+              "values": [
+                0.4869890413392291,
+                0.7933514643294048,
+                0.3869553965870813,
+                0.5700883700967943
+              ]
+            },
+            "mass": {
+              "counts": {
+                "0.05731863464086796": 1,
+                "0.08775630768415577": 1,
+                "0.09711148753665635": 1,
+                "0.14625112976543175": 1
+              },
+              "maximum": 0.14625112976543175,
+              "mean": 0.09710938990677796,
+              "minimum": 0.05731863464086796,
+              "values": [
+                0.09711148753665635,
+                0.08775630768415577,
+                0.05731863464086796,
+                0.14625112976543175
+              ]
+            },
+            "object_size": {
+              "counts": {
+                "0.02204319624924823": 1,
+                "0.027288141100840716": 1,
+                "0.03379589933248707": 1,
+                "0.03991362570552686": 1
+              },
+              "maximum": 0.03991362570552686,
+              "mean": 0.03076021559702572,
+              "minimum": 0.02204319624924823,
+              "values": [
+                0.03991362570552686,
+                0.027288141100840716,
+                0.03379589933248707,
+                0.02204319624924823
+              ]
+            },
+            "obstacle_count": {
+              "counts": {
+                "0": 1,
+                "1": 1,
+                "2": 1,
+                "3": 1
+              },
+              "maximum": 3,
+              "mean": 1.5,
+              "minimum": 0,
+              "values": [
+                1,
+                0,
+                2,
+                3
+              ]
+            },
+            "sensor_gain": {
+              "counts": {
+                "0.907965854298349": 1,
+                "0.9797747655337383": 1,
+                "1.0364104665563325": 1,
+                "1.0605659223047579": 1
+              },
+              "maximum": 1.0605659223047579,
+              "mean": 0.9961792521732944,
+              "minimum": 0.907965854298349,
+              "values": [
+                0.907965854298349,
+                0.9797747655337383,
+                1.0364104665563325,
+                1.0605659223047579
+              ]
+            },
+            "surface": {
+              "counts": {
+                "\"mat\"": 2,
+                "\"tray\"": 2
+              },
+              "values": [
+                "tray",
+                "mat",
+                "tray",
+                "mat"
+              ]
+            },
+            "target_distance": {
+              "counts": {
+                "0.041598513719853576": 1,
+                "0.07155605398149177": 1,
+                "0.11592305041123405": 1,
+                "0.13291136484379015": 1
+              },
+              "maximum": 0.13291136484379015,
+              "mean": 0.09049724573909239,
+              "minimum": 0.041598513719853576,
+              "values": [
+                0.07155605398149177,
+                0.11592305041123405,
+                0.13291136484379015,
+                0.041598513719853576
+              ]
+            },
+            "tolerance": {
+              "counts": {
+                "0.011492766921114575": 1,
+                "0.019237976276932262": 1,
+                "0.02989721360097894": 1,
+                "0.03641982400108951": 1
+              },
+              "maximum": 0.03641982400108951,
+              "mean": 0.02426194520002882,
+              "minimum": 0.011492766921114575,
+              "values": [
+                0.019237976276932262,
+                0.03641982400108951,
+                0.02989721360097894,
+                0.011492766921114575
+              ]
+            }
+          },
+          "expired_attempts": 0,
+          "failed_attempts": 0,
+          "fallback_assignments": 0,
+          "fallback_from_region_id": null,
+          "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+          "family_version": 1,
+          "generated": 4,
+          "interrupted_attempts": 0,
+          "reasons": {},
+          "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8",
+          "region_version": 1,
+          "rejected": 0,
+          "requested": 4,
+          "sampling_latency_seconds": 0.01106262300072558,
+          "scheduled": 4,
+          "shortfall": 0,
+          "started_attempts": 4,
+          "worker_wait_seconds": [
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+    "executed_episodes": 8,
+    "feedback_id": "2c325617ef29ff818394b8ca6df6d3bc3d192d7189854a70461bb7d30474f84c",
+    "generated": 8,
+    "interrupted_attempts": 1,
+    "requested": 8,
+    "scheduled": 8,
+    "validated": 8
+  },
+  "initial_states": [
+    {
+      "position": 0.0,
+      "requested": {
+        "object": [
+          "reachable",
+          "free"
+        ]
+      },
+      "synthetic_env": "env0"
+    },
+    {
+      "position": 0.0,
+      "requested": {
+        "object": [
+          "reachable",
+          "free"
+        ]
+      },
+      "synthetic_env": "env0"
+    },
+    {
+      "position": 0.0,
+      "requested": {
+        "object": [
+          "reachable",
+          "free"
+        ]
+      },
+      "synthetic_env": "env1"
+    },
+    {
+      "position": 0.0,
+      "requested": {
+        "object": [
+          "reachable",
+          "free"
+        ]
+      },
+      "synthetic_env": "env2"
+    },
+    {
+      "position": 0.0,
+      "requested": {
+        "object": [
+          "reachable",
+          "free"
+        ]
+      },
+      "synthetic_env": "env1"
+    },
+    {
+      "position": 0.0,
+      "requested": {
+        "object": [
+          "reachable",
+          "free"
+        ]
+      },
+      "synthetic_env": "env0"
+    },
+    {
+      "position": 0.0,
+      "requested": {
+        "object": [
+          "reachable",
+          "free"
+        ]
+      },
+      "synthetic_env": "env2"
+    },
+    {
+      "position": 0.0,
+      "requested": {
+        "object": [
+          "reachable",
+          "free"
+        ]
+      },
+      "synthetic_env": "env1"
+    }
+  ],
+  "notice": "SYNTHETIC SOFTWARE FIXTURE ONLY: no actual simulator, physics validation or learning performance",
+  "summaries": [
+    {
+      "assignment_id": "16eff3e4c23ea7cc9e4b464f3e572e3530a229209e3de116b6f5a54c417dd476",
+      "control_step_count": 2,
+      "controller_id": "synthetic-controller",
+      "controller_or_policy_version": "synthetic-checkpoint-v1",
+      "controller_version": "v1",
+      "dataset_eligible": true,
+      "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+      "directive_version": 1,
+      "elapsed_simulation_time": 0.04,
+      "episode_id": "b5b55b613c845ae8e289f3a99aea97d913c80dbe68adca03522f8d538096d501",
+      "episode_purpose": "training",
+      "execution_attempt_id": "attempt-2",
+      "execution_status": "completed",
+      "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+      "family_version": 1,
+      "initial_state_reference": "5c3305743cedca9a5a8443f6614fc1141033d27bf84d3e4762ff8eeff21492e9",
+      "policy_checkpoint_id": "synthetic-checkpoint-v1",
+      "quality_rejection_reasons": [],
+      "realized_parameters": {
+        "corridor_width": 0.07254967741172565,
+        "friction": 0.7742842383633436,
+        "mass": 0.07414609393305016,
+        "object_size": 0.022209555920531584,
+        "obstacle_count": 2,
+        "sensor_gain": 1.0707019064843866,
+        "surface": "tray",
+        "target_distance": 0.1480296376448908,
+        "tolerance": 0.02878188961313101
+      },
+      "recording_status": "accepted",
+      "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6",
+      "retry_evidence_policy": "first_valid_completion_per_assignment",
+      "reward_summary": {
+        "sum": 2.0
+      },
+      "simulator_and_environment_versions": {
+        "adapter": "synthetic-adapter-v1",
+        "compiler": "synthetic-compiler-v1",
+        "controller": "synthetic-controller-v1",
+        "environment": "synthetic-environment-v1",
+        "sampler": "constraint-stratified-v2",
+        "simulator": "synthetic-simulator-v1"
+      },
+      "stage_outcomes": {
+        "s0": true
+      },
+      "success": true,
+      "termination_reason": "success",
+      "trajectory_reference": "d174edfa85a55174d44f3239731c346340dfa992ea639dddb80bb617577b1d94"
+    },
+    {
+      "assignment_id": "3be00c8e2dfd780b33ca5aa208ebb8f65ce3997687ca822ed5d470af54ba6a1b",
+      "control_step_count": 2,
+      "controller_id": "synthetic-controller",
+      "controller_or_policy_version": "synthetic-checkpoint-v1",
+      "controller_version": "v1",
+      "dataset_eligible": true,
+      "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+      "directive_version": 1,
+      "elapsed_simulation_time": 0.04,
+      "episode_id": "b063b0f92ec31528ca80e969357f9040d8578fef903e6b38fd33d844c665fc07",
+      "episode_purpose": "training",
+      "execution_attempt_id": "retry-attempt",
+      "execution_status": "completed",
+      "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+      "family_version": 1,
+      "initial_state_reference": "1826bb3323da409304fd2b6e73045b0ffb04cf476de374b9fdf762bf73cae97d",
+      "policy_checkpoint_id": "synthetic-checkpoint-v1",
+      "quality_rejection_reasons": [],
+      "realized_parameters": {
+        "corridor_width": 0.07666315855736973,
+        "friction": 0.33985647077190706,
+        "mass": 0.05583190762825499,
+        "object_size": 0.02962949352644486,
+        "obstacle_count": 0,
+        "sensor_gain": 0.9719847018659166,
+        "surface": "mat",
+        "target_distance": 0.11059740389040873,
+        "tolerance": 0.018129483813437507
+      },
+      "recording_status": "accepted",
+      "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6",
+      "retry_evidence_policy": "first_valid_completion_per_assignment",
+      "reward_summary": {
+        "sum": 2.0
+      },
+      "simulator_and_environment_versions": {
+        "adapter": "synthetic-adapter-v1",
+        "compiler": "synthetic-compiler-v1",
+        "controller": "synthetic-controller-v1",
+        "environment": "synthetic-environment-v1",
+        "sampler": "constraint-stratified-v2",
+        "simulator": "synthetic-simulator-v1"
+      },
+      "stage_outcomes": {
+        "s0": true
+      },
+      "success": true,
+      "termination_reason": "success",
+      "trajectory_reference": "675bd44ffe3552d958516d68c071c9d0eb3abacb7fcdba16650db5905fcaa495"
+    },
+    {
+      "assignment_id": "6141e6f4953d06e79cc2fc58fa0a8a7abcea0c8deb07bdb5092869ce20991818",
+      "control_step_count": 2,
+      "controller_id": "synthetic-controller",
+      "controller_or_policy_version": "synthetic-checkpoint-v1",
+      "controller_version": "v1",
+      "dataset_eligible": true,
+      "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+      "directive_version": 1,
+      "elapsed_simulation_time": 0.04,
+      "episode_id": "7c65eba3626ebc7f59b5215ae2c1555cb471632118f9db480547e99eb1a3c70a",
+      "episode_purpose": "training",
+      "execution_attempt_id": "attempt-6",
+      "execution_status": "completed",
+      "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+      "family_version": 1,
+      "initial_state_reference": "688c9fc2e2b3ab8237963353678a69afb90f6cf8b7c17f195c82eab915dcfcb7",
+      "policy_checkpoint_id": "synthetic-checkpoint-v1",
+      "quality_rejection_reasons": [],
+      "realized_parameters": {
+        "corridor_width": 0.07968833220263383,
+        "friction": 0.3869553965870813,
+        "mass": 0.05731863464086796,
+        "object_size": 0.03379589933248707,
+        "obstacle_count": 2,
+        "sensor_gain": 1.0364104665563325,
+        "surface": "tray",
+        "target_distance": 0.13291136484379015,
+        "tolerance": 0.02989721360097894
+      },
+      "recording_status": "accepted",
+      "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8",
+      "retry_evidence_policy": "first_valid_completion_per_assignment",
+      "reward_summary": {
+        "sum": 2.0
+      },
+      "simulator_and_environment_versions": {
+        "adapter": "synthetic-adapter-v1",
+        "compiler": "synthetic-compiler-v1",
+        "controller": "synthetic-controller-v1",
+        "environment": "synthetic-environment-v1",
+        "sampler": "constraint-stratified-v2",
+        "simulator": "synthetic-simulator-v1"
+      },
+      "stage_outcomes": {
+        "s0": true,
+        "s1": true
+      },
+      "success": true,
+      "termination_reason": "success",
+      "trajectory_reference": "2e4cdad88aa9f8cd403f836b0fb1892c99639fc5683fe05761466f48e9b4bcd1"
+    },
+    {
+      "assignment_id": "6c1c7035427c660739efdb6410f8962e8d8c709b5da8d43efe1fb8fbf7f6b471",
+      "control_step_count": 2,
+      "controller_id": "synthetic-controller",
+      "controller_or_policy_version": "synthetic-checkpoint-v1",
+      "controller_version": "v1",
+      "dataset_eligible": true,
+      "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+      "directive_version": 1,
+      "elapsed_simulation_time": 0.04,
+      "episode_id": "a0a5061904f56675ec7f7267a4b382f459887feb58e046ed7d8d64124d334dea",
+      "episode_purpose": "training",
+      "execution_attempt_id": "attempt-4",
+      "execution_status": "completed",
+      "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+      "family_version": 1,
+      "initial_state_reference": "c3462e185d0e59af379edfd3942eed2a634844137c474be8b81cea5791ec9bbd",
+      "policy_checkpoint_id": "synthetic-checkpoint-v1",
+      "quality_rejection_reasons": [],
+      "realized_parameters": {
+        "corridor_width": 0.074958009904119,
+        "friction": 0.4869890413392291,
+        "mass": 0.09711148753665635,
+        "object_size": 0.03991362570552686,
+        "obstacle_count": 1,
+        "sensor_gain": 0.907965854298349,
+        "surface": "tray",
+        "target_distance": 0.07155605398149177,
+        "tolerance": 0.019237976276932262
+      },
+      "recording_status": "accepted",
+      "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8",
+      "retry_evidence_policy": "first_valid_completion_per_assignment",
+      "reward_summary": {
+        "sum": 2.0
+      },
+      "simulator_and_environment_versions": {
+        "adapter": "synthetic-adapter-v1",
+        "compiler": "synthetic-compiler-v1",
+        "controller": "synthetic-controller-v1",
+        "environment": "synthetic-environment-v1",
+        "sampler": "constraint-stratified-v2",
+        "simulator": "synthetic-simulator-v1"
+      },
+      "stage_outcomes": {
+        "s0": true,
+        "s1": true
+      },
+      "success": true,
+      "termination_reason": "success",
+      "trajectory_reference": "02b46f4dd1c52cee84e29250c356f308b2822fe9d14e46e9dad30522e9bcad97"
+    },
+    {
+      "assignment_id": "b2a6b0b0bf1bb177bb259bec66fc8d5d5642fde46ce374c3d2bc6efe4f74e6f7",
+      "control_step_count": 2,
+      "controller_id": "synthetic-controller",
+      "controller_or_policy_version": "synthetic-checkpoint-v1",
+      "controller_version": "v1",
+      "dataset_eligible": true,
+      "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+      "directive_version": 1,
+      "elapsed_simulation_time": 0.04,
+      "episode_id": "6e28d1034f2d5229fa9ddb80da3a9ffc802b7ef67ef2f7215d6ecb0b364a8c7b",
+      "episode_purpose": "training",
+      "execution_attempt_id": "attempt-5",
+      "execution_status": "completed",
+      "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+      "family_version": 1,
+      "initial_state_reference": "a619d14f843d3ed366b2409b6e0758b32b31e9303dfcefc699d9343f1fa804c5",
+      "policy_checkpoint_id": "synthetic-checkpoint-v1",
+      "quality_rejection_reasons": [],
+      "realized_parameters": {
+        "corridor_width": 0.07604893020746117,
+        "friction": 0.5700883700967943,
+        "mass": 0.14625112976543175,
+        "object_size": 0.02204319624924823,
+        "obstacle_count": 3,
+        "sensor_gain": 1.0605659223047579,
+        "surface": "mat",
+        "target_distance": 0.041598513719853576,
+        "tolerance": 0.011492766921114575
+      },
+      "recording_status": "accepted",
+      "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8",
+      "retry_evidence_policy": "first_valid_completion_per_assignment",
+      "reward_summary": {
+        "sum": 2.0
+      },
+      "simulator_and_environment_versions": {
+        "adapter": "synthetic-adapter-v1",
+        "compiler": "synthetic-compiler-v1",
+        "controller": "synthetic-controller-v1",
+        "environment": "synthetic-environment-v1",
+        "sampler": "constraint-stratified-v2",
+        "simulator": "synthetic-simulator-v1"
+      },
+      "stage_outcomes": {
+        "s0": true,
+        "s1": true
+      },
+      "success": true,
+      "termination_reason": "success",
+      "trajectory_reference": "37761e611dd86bda8a79e544a4ff111ed5410fa1312f6b92ef2b437c972567cb"
+    },
+    {
+      "assignment_id": "ccceaa2b732ccc8d59227d3c99ae2f8e2763096a567cd223ca7025b89c1bc3f4",
+      "control_step_count": 2,
+      "controller_id": "synthetic-controller",
+      "controller_or_policy_version": "synthetic-checkpoint-v1",
+      "controller_version": "v1",
+      "dataset_eligible": true,
+      "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+      "directive_version": 1,
+      "elapsed_simulation_time": 0.04,
+      "episode_id": "0ebdae1f2ef26770a1eae89eb72f651fee5ac448cdada7015de81646800ceca8",
+      "episode_purpose": "training",
+      "execution_attempt_id": "attempt-7",
+      "execution_status": "completed",
+      "family_id": "2c0fcfe04d10040a28ec597c09af320ade0e4036141f6313cae99e93819feb39",
+      "family_version": 1,
+      "initial_state_reference": "25f6048ecca5ad502a14cbf9c6e6720c8492353725dafcf8b0fcc4f7abc9fed7",
+      "policy_checkpoint_id": "synthetic-checkpoint-v1",
+      "quality_rejection_reasons": [],
+      "realized_parameters": {
+        "corridor_width": 0.07216654952412518,
+        "friction": 0.7933514643294048,
+        "mass": 0.08775630768415577,
+        "object_size": 0.027288141100840716,
+        "obstacle_count": 0,
+        "sensor_gain": 0.9797747655337383,
+        "surface": "mat",
+        "target_distance": 0.11592305041123405,
+        "tolerance": 0.03641982400108951
+      },
+      "recording_status": "accepted",
+      "region_id": "d5b08087f801dc42c9c2e358d20fca4d1e1a078ce844ae60ba725e44277d5de8",
+      "retry_evidence_policy": "first_valid_completion_per_assignment",
+      "reward_summary": {
+        "sum": 2.0
+      },
+      "simulator_and_environment_versions": {
+        "adapter": "synthetic-adapter-v1",
+        "compiler": "synthetic-compiler-v1",
+        "controller": "synthetic-controller-v1",
+        "environment": "synthetic-environment-v1",
+        "sampler": "constraint-stratified-v2",
+        "simulator": "synthetic-simulator-v1"
+      },
+      "stage_outcomes": {
+        "s0": true,
+        "s1": true
+      },
+      "success": true,
+      "termination_reason": "success",
+      "trajectory_reference": "64c91010e2ae99685de9393533578c05cc78b46235fb0af811a87113916f7a0a"
+    },
+    {
+      "assignment_id": "e841950a2c75ae77ae8b763a9109c340c140fe97223dabb9fd61fef71ed6ef8d",
+      "control_step_count": 2,
+      "controller_id": "synthetic-controller",
+      "controller_or_policy_version": "synthetic-checkpoint-v1",
+      "controller_version": "v1",
+      "dataset_eligible": true,
+      "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+      "directive_version": 1,
+      "elapsed_simulation_time": 0.04,
+      "episode_id": "e61c4bf829cc61b473349a2cc33fb27f8f91ec94b129e35487eca470c2b42b0e",
+      "episode_purpose": "training",
+      "execution_attempt_id": "attempt-3",
+      "execution_status": "completed",
+      "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+      "family_version": 1,
+      "initial_state_reference": "08dbb647113297d29517878a8886f748b43aad7b6d2654a855ca1e7366179756",
+      "policy_checkpoint_id": "synthetic-checkpoint-v1",
+      "quality_rejection_reasons": [],
+      "realized_parameters": {
+        "corridor_width": 0.0778095713672939,
+        "friction": 0.5211890254071274,
+        "mass": 0.12651159264292214,
+        "object_size": 0.031358289725468516,
+        "obstacle_count": 3,
+        "sensor_gain": 0.9157626806461826,
+        "surface": "mat",
+        "target_distance": 0.04903706099689145,
+        "tolerance": 0.03907473692349415
+      },
+      "recording_status": "accepted",
+      "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6",
+      "retry_evidence_policy": "first_valid_completion_per_assignment",
+      "reward_summary": {
+        "sum": 2.0
+      },
+      "simulator_and_environment_versions": {
+        "adapter": "synthetic-adapter-v1",
+        "compiler": "synthetic-compiler-v1",
+        "controller": "synthetic-controller-v1",
+        "environment": "synthetic-environment-v1",
+        "sampler": "constraint-stratified-v2",
+        "simulator": "synthetic-simulator-v1"
+      },
+      "stage_outcomes": {
+        "s0": true
+      },
+      "success": true,
+      "termination_reason": "success",
+      "trajectory_reference": "9afe7a234d653934522b189fa245ce1e05a4f5a2d8cb99d65d8fb95c96a46b01"
+    },
+    {
+      "assignment_id": "fcb04a8fe08b5f3b90119889bbe17fc383913be1bd9a303f8d0905976dbc3f90",
+      "control_step_count": 2,
+      "controller_id": "synthetic-controller",
+      "controller_or_policy_version": "synthetic-checkpoint-v1",
+      "controller_version": "v1",
+      "dataset_eligible": true,
+      "directive_id": "dc7c0005f105dbd878b79d02c014e828f8052f96c366da0dfa476cf15765ff17",
+      "directive_version": 1,
+      "elapsed_simulation_time": 0.04,
+      "episode_id": "654a54d9d2c7cf9f4bbfd7f9ee5888975976e39a613e1c207ce6c63cc0daf34d",
+      "episode_purpose": "training",
+      "execution_attempt_id": "attempt-1",
+      "execution_status": "completed",
+      "family_id": "b7112af2ee68448e315c053a4cde067d71f7afb13d1f852b0c380285ef3bb3c9",
+      "family_version": 1,
+      "initial_state_reference": "62db57f3b3ba96ea49c41d8117c80efb0c860ad674eb1e37904eaa4bf954340f",
+      "policy_checkpoint_id": "synthetic-checkpoint-v1",
+      "quality_rejection_reasons": [],
+      "realized_parameters": {
+        "corridor_width": 0.072346809595973,
+        "friction": 0.6568810858989285,
+        "mass": 0.11643266602397916,
+        "object_size": 0.03506668144511129,
+        "obstacle_count": 1,
+        "sensor_gain": 1.0333140483492107,
+        "surface": "tray",
+        "target_distance": 0.09131330169514276,
+        "tolerance": 0.012171156539521657
+      },
+      "recording_status": "accepted",
+      "region_id": "7ef82225ba191b9e869b9e92dd4c2e01522af07ead8fe96005e4c3816d860eb6",
+      "retry_evidence_policy": "first_valid_completion_per_assignment",
+      "reward_summary": {
+        "sum": 2.0
+      },
+      "simulator_and_environment_versions": {
+        "adapter": "synthetic-adapter-v1",
+        "compiler": "synthetic-compiler-v1",
+        "controller": "synthetic-controller-v1",
+        "environment": "synthetic-environment-v1",
+        "sampler": "constraint-stratified-v2",
+        "simulator": "synthetic-simulator-v1"
+      },
+      "stage_outcomes": {
+        "s0": true
+      },
+      "success": true,
+      "termination_reason": "success",
+      "trajectory_reference": "aa9dfe677489a950320d075684258d8213a25fc29e32e3dd5edd0f61aba0245c"
+    }
+  ],
+  "trajectories": [
+    {
+      "action_schema_id": "joint_target_v1",
+      "observation_schema_id": "state_v1",
+      "privileged_state": [
+        {
+          "synthetic_ground_truth": true
+        },
+        {
+          "synthetic_ground_truth": true
+        }
+      ],
+      "samples": [
+        {
+          "action_time": 0.0,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.02,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.0,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 1,
+          "terminal": false
+        },
+        {
+          "action_time": 0.02,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.04,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.02,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 2,
+          "terminal": true
+        }
+      ],
+      "schema": {
+        "actions": {
+          "joint_target": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "joint",
+            "type": "float",
+            "units": "rad"
+          }
+        },
+        "observations": {
+          "position": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "world",
+            "type": "float",
+            "units": "m"
+          }
+        },
+        "schema_id": "synthetic-trajectory-v1"
+      },
+      "terminal_boundary": "pre_reset",
+      "time_units": "s"
+    },
+    {
+      "action_schema_id": "joint_target_v1",
+      "observation_schema_id": "state_v1",
+      "privileged_state": [
+        {
+          "synthetic_ground_truth": true
+        },
+        {
+          "synthetic_ground_truth": true
+        }
+      ],
+      "samples": [
+        {
+          "action_time": 0.0,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.02,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.0,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 1,
+          "terminal": false
+        },
+        {
+          "action_time": 0.02,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.04,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.02,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 2,
+          "terminal": true
+        }
+      ],
+      "schema": {
+        "actions": {
+          "joint_target": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "joint",
+            "type": "float",
+            "units": "rad"
+          }
+        },
+        "observations": {
+          "position": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "world",
+            "type": "float",
+            "units": "m"
+          }
+        },
+        "schema_id": "synthetic-trajectory-v1"
+      },
+      "terminal_boundary": "pre_reset",
+      "time_units": "s"
+    },
+    {
+      "action_schema_id": "joint_target_v1",
+      "observation_schema_id": "state_v1",
+      "privileged_state": [
+        {
+          "synthetic_ground_truth": true
+        },
+        {
+          "synthetic_ground_truth": true
+        }
+      ],
+      "samples": [
+        {
+          "action_time": 0.0,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.02,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.0,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 1,
+          "terminal": false
+        },
+        {
+          "action_time": 0.02,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.04,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.02,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 2,
+          "terminal": true
+        }
+      ],
+      "schema": {
+        "actions": {
+          "joint_target": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "joint",
+            "type": "float",
+            "units": "rad"
+          }
+        },
+        "observations": {
+          "position": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "world",
+            "type": "float",
+            "units": "m"
+          }
+        },
+        "schema_id": "synthetic-trajectory-v1"
+      },
+      "terminal_boundary": "pre_reset",
+      "time_units": "s"
+    },
+    {
+      "action_schema_id": "joint_target_v1",
+      "observation_schema_id": "state_v1",
+      "privileged_state": [
+        {
+          "synthetic_ground_truth": true
+        },
+        {
+          "synthetic_ground_truth": true
+        }
+      ],
+      "samples": [
+        {
+          "action_time": 0.0,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.02,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.0,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 1,
+          "terminal": false
+        },
+        {
+          "action_time": 0.02,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.04,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.02,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 2,
+          "terminal": true
+        }
+      ],
+      "schema": {
+        "actions": {
+          "joint_target": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "joint",
+            "type": "float",
+            "units": "rad"
+          }
+        },
+        "observations": {
+          "position": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "world",
+            "type": "float",
+            "units": "m"
+          }
+        },
+        "schema_id": "synthetic-trajectory-v1"
+      },
+      "terminal_boundary": "pre_reset",
+      "time_units": "s"
+    },
+    {
+      "action_schema_id": "joint_target_v1",
+      "observation_schema_id": "state_v1",
+      "privileged_state": [
+        {
+          "synthetic_ground_truth": true
+        },
+        {
+          "synthetic_ground_truth": true
+        }
+      ],
+      "samples": [
+        {
+          "action_time": 0.0,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.02,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.0,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 1,
+          "terminal": false
+        },
+        {
+          "action_time": 0.02,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.04,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.02,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 2,
+          "terminal": true
+        }
+      ],
+      "schema": {
+        "actions": {
+          "joint_target": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "joint",
+            "type": "float",
+            "units": "rad"
+          }
+        },
+        "observations": {
+          "position": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "world",
+            "type": "float",
+            "units": "m"
+          }
+        },
+        "schema_id": "synthetic-trajectory-v1"
+      },
+      "terminal_boundary": "pre_reset",
+      "time_units": "s"
+    },
+    {
+      "action_schema_id": "joint_target_v1",
+      "observation_schema_id": "state_v1",
+      "privileged_state": [
+        {
+          "synthetic_ground_truth": true
+        },
+        {
+          "synthetic_ground_truth": true
+        }
+      ],
+      "samples": [
+        {
+          "action_time": 0.0,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.02,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.0,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 1,
+          "terminal": false
+        },
+        {
+          "action_time": 0.02,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.04,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.02,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 2,
+          "terminal": true
+        }
+      ],
+      "schema": {
+        "actions": {
+          "joint_target": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "joint",
+            "type": "float",
+            "units": "rad"
+          }
+        },
+        "observations": {
+          "position": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "world",
+            "type": "float",
+            "units": "m"
+          }
+        },
+        "schema_id": "synthetic-trajectory-v1"
+      },
+      "terminal_boundary": "pre_reset",
+      "time_units": "s"
+    },
+    {
+      "action_schema_id": "joint_target_v1",
+      "observation_schema_id": "state_v1",
+      "privileged_state": [
+        {
+          "synthetic_ground_truth": true
+        },
+        {
+          "synthetic_ground_truth": true
+        }
+      ],
+      "samples": [
+        {
+          "action_time": 0.0,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.02,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.0,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 1,
+          "terminal": false
+        },
+        {
+          "action_time": 0.02,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.04,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.02,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 2,
+          "terminal": true
+        }
+      ],
+      "schema": {
+        "actions": {
+          "joint_target": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "joint",
+            "type": "float",
+            "units": "rad"
+          }
+        },
+        "observations": {
+          "position": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "world",
+            "type": "float",
+            "units": "m"
+          }
+        },
+        "schema_id": "synthetic-trajectory-v1"
+      },
+      "terminal_boundary": "pre_reset",
+      "time_units": "s"
+    },
+    {
+      "action_schema_id": "joint_target_v1",
+      "observation_schema_id": "state_v1",
+      "privileged_state": [
+        {
+          "synthetic_ground_truth": true
+        },
+        {
+          "synthetic_ground_truth": true
+        }
+      ],
+      "samples": [
+        {
+          "action_time": 0.0,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.02,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.0,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 1,
+          "terminal": false
+        },
+        {
+          "action_time": 0.02,
+          "actions": {
+            "joint_target": 0.0
+          },
+          "next_observation_time": 0.04,
+          "next_observations": {
+            "position": 0.0
+          },
+          "observation_time": 0.02,
+          "observations": {
+            "position": 0.0
+          },
+          "step": 2,
+          "terminal": true
+        }
+      ],
+      "schema": {
+        "actions": {
+          "joint_target": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "joint",
+            "type": "float",
+            "units": "rad"
+          }
+        },
+        "observations": {
+          "position": {
+            "bounds": [
+              -1.0,
+              1.0
+            ],
+            "coordinate_frame": "world",
+            "type": "float",
+            "units": "m"
+          }
+        },
+        "schema_id": "synthetic-trajectory-v1"
+      },
+      "terminal_boundary": "pre_reset",
+      "time_units": "s"
+    }
+  ]
+}

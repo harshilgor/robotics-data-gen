@@ -8,6 +8,7 @@ from hashlib import sha256
 import json
 import math
 import random
+from .parameters import validate_domain, draw
 
 SCHEMA_VERSION = "1.0"
 SKILLS = {
@@ -70,11 +71,15 @@ def validate(task):
     report = Validation()
     try:
         canonical(task)
+        if task.get("schema_version") == "1.2":
+            from semantics.task_spec import validate_extended
+            validate_extended(task)
+            return report
         required = {"schema_version", "family", "revision", "embodiment", "scene", "objects", "initial_state",
                     "task_graph", "theta", "phi", "success", "reward", "horizon", "interfaces", "provenance"}
         if set(task) != required:
             raise ValueError("DSL fields missing or unknown")
-        if task["schema_version"] != SCHEMA_VERSION or task["embodiment"] != "so101":
+        if task["schema_version"] not in (SCHEMA_VERSION, "1.1") or task["embodiment"] != "so101":
             raise ValueError("unsupported schema or embodiment")
         if task["scene"]["template"] != "tabletop":
             raise ValueError("unsupported scene")
@@ -82,12 +87,20 @@ def validate(task):
             raise ValueError("invalid family identity")
         if type(task["horizon"]) is not int or task["horizon"] <= 0:
             raise ValueError("invalid horizon")
-        if task["interfaces"] != {"observation": "state_v1", "action": "joint_target_v1"}:
+        supported_interfaces = [{"observation": "state_v1", "action": "joint_target_v1"}]
+        if task["schema_version"] == "1.1":
+            supported_interfaces.append({"observation": "local_cartesian_state_v1", "action": "local_cartesian_delta_v1"})
+        if task["interfaces"] not in supported_interfaces:
             raise ValueError("unsupported interfaces")
         for kind, expected in (("theta", THETA), ("phi", PHI)):
-            if set(task[kind]) != set(expected):
+            if (set(task[kind]) != set(expected) if task["schema_version"] == "1.0" else not set(expected) <= set(task[kind])):
                 raise ValueError(f"unknown or missing {kind} parameters")
             for key, bounds in task[kind].items():
+                if task["schema_version"] == "1.1":
+                    spec = validate_domain(bounds)
+                    if key in expected and (spec["type"] != "float" or spec["bounds"][0] <= 0):
+                        raise ValueError("core physical dimensions require positive float bounds")
+                    continue
                 if not isinstance(bounds, list) or len(bounds) != 2 or any(type(v) not in (int, float) or not math.isfinite(v) for v in bounds):
                     raise ValueError(f"invalid range: {key}")
                 if not 0 < bounds[0] <= bounds[1]:
@@ -135,7 +148,10 @@ def compose(base, suffix, name):
     result["family"] = name
     result["task_graph"] = graph([n["skill"] for n in base["task_graph"]] + list(suffix))
     final = suffix[-1] if suffix else result["task_graph"][-1]["skill"]
-    result["success"]["predicate"] = {"reach": "near", "grasp": "held", "lift": "lifted", "transport": "at_target", "release": "placed", "push": "at_target"}[final]
+    goals = {"reach": "near", "grasp": "held", "lift": "lifted", "transport": "at_target", "release": "placed", "push": "at_target"}
+    if base["schema_version"] == "1.2":
+        goals.update(rotate="oriented", align="aligned", insert="inserted", articulate="opened", obstacle_transport="avoided_obstacle", stack="stacked")
+    result["success"]["predicate"] = goals[final]
     result["provenance"] = {"engine": "composition", "parents": [fingerprint(base)]}
     report = validate(result)
     if not report.structurally_valid:
@@ -144,13 +160,20 @@ def compose(base, suffix, name):
 
 def mutate(base, parameter, factor):
     """One counterfactual range mutation, with immutable parent lineage."""
-    if parameter not in THETA and parameter not in PHI:
+    if parameter not in base["theta"] and parameter not in base["phi"]:
         raise ValueError("unsupported mutation parameter")
     if type(factor) not in (int, float) or not math.isfinite(factor) or factor <= 0 or factor == 1:
         raise ValueError("mutation factor must be positive, finite and change the range")
     result = deepcopy(base)
-    kind = "theta" if parameter in THETA else "phi"
-    result[kind][parameter] = [v * factor for v in result[kind][parameter]]
+    kind = "theta" if parameter in base["theta"] else "phi"
+    from .parameters import domain
+    parameter_spec = domain(result[kind][parameter])
+    if parameter_spec["type"] == "categorical":
+        raise ValueError("range mutation cannot change categorical values")
+    bounds = [v * factor for v in parameter_spec["bounds"]]
+    if parameter_spec["type"] == "int":
+        bounds = [int(v) for v in bounds]
+    result[kind][parameter] = bounds if isinstance(result[kind][parameter], list) else {**parameter_spec, "bounds": bounds}
     result["revision"] += 1
     result["provenance"] = {"engine": "mutation", "parents": [fingerprint(base)], "parameter": parameter, "factor": factor}
     if not validate(result).structurally_valid:
@@ -163,7 +186,7 @@ def novelty(candidate, archive):
         skills = [n["skill"] for n in task["task_graph"]]
         structure = set(enumerate(skills))
         composition = set(zip(skills, skills[1:])) | {(s,) for s in skills}
-        objects = {(s["asset"], a) for s in task["objects"].values() for a in s["affordances"]}
+        objects = {(s.get("asset", "role"), a) for s in task["objects"].values() for a in s.get("affordances", s.get("requires", []))}
         return structure, composition, objects
     def jaccard(a, b):
         return 0.0 if not a | b else 1 - len(a & b) / len(a | b)
@@ -176,7 +199,10 @@ def novelty(candidate, archive):
         for kind in ("theta", "phi"):
             parts = []
             for key, bounds in candidate[kind].items():
-                other = old[kind][key]
+                other = old[kind].get(key)
+                if not isinstance(bounds, list) or not isinstance(other, list):
+                    parts.append(float(bounds != other))
+                    continue
                 parts.extend(abs(a-b) / max(abs(a), abs(b), 1e-9) for a, b in zip(bounds, other))
             values.append(sum(parts) / len(parts))
         distances.append(values)
@@ -207,7 +233,7 @@ class TaskGenerator:
         # Instance address makes replay independent of sampling order.
         seed = int(fingerprint([self.seed, fingerprint(task), index])[:16], 16)
         rng = random.Random(seed)
-        values = {kind: {key: rng.uniform(*bounds) for key, bounds in sorted(task[kind].items())} for kind in ("theta", "phi")}
+        values = {kind: {key: draw(bounds, rng) for key, bounds in sorted(task[kind].items())} for kind in ("theta", "phi")}
         return {"schema_version": SCHEMA_VERSION, "family_id": fingerprint(task), "family": task["family"],
                 "revision": task["revision"], "seed": seed, "index": index, **values,
                 "provenance": {"generator_seed": self.seed, "generator_version": "0.1.0"},

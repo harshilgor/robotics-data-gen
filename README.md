@@ -1,6 +1,6 @@
 # SO-101 Robotic Data Factory
 
-Software foundations for a closed-loop simulated robotics experience factory:
+Runnable local synthetic runtime for a closed-loop robotics experience factory:
 task generation, capability-based advice, versioned task knowledge, curriculum
 assignments, measured episode recording and controlled development evaluation.
 
@@ -10,6 +10,8 @@ Python 3.12 or later; current code uses the standard library.
 
 ```powershell
 python -m unittest discover -s tests -v
+python -m factory --root artifacts/my-cycle --episodes 14 --broad
+python -m factory --root artifacts/my-camera-cycle --episodes 14 --broad --modalities rgb depth
 python -m taskgen --seed 42 --instances-per-family 3 --output generated-tasks.json
 ```
 
@@ -27,9 +29,32 @@ python -m taskgen --seed 42 --instances-per-family 3 --output generated-tasks.js
 - `*-implementation.md` and `instrumentation.md`: implemented scope and contracts.
 - `task-library-audit.md`: audit findings and software closure notes.
 
-The full Curriculum Sampler engine is the next software component. Existing
-sampler code is an initial implementation, not completion of its entire brief.
-Actual Isaac Lab/SO-101 scenes, physical validation and PPO runtime integration
-are deferred. Example results and test approvals are synthetic; they do not
-establish robot feasibility or empirical learning performance. Persistence is
-currently SQLite; a deployed PostgreSQL backend is not implemented.
+The complete local cycle publishes and validates 14 broad task configurations,
+executes independent environments with interrupted retry, records demonstrations,
+curates a versioned dataset, fits a motion baseline, saves checkpoints, compares
+them on the same frozen evaluation suite, updates the Advisor and closes coverage
+gaps before sampling the next batch. Choose a fresh root for each cycle; it holds
+`metadata.sqlite3`, external `objects/` payloads and `cycle-report.json`.
+
+New packages: `semantics/` (shared registries and grammar), `assets/` (exact
+resources), `task_compiler/`, `task_validator/`, `simulation/`, `data/`,
+`training/`, `evaluation/` and `factory/`. Discovery and the recovered complete
+Curriculum Sampler extend the existing engines. See `architecture-implementation.md`
+for coverage and verification of all 53 architecture sections.
+
+The baseline learns a motion gain from demonstrations while retaining a trusted
+task-stage controller. The local model approximates Cartesian motion, contact,
+grasp and support; RGB/depth use a diagnostic orthographic camera. These runs
+establish software integration, not SO-101 physical feasibility or general policy
+learning. Isaac Lab, real IK/dynamics and hardware require a separately validated
+`ExecutionAdapter` implementation. Hosted LLM proposals are an optional injected
+provider; deterministic trusted discovery works locally.
+
+SQLite plus local content-addressed files is the verified default. An optional
+`data.postgres.PostgresStore` requires psycopg 3 and a supplied server. Set
+`ROBOTICS_TEST_POSTGRES_DSN` to enable its live integration test; it was skipped
+locally because no server is connected. No service or credentials are provisioned.
+
+The cloud sampler's 21-file delivery was recovered and checked against its
+recorded Git tree. `python tools/verify_cloud_recovery.py` verifies the archived
+sources in `artifacts/cloud-recovery/`; active source includes subsequent changes.

@@ -7,6 +7,12 @@ import json
 import math
 
 
+def shared_ontology():
+    from semantics.registry import default_registry
+    return {name: definition.get("parent") for name, definition in
+            default_registry().snapshot()["definitions"]["capability"].items()}
+
+
 def canonical(value):
     return json.dumps(value, sort_keys=True, separators=(",", ":"), allow_nan=False)
 
@@ -23,10 +29,13 @@ def task_annotation(task):
     from taskgen.core import validate, fingerprint
     if not validate(task).structurally_valid:
         raise ValueError("invalid generator TaskSpec")
-    return {"family_id": fingerprint(task), "family": task["family"], "family_version": task["revision"],
-            "capabilities": sorted({n["skill"] for n in task["task_graph"]}),
-            "subgoals": [{"id": n["id"], "capability": n["skill"], "depends_on": n["depends_on"]}
+    from semantics.capabilities import capabilities_for, STAGE_CAPABILITY
+    annotation = {"family_id": fingerprint(task), "family": task["family"], "family_version": task["revision"],
+            "capabilities": capabilities_for(task),
+            "subgoals": [{"id": n["id"], "capability": STAGE_CAPABILITY.get(n["skill"], n["skill"]) if task["schema_version"] == "1.2" else n["skill"], "depends_on": n["depends_on"]}
                          for n in task["task_graph"]]}
+    if task["schema_version"] in ("1.1", "1.2"): annotation["parameter_schema"] = task["theta"]
+    return annotation
 
 
 @dataclass
@@ -44,11 +53,7 @@ class Config:
     bins: dict = field(default_factory=lambda: {"tolerance": [.005, .01, .02, .04],
         "placement_tolerance": [.005, .01, .02, .04], "target_distance": [.1, .25, .4],
         "transport_distance": [.1, .25, .4], "obstacle_count": [1, 3, 6], "sequence_length": [2, 4, 6]})
-    ontology: dict = field(default_factory=lambda: {"reach": "acquisition", "align": "acquisition",
-        "grasp": "acquisition", "lift": "object_control", "transport": "object_control",
-        "rotate": "object_control", "grasp_stability": "object_control", "push": "contact",
-        "slide": "contact", "insert": "contact", "articulate": "contact", "release": "precision",
-        "precision_placement": "precision", "sequencing": "composition", "recovery": "composition"})
+    ontology: dict = field(default_factory=shared_ontology)
 
     def validate(self):
         for name in ("minimum_samples", "progress_samples", "window", "combination_samples"):
@@ -112,8 +117,11 @@ def validate_episode(ep, tasks):
         raise ValueError("invalid episode_length")
     if not isinstance(ep.get("task_parameters"), dict):
         raise ValueError("task_parameters required")
-    for name, value in ep["task_parameters"].items():
-        number(value, name)
+    if "parameter_schema" in task:
+        from taskgen.parameters import check_values
+        check_values(task["parameter_schema"], ep["task_parameters"])
+    else:
+        for name, value in ep["task_parameters"].items(): number(value, name)
     results = ep.get("subgoal_results")
     expected = {stage["id"] for stage in task["subgoals"]}
     if not isinstance(results, dict) or set(results) != expected:
@@ -161,6 +169,9 @@ def region(task, parameters, bins):
         if name not in parameters:
             continue
         v = parameters[name]
+        if type(v) not in (int, float):
+            bounds[name] = {"values": [v]}
+            continue
         lower = None
         upper = None
         for cut in cuts:

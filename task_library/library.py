@@ -1,5 +1,6 @@
 """Canonical knowledge registry, separate from execution contracts and episodes."""
 from copy import deepcopy
+from taskgen.parameters import domain, contains, intersect_domain, check_values, validate_domain
 import re
 from taskgen.core import fingerprint, validate
 from task_advisor.core import canonical, number
@@ -30,7 +31,7 @@ def structural_signature(task):
     return {"goal": deepcopy(task["success"]), "skills": [
         {"skill": n["skill"], "object": n["object"], "target": n["target"],
          "dependencies": sorted(positions[d] for d in n["depends_on"])} for n in task["task_graph"]],
-        "roles": {k: {"affordances": sorted(v["affordances"])} for k, v in sorted(task["objects"].items())},
+        "roles": {k: {"affordances": sorted(v.get("affordances", v.get("requires", [])))} for k, v in sorted(task["objects"].items())},
         "constraints": {"scene": task["scene"], "initial_state": task["initial_state"]}}
 
 
@@ -100,12 +101,16 @@ class TaskLibrary(Governance, ExecutionLibrary):
             if bounds_changed and current[0] == previous[0]:
                 for group in ("theta", "phi"):
                     if set(task[group]) != set(prior[group]): raise ValueError("parameter schema change requires major version")
-                    for key, (lo, hi) in prior[group].items():
-                        a, b = task[group][key]
-                        if a > lo or b < hi: raise ValueError("incompatible range narrowing requires major version")
+                    for key, old_domain in prior[group].items():
+                        new_domain = task[group][key]
+                        if domain(old_domain)["type"] != domain(new_domain)["type"]:
+                            raise ValueError("parameter type change requires major version")
+                        if intersect_domain(old_domain, new_domain) != old_domain:
+                            raise ValueError("incompatible range narrowing requires major version")
         with transaction(self.repo.db):
             self.repo.db.execute("INSERT INTO library_versions VALUES (?,?,?,?)", (family_id, version, record["structural_hash"], payload))
-            tags = [("capability", n["skill"]) for n in task["task_graph"]]
+            from semantics.capabilities import capabilities_for
+            tags = [("capability", capability) for capability in capabilities_for(task)]
             tags += [("parameter", k) for group in ("theta", "phi") for k in task[group]]
             tags += [("role", k) for k in task["objects"]] + [("goal", task["success"]["predicate"])]
             for kind, value in set(tags):
@@ -164,8 +169,8 @@ class TaskLibrary(Governance, ExecutionLibrary):
         for region in regions:
             if set(region) != set(parameters): raise ValueError("complete parameter envelope required")
             for name, bounds in region.items():
-                if not isinstance(bounds, list) or len(bounds) != 2: raise ValueError("interval required")
-                number(bounds[0], name, *parameters[name]); number(bounds[1], name, bounds[0], parameters[name][1])
+                validate_domain(bounds)
+                if intersect_domain(bounds, parameters[name]) != bounds: raise ValueError("envelope outside family")
         if outcome == "valid":
             required = {"kinematics", "collision", "physics", "reset_stability"}
             if not isinstance(checks, dict) or set(checks) != required or any(v is not True for v in checks.values()):
@@ -179,9 +184,9 @@ class TaskLibrary(Governance, ExecutionLibrary):
         record = self.get_version(family_id, version)
         bounds = {**record["task_spec"]["theta"], **record["task_spec"]["phi"]}
         if set(parameters) != set(bounds): raise ValueError("full parameter point required")
-        for key, value in parameters.items(): number(value, key, *bounds[key])
+        check_values(bounds, parameters)
         matches = [e for e in self.history(family_id, version) if e["kind"] == "validation" and e["context"] == context
-            and any(all(lo <= parameters[k] <= hi for k, (lo, hi) in region.items()) for region in e["regions"])]
+            and any(all(contains(v, parameters[k]) for k, v in region.items()) for region in e["regions"])]
         outcomes = {e["outcome"] for e in matches}
         return {"status": "conflict" if {"valid", "invalid"} <= outcomes else "invalid" if "invalid" in outcomes else "valid" if "valid" in outcomes else "unknown",
                 "reports": [e["report_id"] for e in matches]}
