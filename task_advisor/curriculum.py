@@ -376,6 +376,14 @@ def sample_batch(sampler, directive, *, now):
                             values[key] = choices[permutation[slot] % len(choices)]
                         else: values[key] = draw(value, rng, (permutation[slot]+rng.random())/max(1,count))
                     try:
+                        if directive['episode_purpose'] != 'evaluation' and any(
+                            h['family_id'] == c['family_id'] and h['family_version'] == c['family_version']
+                            for h in sampler.repo.records('heldout_family')):
+                            raise ValueError('held-out family/composition cannot enter training')
+                        if directive['episode_purpose'] != 'evaluation':
+                            from evaluation.reservations import training_reserved
+                            if training_reserved(sampler.repo,record['task'],values):
+                                raise ValueError('held-out structure/layout region cannot enter training')
                         check_values(schema, values)
                         for check in c["constraints"]:
                             if registry.resolve("constraint", check["id"], schema)(deepcopy(values)) is not True: raise ValueError("constraint: "+check["id"])

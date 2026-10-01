@@ -9,7 +9,7 @@ from task_compiler import TaskCompiler
 
 
 class TaskValidator:
-    version = "local-validator-1.0"
+    version = "local-validator-2.0"
     simulator_version = LocalSimulationAdapter.simulator_version
 
     def __init__(self, compiler=None):
@@ -43,9 +43,11 @@ class TaskValidator:
                     assignment = {"assignment_id": fingerprint(instance), "sampling_seed": instance["seed"],
                         "task_parameters": instance["theta"], "environment_parameters": instance["phi"],
                         "compiled_artifact_hash": fingerprint(compiled), "policy_checkpoint_id": None}
-                    adapter.configure("reference", compiled, "validation", {k: parameters[k] for k in ("object_size", "mass", "friction")})
+                    from task_compiler.bindings import split_parameters
+                    build, reset = split_parameters(task, parameters)
+                    adapter.configure("reference", compiled, "validation", build)
                     adapter.install("reference", assignment, "validation-episode")
-                    adapter.apply_reset("reference", {k: parameters[k] for k in ("target_distance", "tolerance")})
+                    adapter.apply_reset("reference", reset)
                     realized = adapter.reset("reference", task["initial_state"], task["success"])
                     checks["reset_stability"] = (realized["realized_parameters"] == parameters and
                         adapter.environments["reference"]["speed"] == 0.)
@@ -65,11 +67,14 @@ class TaskValidator:
                                 ("eef_object_distance", "object_target_distance", "height_above_reset", "object_speed"))
                             checks["collision"] &= not frame["collision"]
                             if frame["terminated"] or frame["truncated"]:
+                                semantic = frame.get('semantic_measurements')
                                 success = frame["terminated"] and not frame["collision"]
+                                if semantic is not None:
+                                    success = success and all(semantic['goal']) and all(semantic['constraints'])
                                 break
                         reference_result = {"status": "passed" if success else "failed", "success": success,
                                             "executed_steps": adapter.environments["reference"]["step"],
-                                            "controller_version": "local-reference-1.0"}
+                                            "controller_version": "local-reference-2.0"}
             except (ValueError, KeyError, TypeError) as exc:
                 reasons.append(str(exc))
         physical = {name: checks[name] for name in ("kinematics", "collision", "physics", "reset_stability")}
@@ -90,23 +95,27 @@ class TaskValidator:
         return report
 
     def envelope(self, task):
-        """Check full bounds analytically for this simple surrogate, then probe
-        opposing corners through the reference controller. This certifies only
-        the declared synthetic model; it is not physical envelope certification.
+        """Probe opposing parameter bounds in the synthetic reference runtime.
+
+        The domain is a sampling candidate, not a continuous physical proof.
+        Compilation declares always-on per-instance validation for all samples.
         """
         from taskgen.core import TaskGenerator
-        if set(task["theta"]) != {"target_distance", "tolerance", "object_size"} or set(task["phi"]) != {"mass", "friction"}:
-            raise ValueError("validator lacks an envelope proof for extra parameters")
+        from task_compiler.bindings import parameter_schema
+        parameter_schema(task)
         reports = []
         for corner in (0, 1):
             instance = TaskGenerator(0).sample(task, corner)
             for group in ("theta", "phi"):
-                instance[group] = {name: domain(bounds)["bounds"][corner] for name, bounds in task[group].items()}
+                instance[group] = {name: (domain(bounds)["values"][corner % len(domain(bounds)["values"])] if domain(bounds)["type"] == "categorical" else domain(bounds)["bounds"][corner]) for name, bounds in task[group].items()}
             reports.append(self.evidence(task, instance))
         result = {"family_id": fingerprint(task), "validator_version": self.version,
             "simulator_version": self.simulator_version, "checks": deepcopy(reports[0]["checks"]),
             "envelope": deepcopy({**task["theta"], **task["phi"]}),
-            "evidence_label": "analytic synthetic workspace/contact domain with two reference corner probes",
-            "reference_report_ids": [report["report_id"] for report in reports]}
+            "evidence_label": "synthetic bound probes only; every scheduled instance independently reference-validated; not full physical envelope certification",
+            "reference_report_ids": [report["report_id"] for report in reports],
+            "coverage": "two probed points; unsampled combinations unknown until instance validation",
+            "confirmed_valid_instance_ids": [report["instance_id"] for report in reports],
+            "requires_instance_validation": True}
         result["report_id"] = fingerprint(result)
         return result

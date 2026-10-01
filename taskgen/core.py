@@ -71,6 +71,19 @@ def validate(task):
     report = Validation()
     try:
         canonical(task)
+        if task.get('schema_version') == '1.3':
+            from semantics.execution import lower
+            from semantics import default_registry
+            expected = lower(task['semantic'], default_registry())
+            for key in ('objects','initial_state','task_graph','success','interfaces'):
+                if task[key] != expected[key]:
+                    raise ValueError('semantic lowering identity mismatch: '+key)
+            from semantics.task_spec import validate_extended
+            executable = deepcopy(task)
+            executable.pop('semantic')
+            executable['schema_version'] = '1.2'
+            validate_extended(executable)
+            return report
         if task.get("schema_version") == "1.2":
             from semantics.task_spec import validate_extended
             validate_extended(task)
@@ -150,7 +163,7 @@ def compose(base, suffix, name):
     final = suffix[-1] if suffix else result["task_graph"][-1]["skill"]
     goals = {"reach": "near", "grasp": "held", "lift": "lifted", "transport": "at_target", "release": "placed", "push": "at_target"}
     if base["schema_version"] == "1.2":
-        goals.update(rotate="oriented", align="aligned", insert="inserted", articulate="opened", obstacle_transport="avoided_obstacle", stack="stacked")
+        goals.update(recover="recovered", slide="at_target", rotate="oriented", align="aligned", insert="inserted", articulate="opened", obstacle_transport="avoided_obstacle", stack="stacked")
     result["success"]["predicate"] = goals[final]
     result["provenance"] = {"engine": "composition", "parents": [fingerprint(base)]}
     report = validate(result)
@@ -187,11 +200,15 @@ def novelty(candidate, archive):
         structure = set(enumerate(skills))
         composition = set(zip(skills, skills[1:])) | {(s,) for s in skills}
         objects = {(s.get("asset", "role"), a) for s in task["objects"].values() for a in s.get("affordances", s.get("requires", []))}
-        return structure, composition, objects
+        goals = {canonical(task['success'])}
+        if 'semantic' in task: goals.update(canonical(p) for p in task['semantic']['goal'])
+        relationships = {canonical(r) for r in task['scene']['relations']}
+        topology = {(n['skill'],len(n['depends_on'])) for n in task['task_graph']}
+        return structure, composition, objects, goals, relationships, topology
     def jaccard(a, b):
         return 0.0 if not a | b else 1 - len(a & b) / len(a | b)
     if not archive:
-        return {"structural": 1.0, "compositional": 1.0, "objects": 1.0, "parameter": 1.0, "distributional": 1.0}
+        return {"structural": 1.0, "compositional": 1.0, "objects": 1.0, "parameter": 1.0, "distributional": 1.0, "goal": 1.0, "spatial": 1.0, "constraint_topology": 1.0}
     feature = features(candidate)
     distances = []
     for old in archive:
@@ -206,8 +223,8 @@ def novelty(candidate, archive):
                 parts.extend(abs(a-b) / max(abs(a), abs(b), 1e-9) for a, b in zip(bounds, other))
             values.append(sum(parts) / len(parts))
         distances.append(values)
-    return dict(zip(("structural", "compositional", "objects", "parameter", "distributional"),
-                    (min(row[i] for row in distances) for i in range(5))))
+    return dict(zip(('structural','compositional','objects','goal','spatial','constraint_topology','parameter','distributional'),
+                    (min(row[i] for row in distances) for i in range(8))))
 
 class TaskGenerator:
     def __init__(self, seed=0):

@@ -19,17 +19,27 @@ class TrainingBackend(Protocol):
 
 
 class CheckpointStore:
-    def __init__(self, repository):
+    def __init__(self, repository, *, weight_validators=None):
         self.repo = repository
+        self.weight_validators = dict(weight_validators or {})
         if getattr(repository, "payload_store", None) is None:
             raise ValueError("checkpoint weights require external payload storage")
 
+    def validate_weights(self,weights):
+        schema = weights.get('policy_type','motion-gain-1.0')
+        if schema in self.weight_validators:
+            fingerprint(weights)
+            if self.weight_validators[schema](deepcopy(weights)) is not True:
+                raise ValueError('trusted checkpoint schema validator rejected weights')
+        else:
+            validate_weights(weights)
+
     def save(self, policy_version, weights, *, backend, dataset_id=None):
-        number(weights.get("gain"), "gain", 0, .012)
+        self.validate_weights(weights)
         reference = self.repo.payload_store.put(weights)
-        artifact = {"schema_version": "local-checkpoint-1.0", "backend": backend,
+        artifact = {"schema_version": "policy-checkpoint-2.0", "backend": backend,
                     "weights": reference, "weights_digest": fingerprint(weights),
-                    "dataset_id": dataset_id, "notice": "synthetic motion calibration baseline"}
+                    "dataset_id": dataset_id, "weight_schema": weights.get("policy_type", "motion-gain-1.0"), "notice": "versioned synthetic policy payload; deployment runtime must support its schema"}
         checkpoint = {"policy_version": policy_version, "artifact": artifact, "digest": fingerprint(artifact)}
         with transaction(self.repo.db):
             self.repo.put("checkpoint", policy_version, checkpoint)
@@ -42,7 +52,7 @@ class CheckpointStore:
         weights = self.repo.payload_store.get(checkpoint["artifact"]["weights"])
         if fingerprint(weights) != checkpoint["artifact"]["weights_digest"]:
             raise ValueError("checkpoint weight checksum mismatch")
-        number(weights.get("gain"), "gain", 0, .012)
+        self.validate_weights(weights)
         return {**weights, "checkpoint_digest": checkpoint["digest"]}
 
 
@@ -80,3 +90,31 @@ class MotionCloningBackend:
         with transaction(catalog.repo.db):
             catalog.repo.put("training_run", fingerprint(result), result)
         return result
+
+
+def validate_weights(weights):
+    if not isinstance(weights, dict):
+        raise ValueError('checkpoint weights require structured data')
+    fingerprint(weights)
+    number(weights.get('gain'), 'gain', 0, .012)
+    if weights.get('policy_type') == 'action-knn-1.0':
+        if weights.get('feature_schema') != 'relative-approved-state-1.0' or not weights.get('examples'):
+            raise ValueError('invalid action policy checkpoint')
+        for skill, rows in weights['examples'].items():
+            from semantics.task_spec import EXTENDED_SKILLS
+            if skill not in EXTENDED_SKILLS or not isinstance(rows,list) or len(rows) > 512:
+                raise ValueError('invalid learned skill/action coverage')
+            for row in rows:
+                if len(row['x']) != 10:
+                    raise ValueError('learned policy feature dimension mismatch')
+                for value in row['x']:
+                    number(value,'policy feature')
+                action = row['action']
+                for key in ('delta_x','delta_y','delta_z'):
+                    number(action.get(key), key, -.012,.012)
+                number(action.get('delta_angle',0.), 'delta_angle', -.12,.12)
+                number(action.get('drawer_delta',0.), 'drawer_delta', 0.,.1)
+                if type(action.get('close_gripper')) is not bool:
+                    raise ValueError('invalid learned gripper action')
+    elif weights.get('policy_type') is not None:
+        raise ValueError('unknown checkpoint policy type')

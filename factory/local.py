@@ -19,18 +19,22 @@ from simulation import LocalSimulationAdapter
 
 class LocalFactory:
     """Local resources all share the existing governed Library and metadata DB."""
-    def __init__(self, root):
+    def __init__(self, root, *, postgres_dsn=None, payload_store=None):
         self.root = Path(root).resolve()
         self.root.mkdir(parents=True, exist_ok=True)
-        self.store = Store(str(self.root / "metadata.sqlite3"))
-        self.repo = Repository(self.store, payload_store=LocalObjectStore(self.root / "objects"))
+        if postgres_dsn is None:
+            self.store = Store(str(self.root / "metadata.sqlite3"))
+        else:
+            from data.postgres import PostgresStore
+            self.store = PostgresStore(postgres_dsn)
+        self.repo = Repository(self.store, payload_store=payload_store or LocalObjectStore(self.root / "objects"))
         self.library = TaskLibrary(self.repo)
         self.compiler = TaskCompiler()
         self.validator = TaskValidator(self.compiler)
         self.registry = Registry().register("constructor", "local-instance-1.0", numeric_instance)
         self.registry.register("geometry", "local-geometry-1.0", self.validator.geometry,
                                dependencies=("target_distance", "tolerance", "object_size", "mass", "friction"))
-        self.registry.register("validator", "local-validator-1.0", self.validator.evidence)
+        self.registry.register("validator", "local-validator-2.0", self.validator.evidence)
         self.sampler = CurriculumSampler(self.repo, self.library, registry=self.registry)
         self.scheduler = AssignmentScheduler(self.repo, self.library)
         self.catalog = DatasetCatalog(self.repo, self.library)
@@ -49,6 +53,9 @@ class LocalFactory:
 
     def publish(self, task, *, source="human"):
         task = deepcopy(task)
+        if task.get('schema_version') == 'semantic-1.0':
+            from semantics.execution import lower
+            task = lower(task, self.compiler.semantics)
         from task_library.governance import transaction
         with transaction(self.repo.db):
             canonical_id = "local-" + task["family"]
@@ -58,7 +65,7 @@ class LocalFactory:
             if identity["matches"]:
                 canonical_id = identity["matches"][0]["family_id"]
             versions = self.library.search(family_id=canonical_id)
-            version = str(max(int(r["version"].split(".")[0]) for r in versions)+1) + ".0.0" if versions else "1.0.0"
+
             artifact = self.compiler.compile(task)
             envelope = self.validator.envelope(task)
             contract = self.compiler.contract(task, artifact, envelope)
@@ -66,6 +73,10 @@ class LocalFactory:
                 "predicate_library": self.compiler.semantics.snapshot()["digest"],
                 "capability_ontology": self.compiler.semantics.snapshot()["digest"],
                 "object_ontology": self.compiler.resources.snapshot()["digest"]}
+            from task_library.versioning import classify
+            from task_library.library import semver
+            previous = max(versions, key=lambda r: semver(r['version'])) if versions else None
+            classification, version = classify(previous, task, dependencies)
             parents = []
             for parent_hash in task.get("provenance", {}).get("parents", []):
                 matches = [record for record in self.library.search() if record["task_content_hash"] == parent_hash]
@@ -74,11 +85,11 @@ class LocalFactory:
                 parents.append({"family_id": matches[0]["family_id"], "version": matches[0]["version"]})
             self.library.register(canonical_id, version, task, dependencies=dependencies,
                 provenance={"source": source, "proposal_id": fingerprint(task), "generator_version": "local-bootstrap-1.0",
-                            "parents": parents}, metadata={"notice": artifact["notice"]})
+                            "parents": parents}, metadata={"notice": artifact["notice"], "publication_classification": classification})
             for state in ("STRUCTURALLY_ACCEPTED", "VALIDATING", "VALID"):
                 self.library.transition(canonical_id, version, state, event_id=canonical_id+"-"+version+"-"+state,
                                         reason="local synthetic model validation")
-            context = {"robot": "so101", "gripper": "synthetic-cartesian-gripper", "controller": "local-reference@1.0",
+            context = {"robot": task["embodiment"], "gripper": "synthetic-cartesian-gripper", "controller": "local-reference@2.0",
                 "compiler_version": self.compiler.version, "validator_version": self.validator.version,
                 "simulator_version": self.validator.simulator_version}
             record = self.library.publish_version(canonical_id, version, contract, artifact, context=context)
@@ -91,11 +102,28 @@ class LocalFactory:
         snapshot = {"snapshot_id": fingerprint(advisor_directive), "directive": advisor_directive}
         self.store.save_snapshot(snapshot)
         directive = make_directive(advisor_directive, self.library, total=total, seed=seed,
-            controller_id="local-reference", controller_version="1.0", window_id=window,
+            controller_id="local-reference", controller_version="2.0", window_id=window,
             starts_at=0., expires_at=1e12, purpose=purpose, recording_profile=recording_profile or {"trajectory": True})
         return self.sampler.sample(directive, now=time.monotonic())
 
     def execute(self, batch, *, environments=3, policies=None, interrupt_first=False):
+        from .locking import exclusive
+        with exclusive(self.root/'execution.lock'):
+            # This lock excludes every local executor for this root. A remaining
+            # local-worker lease therefore belongs to a dead invocation. Retain
+            # its failed attempt, and retry the assignment without new evidence.
+            self.scheduler.expire(now=time.monotonic())
+            for assignment in batch['assignments']:
+                row = self.repo.db.execute('SELECT state,attempt,worker FROM assignment_state WHERE identity=?',
+                                          (assignment['assignment_id'],)).fetchone()
+                if row and row[0] in ('leased','running'):
+                    if row[2] != 'local-worker':
+                        raise ValueError('assignment owned by another worker')
+                    self.scheduler.fail(assignment['assignment_id'],row[1],now=time.monotonic(),
+                                        reason='local_process_restart',retry=True)
+            return self._execute(batch,environments=environments,policies=policies,interrupt_first=interrupt_first)
+
+    def _execute(self, batch, *, environments=3, policies=None, interrupt_first=False):
         if type(environments) is not int or environments < 1:
             raise ValueError("positive environment count required")
         adapter = LocalSimulationAdapter(policies=policies)
@@ -128,10 +156,19 @@ class LocalFactory:
                 summary = bridge.step(env)
                 if summary:
                     summaries.append(summary)
+        feedback = self.scheduler.feedback(batch['request_id'])
+        from task_library.governance import transaction
+        with transaction(self.repo.db):
+            self.repo.put('funnel_feedback', batch['request_id'], {'request_id': batch['request_id'],
+                'directive_id': batch['request']['directive']['directive_id'],
+                'policy_version': batch['request']['directive'].get('policy_checkpoint_id', batch['request']['directive'].get('policy_version')),
+                'feedback': feedback, 'sampling_diagnostics': batch['diagnostics']})
         return {"summaries": summaries, "events": adapter.events,
                 "feedback": self.scheduler.feedback(batch["request_id"]),
                 "diagnostics": self.scheduler.diagnostics(batch["request_id"])}
 
     def advise(self, policy_version, previous_policy_version=None):
         return Advisor().advise(policy_version, self.store.records("tasks"), self.store.records("episodes"),
-                                previous_policy_version=previous_policy_version)
+                                previous_policy_version=previous_policy_version, feedback=self.repo.records("funnel_feedback") +
+                                [{"kind":"discovery", "discovery_id":fingerprint(r), **r}
+                                 for r in self.repo.records("discovery_run")])

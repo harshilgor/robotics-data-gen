@@ -6,6 +6,11 @@ import zlib
 def capture(environment, requested, timestamp):
     width = height = 32
     colors = bytearray([35, 35, 35] * width * height)
+    layout = environment.get('layout', {})
+    brightness = layout.get('lighting', 1.)
+    texture = layout.get('texture', 35)
+    if 'lighting_seed' in environment.get('parameters', {}) or 'texture_seed' in environment.get('parameters', {}):
+        colors = bytearray([int(texture*brightness)] * 3 * width * height)
     depth = [1.] * (width * height)
     for role, color in (("target", (70, 210, 90)), ("object", (210, 100, 60)), ("eef", (80, 150, 240))):
         x, y, z = environment[role]
@@ -14,7 +19,7 @@ def capture(environment, requested, timestamp):
         for r in range(max(0, row-1), min(height, row+2)):
             for c in range(max(0, column-1), min(width, column+2)):
                 index = r*width+c
-                colors[index*3:index*3+3] = bytes(color)
+                colors[index*3:index*3+3] = bytes(int(v*brightness) for v in color)
                 depth[index] = max(0., 1.-z)
     def chunk(name, content):
         return struct.pack(">I", len(content)) + name + content + struct.pack(">I", zlib.crc32(name+content))

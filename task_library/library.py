@@ -32,7 +32,7 @@ def structural_signature(task):
         {"skill": n["skill"], "object": n["object"], "target": n["target"],
          "dependencies": sorted(positions[d] for d in n["depends_on"])} for n in task["task_graph"]],
         "roles": {k: {"affordances": sorted(v.get("affordances", v.get("requires", [])))} for k, v in sorted(task["objects"].items())},
-        "constraints": {"scene": task["scene"], "initial_state": task["initial_state"]}}
+        "constraints": {"scene": task["scene"], "initial_state": task["initial_state"], **({"semantic": {k: task["semantic"][k] for k in ("initial", "goal", "constraints")}} if "semantic" in task else {})}}
 
 
 class TaskLibrary(Governance, ExecutionLibrary):
@@ -235,6 +235,8 @@ class TaskLibrary(Governance, ExecutionLibrary):
                     matches = [r for r in matches if r["task_content_hash"] == target["family_id"] and r["task_spec"]["revision"] == target["family_version"]]
                 supported = []
                 for record in matches:
+                    if any(h['family_id'] == record['task_content_hash'] for h in self.repo.records('heldout_family')):
+                        continue
                     binding = self.binding(record["family_id"], record["version"])
                     if not binding: continue
                     chosen = context or binding["context"]
@@ -254,6 +256,8 @@ class TaskLibrary(Governance, ExecutionLibrary):
         records = super().list_eligible_families(capabilities)
         result = []
         for execution in records:
+            if any(h['family_id'] == execution['contract']['family_id'] and h['family_version'] == execution['contract']['family_version'] for h in self.repo.records('heldout_family')):
+                continue
             governed = [r for r in self.search() if r["task_content_hash"] == execution["contract"]["family_id"]]
             if any(r["status"] == "ACTIVE" and self.binding(r["family_id"], r["version"]) and
                    self.compatibility(r["family_id"], r["version"], self.binding(r["family_id"], r["version"])["context"])["supported"] for r in governed):

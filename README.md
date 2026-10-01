@@ -6,7 +6,8 @@ assignments, measured episode recording and controlled development evaluation.
 
 ## Run
 
-Python 3.12 or later; current code uses the standard library.
+Python 3.12 or later; the local runtime uses the standard library. Optional
+integration tests for DLS use NumPy; deployment extras are documented separately.
 
 ```powershell
 python -m unittest discover -s tests -v
@@ -29,31 +30,43 @@ python -m taskgen --seed 42 --instances-per-family 3 --output generated-tasks.js
 - `*-implementation.md` and `instrumentation.md`: implemented scope and contracts.
 - `task-library-audit.md`: audit findings and software closure notes.
 
-The complete local cycle publishes and validates 14 broad task configurations,
-executes independent environments with interrupted retry, records demonstrations,
-curates a versioned dataset, fits a motion baseline, saves checkpoints, compares
-them on the same frozen evaluation suite, updates the Advisor and closes coverage
-gaps before sampling the next batch. Choose a fresh root for each cycle; it holds
-`metadata.sqlite3`, external `objects/` payloads and `cycle-report.json`.
+The adaptive runner executes Advisor-guided experience, trains each subsequent
+checkpoint, evaluates the same frozen suite, persists transfer/funnel feedback
+and resumes its saved phase journal:
 
-New packages: `semantics/` (shared registries and grammar), `assets/` (exact
-resources), `task_compiler/`, `task_validator/`, `simulation/`, `data/`,
-`training/`, `evaluation/` and `factory/`. Discovery and the recovered complete
-Curriculum Sampler extend the existing engines. See `architecture-implementation.md`
-for coverage and verification of all 53 architecture sections.
+```bash
+python -m factory --root /tmp/robotics-demo --iterations 3 --episodes 28 --seed 42 --job demo
+# Repeat to resume the same target; increase --iterations to continue.
+python -m factory --root /tmp/robotics-demo --iterations 3 --episodes 28 --seed 42 --job demo
+```
 
-The baseline learns a motion gain from demonstrations while retaining a trusted
-task-stage controller. The local model approximates Cartesian motion, contact,
-grasp and support; RGB/depth use a diagnostic orthographic camera. These runs
-establish software integration, not SO-101 physical feasibility or general policy
-learning. Isaac Lab, real IK/dynamics and hardware require a separately validated
-`ExecutionAdapter` implementation. Hosted LLM proposals are an optional injected
-provider; deterministic trusted discovery works locally.
+The runnable Unix baseline learns complete actions through bounded
+task-conditioned behavior cloning; task predicates still identify phase. The
+local model realizes finite layouts, container/drawer access, support, orientation,
+contact, obstacle counts, typed geometry, friction/mass effects and diagnostic
+appearance. It is a Cartesian surrogate, not SO-101 dynamics. Legacy one-pass
+commands above remain available. Keep active SQLite files on a local filesystem
+that does not synchronize database/journal files while running.
 
-SQLite plus local content-addressed files is the verified default. An optional
-`data.postgres.PostgresStore` requires psycopg 3 and a supplied server. Set
-`ROBOTICS_TEST_POSTGRES_DSN` to enable its live integration test; it was skipped
-locally because no server is connected. No service or credentials are provisioned.
+See [architecture-closure-review.md](architecture-closure-review.md) for the
+requirement-by-requirement and all-53-section review, explicit supported grammar,
+verification and remaining software gaps. The supplied correction is preserved
+in [architecture-final-audit.md](architecture-final-audit.md). Earlier delivery
+ledgers are historical; they do not establish full architecture completion.
+[examples/adaptive-three-iterations.json](examples/adaptive-three-iterations.json)
+records a three-iteration run and its explicit shortfalls; it claims no measured
+learning improvement.
+
+Optional [deployment bindings](integrations/README.md) include concrete
+version-configurable Isaac scenes/joints/Jacobian control and SO-101 transport,
+hosted declarative proposals, PostgreSQL and S3. They require optional dependencies
+and supplied deployment resources. The complete governed physical task-worker
+bridge remains partial. No GPU/hardware/service validation is claimed, and no
+services, credentials or charged inference are configured automatically.
+
+SQLite plus content-addressed local files is the tested default. Set
+`ROBOTICS_TEST_POSTGRES_DSN` only for an authorized existing local server to run
+the optional live test. None was available in this workspace.
 
 The cloud sampler's 21-file delivery was recovered and checked against its
 recorded Git tree. `python tools/verify_cloud_recovery.py` verifies the archived

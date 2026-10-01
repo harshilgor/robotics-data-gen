@@ -10,6 +10,8 @@ EXTENDED_SKILLS = {
     "transport": ({"held", "lifted"}, {"at_target"}, set(), "graspable"),
     "release": ({"held", "at_target"}, {"placed", "free"}, {"held", "lifted"}, "graspable"),
     "push": ({"near", "free"}, {"at_target"}, set(), "pushable"),
+    "slide": ({"near", "free"}, {"at_target"}, set(), "pushable"),
+    "recover": ({"held", "lifted"}, {"held", "near"}, {"lifted"}, "graspable"),
     "rotate": ({"held"}, {"oriented"}, set(), "graspable"),
     "align": ({"held", "at_target"}, {"aligned"}, set(), "graspable"),
     "insert": ({"held", "aligned"}, {"inserted"}, set(), "insertable"),

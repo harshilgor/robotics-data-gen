@@ -32,9 +32,9 @@ def task_annotation(task):
     from semantics.capabilities import capabilities_for, STAGE_CAPABILITY
     annotation = {"family_id": fingerprint(task), "family": task["family"], "family_version": task["revision"],
             "capabilities": capabilities_for(task),
-            "subgoals": [{"id": n["id"], "capability": STAGE_CAPABILITY.get(n["skill"], n["skill"]) if task["schema_version"] == "1.2" else n["skill"], "depends_on": n["depends_on"]}
+            "subgoals": [{"id": n["id"], "capability": STAGE_CAPABILITY.get(n["skill"], n["skill"]) if task["schema_version"] in ("1.2", "1.3") else n["skill"], "depends_on": n["depends_on"]}
                          for n in task["task_graph"]]}
-    if task["schema_version"] in ("1.1", "1.2"): annotation["parameter_schema"] = task["theta"]
+    if task["schema_version"] in ("1.1", "1.2", "1.3"): annotation["parameter_schema"] = task["theta"]
     return annotation
 
 
@@ -203,6 +203,37 @@ def comparable_development(current, previous):
     return bool(a) and a == b and all(manifest is not None for manifest, _ in a)
 
 
+
+def capability_outcomes(ep, task, ontology):
+    """Deduplicated within-episode conditional evidence, including ancestors."""
+    observed_outcomes = defaultdict(list)
+    for stage in task['subgoals']:
+        outcome = ep['subgoal_results'][stage['id']]
+        if outcome is None:
+            continue
+        cap = stage['capability']
+        derived = {'precision_placement':['positional_precision'], 'rotate':['orientation_precision'],
+                   'align':['orientation_precision'], 'insert':['contact_precision']}.get(cap,[])
+        for signal in derived:
+            observed_outcomes[signal].append(outcome)
+        visited = set()
+        while cap is not None and cap not in visited:
+            visited.add(cap)
+            observed_outcomes[cap].append(outcome)
+            cap = ontology.get(cap)
+    if len(task['subgoals']) > 1:
+        observed_outcomes['sequencing'].append(ep['success'])
+        observed_outcomes['composition'].append(ep['success'])
+        if len(task['subgoals']) >= 7:
+            observed_outcomes['long_horizon'].append(ep['success'])
+    # Exposure to holding, rather than an unattempted vocabulary tag.
+    frames = ep.get('instrumentation', {}).get('frames', [])
+    held_frames = [f for f in frames if f.get('grasp_contact') and f.get('gripper_closed')]
+    if ep.get('capability_events',{}).get('held_step_count',len(held_frames)) >= 2:
+        for cap in ('maintain_grasp','grasp_stability'):
+            observed_outcomes[cap].append(ep.get('grasp_losses',0) == 0)
+    return {cap:all(outcomes) for cap,outcomes in observed_outcomes.items()}
+
 class Advisor:
     def __init__(self, config=None):
         self.config = config or Config()
@@ -277,15 +308,13 @@ class Advisor:
         for ep, task, rid, descriptor in rows:
             if ep["source"] != "training" or ep["policy_version"] != policy_version:
                 continue
-            for stage in task["subgoals"]:
-                outcome = ep["subgoal_results"][stage["id"]]
-                if outcome is not None:
-                    capability_rows[stage["capability"]].append(outcome)
+            for cap,outcome in capability_outcomes(ep,task,self.config.ontology).items():
+                capability_rows[cap].append(outcome)
             combo = tuple(s["capability"] for s in task["subgoals"])
             if len(combo) > 1:
                 combinations[combo].append(ep["success"])
         caps = [{"capability_id": cap, "parent": self.config.ontology.get(cap, "custom"),
-                 **estimate(capability_rows[cap][-self.config.window:]), "measurement": "observed_subgoal_attempts"}
+                 **estimate(capability_rows[cap][-self.config.window:]), "measurement": "episode-level conjunction of attempted stages/events; ancestors share evidence"}
                 for cap in sorted(set(self.config.ontology) | set(capability_rows))]
         for capability in caps:
             cap = capability["capability_id"]
@@ -295,10 +324,8 @@ class Advisor:
             regional_evidence = []
             for rid in sorted({r[2] for r in rows}):
                 def stage_outcomes(source, version):
-                    return [ep["subgoal_results"][s["id"]]
-                        for ep, task, _, _ in groups[(rid, source, version)][-self.config.window:]
-                        for s in task["subgoals"] if s["capability"] == cap
-                        and ep["subgoal_results"][s["id"]] is not None]
+                    return [values[cap] for ep,task,_,_ in groups[(rid,source,version)][-self.config.window:]
+                        for values in [capability_outcomes(ep,task,self.config.ontology)] if cap in values]
                 current_stage = stage_outcomes("training", policy_version)
                 old_stage = stage_outcomes("training", previous_policy_version)
                 if current_stage:

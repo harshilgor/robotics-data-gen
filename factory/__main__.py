@@ -55,12 +55,28 @@ def main():
     parser.add_argument("--episodes", type=int, default=12)
     parser.add_argument("--broad", action="store_true", help="Use the expanded hand-authored task coverage")
     parser.add_argument("--modalities", nargs="*", choices=["rgb", "depth"], default=[], help="Persist synthetic diagnostic camera streams")
+    parser.add_argument('--iterations', type=int, default=0, help='Run/resume this many complete adaptive iterations')
+    parser.add_argument('--job', default='local-adaptive')
+    parser.add_argument('--postgres-dsn-env', help='Optional environment variable containing an already configured PostgreSQL DSN')
     args = parser.parse_args()
     root = Path(args.root)
-    if (root / "cycle-report.json").exists():
+    if not args.iterations and (root / "cycle-report.json").exists():
         parser.error("cycle output already exists; choose a new root")
-    factory = LocalFactory(root)
+    import os
+    dsn = None
+    if args.postgres_dsn_env:
+        dsn = os.environ.get(args.postgres_dsn_env)
+        if not dsn: parser.error('configured PostgreSQL DSN environment variable is unavailable')
+    factory = LocalFactory(root,postgres_dsn=dsn)
     try:
+        if args.iterations:
+            from .adaptive import AdaptiveLoop
+            result = AdaptiveLoop(factory,job=args.job,seed=args.seed,episodes=args.episodes).run(args.iterations)
+            output = root/'adaptive-report.json'
+            output.write_text(json.dumps(result,indent=2,allow_nan=False)+'\n',encoding='utf-8')
+            print(json.dumps({'report':str(output.resolve()),'iterations':len(result['iterations']),
+                'fixed_manifest_id':result['manifest_id'],'executed':[i['feedback']['executed_episodes'] for i in result['iterations']]}))
+            return
         result = run_cycle(factory, seed=args.seed, episodes=args.episodes, broad=args.broad, modalities=args.modalities)
         output = root / "cycle-report.json"
         output.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8")
