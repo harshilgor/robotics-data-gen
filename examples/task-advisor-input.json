@@ -1,0 +1,1470 @@
+{
+  "example_notice": "SYNTHETIC TEST FIXTURE: invented outcomes for software verification; not simulator or robot evidence.",
+  "tasks": [
+    {
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family": "grasp",
+      "family_version": 1,
+      "capabilities": [
+        "grasp",
+        "reach"
+      ],
+      "subgoals": [
+        {
+          "id": "s0",
+          "capability": "reach",
+          "depends_on": []
+        },
+        {
+          "id": "s1",
+          "capability": "grasp",
+          "depends_on": [
+            "s0"
+          ]
+        }
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "episode_id": "example_checkpoint_001-0",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-0",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:00+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-1",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-1",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:01+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-2",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-2",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:02+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-3",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-3",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:03+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-4",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-4",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:04+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-5",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-5",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:05+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-6",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-6",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:06+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-7",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-7",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:07+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-8",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-8",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:08+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-9",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-9",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:09+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-10",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-10",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:10+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-11",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-11",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:11+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-12",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-12",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:12+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-13",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-13",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:13+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-14",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-14",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:14+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-15",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-15",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:15+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-16",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-16",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:16+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-17",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-17",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:17+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-18",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-18",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:18+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-19",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-19",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:19+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-20",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-20",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:20+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-21",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-21",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:21+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-22",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-22",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:22+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-23",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-23",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:23+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-24",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-24",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:24+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-25",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-25",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:25+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-26",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-26",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:26+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-27",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-27",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:27+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-28",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-28",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:28+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_001-29",
+      "policy_version": "example_checkpoint_001",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-29",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:29+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-0",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-0",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:00+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-1",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-1",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:01+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-2",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-2",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:02+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-3",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-3",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:03+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-4",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-4",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:04+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-5",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-5",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:05+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-6",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-6",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:06+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-7",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-7",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:07+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-8",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-8",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:08+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-9",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-9",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:09+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-10",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-10",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:10+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-11",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-11",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:11+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-12",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-12",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:12+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-13",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-13",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:13+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-14",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-14",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:14+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-15",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-15",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:15+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-16",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-16",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:16+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-17",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-17",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:17+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-18",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-18",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:18+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-19",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-19",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:19+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-20",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-20",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:20+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-21",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-21",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": true,
+      "reward": 1.0,
+      "completion_fraction": 1.0,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": true
+      },
+      "failure_type": null,
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:21+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-22",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-22",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:22+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-23",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-23",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:23+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-24",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-24",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:24+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-25",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-25",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:25+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-26",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-26",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:26+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-27",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-27",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:27+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-28",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-28",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:28+00:00"
+    },
+    {
+      "episode_id": "example_checkpoint_002-29",
+      "policy_version": "example_checkpoint_002",
+      "source": "training",
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "family_version": 1,
+      "task_instance_id": "synthetic-29",
+      "task_parameters": {
+        "tolerance": 0.015
+      },
+      "success": false,
+      "reward": 0.0,
+      "completion_fraction": 0.5,
+      "episode_length": 30,
+      "subgoal_results": {
+        "s0": true,
+        "s1": false
+      },
+      "failure_type": "grasp_failure",
+      "collisions": 0,
+      "grasp_losses": 0,
+      "final_goal_error": null,
+      "timestamp": "2026-09-30T12:00:29+00:00"
+    }
+  ]
+}

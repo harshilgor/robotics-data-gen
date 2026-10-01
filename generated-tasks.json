@@ -1,0 +1,1775 @@
+{
+  "generator_version": "0.1.0",
+  "seed": 42,
+  "families": [
+    {
+      "family_id": "8b3103f40f81cdca9744d1af72c07c482ac836025be98a8185485832b0ff56f1",
+      "specification": {
+        "schema_version": "1.0",
+        "family": "reach",
+        "revision": 1,
+        "embodiment": "so101",
+        "scene": {
+          "template": "tabletop",
+          "relations": []
+        },
+        "objects": {
+          "object": {
+            "asset": "cube",
+            "affordances": [
+              "graspable",
+              "pushable"
+            ]
+          },
+          "target": {
+            "asset": "target",
+            "affordances": [
+              "target"
+            ]
+          }
+        },
+        "initial_state": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "task_graph": [
+          {
+            "id": "s0",
+            "skill": "reach",
+            "object": "object",
+            "target": "target",
+            "depends_on": []
+          }
+        ],
+        "theta": {
+          "target_distance": [
+            0.04,
+            0.16
+          ],
+          "tolerance": [
+            0.01,
+            0.04
+          ],
+          "object_size": [
+            0.02,
+            0.04
+          ]
+        },
+        "phi": {
+          "mass": [
+            0.03,
+            0.15
+          ],
+          "friction": [
+            0.3,
+            0.8
+          ]
+        },
+        "success": {
+          "object": "object",
+          "predicate": "near",
+          "tolerance_parameter": "tolerance"
+        },
+        "reward": [
+          {
+            "term": "progress",
+            "weight": 1.0
+          },
+          {
+            "term": "time",
+            "weight": -0.01
+          }
+        ],
+        "horizon": 300,
+        "interfaces": {
+          "observation": "state_v1",
+          "action": "joint_target_v1"
+        },
+        "provenance": {
+          "engine": "bootstrap",
+          "parents": []
+        }
+      },
+      "novelty": {
+        "structural": 1.0,
+        "compositional": 1.0,
+        "objects": 1.0,
+        "parameter": 1.0,
+        "distributional": 1.0
+      },
+      "instances": [
+        {
+          "schema_version": "1.0",
+          "family_id": "8b3103f40f81cdca9744d1af72c07c482ac836025be98a8185485832b0ff56f1",
+          "family": "reach",
+          "revision": 1,
+          "seed": 8549365282239369431,
+          "index": 0,
+          "theta": {
+            "object_size": 0.021937025982519877,
+            "target_distance": 0.1223246245451543,
+            "tolerance": 0.016592357165519777
+          },
+          "phi": {
+            "friction": 0.365084242017144,
+            "mass": 0.07069986029272399
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "8b3103f40f81cdca9744d1af72c07c482ac836025be98a8185485832b0ff56f1",
+          "family": "reach",
+          "revision": 1,
+          "seed": 9838075728098971177,
+          "index": 1,
+          "theta": {
+            "object_size": 0.03268742678864973,
+            "target_distance": 0.07616008456723253,
+            "tolerance": 0.02946601599500981
+          },
+          "phi": {
+            "friction": 0.4377008660446564,
+            "mass": 0.05502292297198311
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "8b3103f40f81cdca9744d1af72c07c482ac836025be98a8185485832b0ff56f1",
+          "family": "reach",
+          "revision": 1,
+          "seed": 17154687615531325354,
+          "index": 2,
+          "theta": {
+            "object_size": 0.023020200558856823,
+            "target_distance": 0.12404031979652633,
+            "tolerance": 0.03203104032967067
+          },
+          "phi": {
+            "friction": 0.5946588340317961,
+            "mass": 0.08530252344348349
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        }
+      ]
+    },
+    {
+      "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+      "specification": {
+        "schema_version": "1.0",
+        "family": "grasp",
+        "revision": 1,
+        "embodiment": "so101",
+        "scene": {
+          "template": "tabletop",
+          "relations": []
+        },
+        "objects": {
+          "object": {
+            "asset": "cube",
+            "affordances": [
+              "graspable",
+              "pushable"
+            ]
+          },
+          "target": {
+            "asset": "target",
+            "affordances": [
+              "target"
+            ]
+          }
+        },
+        "initial_state": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "task_graph": [
+          {
+            "id": "s0",
+            "skill": "reach",
+            "object": "object",
+            "target": "target",
+            "depends_on": []
+          },
+          {
+            "id": "s1",
+            "skill": "grasp",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s0"
+            ]
+          }
+        ],
+        "theta": {
+          "target_distance": [
+            0.04,
+            0.16
+          ],
+          "tolerance": [
+            0.01,
+            0.04
+          ],
+          "object_size": [
+            0.02,
+            0.04
+          ]
+        },
+        "phi": {
+          "mass": [
+            0.03,
+            0.15
+          ],
+          "friction": [
+            0.3,
+            0.8
+          ]
+        },
+        "success": {
+          "object": "object",
+          "predicate": "held",
+          "tolerance_parameter": "tolerance"
+        },
+        "reward": [
+          {
+            "term": "progress",
+            "weight": 1.0
+          },
+          {
+            "term": "time",
+            "weight": -0.01
+          }
+        ],
+        "horizon": 300,
+        "interfaces": {
+          "observation": "state_v1",
+          "action": "joint_target_v1"
+        },
+        "provenance": {
+          "engine": "bootstrap",
+          "parents": []
+        }
+      },
+      "novelty": {
+        "structural": 0.5,
+        "compositional": 0.6666666666666667,
+        "objects": 0.0,
+        "parameter": 0.0,
+        "distributional": 0.0
+      },
+      "instances": [
+        {
+          "schema_version": "1.0",
+          "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+          "family": "grasp",
+          "revision": 1,
+          "seed": 7848640734405711583,
+          "index": 0,
+          "theta": {
+            "object_size": 0.024429482003681037,
+            "target_distance": 0.10412821928414925,
+            "tolerance": 0.024441382719984688
+          },
+          "phi": {
+            "friction": 0.5147889142302147,
+            "mass": 0.061548924619621616
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+          "family": "grasp",
+          "revision": 1,
+          "seed": 268013692522230243,
+          "index": 1,
+          "theta": {
+            "object_size": 0.032452327160924554,
+            "target_distance": 0.12494177311062352,
+            "tolerance": 0.014511804906328089
+          },
+          "phi": {
+            "friction": 0.5277983970412985,
+            "mass": 0.05048438762442778
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58",
+          "family": "grasp",
+          "revision": 1,
+          "seed": 301435766881074522,
+          "index": 2,
+          "theta": {
+            "object_size": 0.039695835093515985,
+            "target_distance": 0.09258405148586696,
+            "tolerance": 0.019935713681459057
+          },
+          "phi": {
+            "friction": 0.3232963232826784,
+            "mass": 0.1340583664572716
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        }
+      ]
+    },
+    {
+      "family_id": "0aca1d5c8fc1af25b54d5807d0be8435794dccad2d2cfe243a08c57b3533ba10",
+      "specification": {
+        "schema_version": "1.0",
+        "family": "push",
+        "revision": 1,
+        "embodiment": "so101",
+        "scene": {
+          "template": "tabletop",
+          "relations": []
+        },
+        "objects": {
+          "object": {
+            "asset": "cube",
+            "affordances": [
+              "graspable",
+              "pushable"
+            ]
+          },
+          "target": {
+            "asset": "target",
+            "affordances": [
+              "target"
+            ]
+          }
+        },
+        "initial_state": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "task_graph": [
+          {
+            "id": "s0",
+            "skill": "reach",
+            "object": "object",
+            "target": "target",
+            "depends_on": []
+          },
+          {
+            "id": "s1",
+            "skill": "push",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s0"
+            ]
+          }
+        ],
+        "theta": {
+          "target_distance": [
+            0.04,
+            0.16
+          ],
+          "tolerance": [
+            0.01,
+            0.04
+          ],
+          "object_size": [
+            0.02,
+            0.04
+          ]
+        },
+        "phi": {
+          "mass": [
+            0.03,
+            0.15
+          ],
+          "friction": [
+            0.3,
+            0.8
+          ]
+        },
+        "success": {
+          "object": "object",
+          "predicate": "at_target",
+          "tolerance_parameter": "tolerance"
+        },
+        "reward": [
+          {
+            "term": "progress",
+            "weight": 1.0
+          },
+          {
+            "term": "time",
+            "weight": -0.01
+          }
+        ],
+        "horizon": 300,
+        "interfaces": {
+          "observation": "state_v1",
+          "action": "joint_target_v1"
+        },
+        "provenance": {
+          "engine": "bootstrap",
+          "parents": []
+        }
+      },
+      "novelty": {
+        "structural": 0.5,
+        "compositional": 0.6666666666666667,
+        "objects": 0.0,
+        "parameter": 0.0,
+        "distributional": 0.0
+      },
+      "instances": [
+        {
+          "schema_version": "1.0",
+          "family_id": "0aca1d5c8fc1af25b54d5807d0be8435794dccad2d2cfe243a08c57b3533ba10",
+          "family": "push",
+          "revision": 1,
+          "seed": 11263480944383323175,
+          "index": 0,
+          "theta": {
+            "object_size": 0.039786940485595695,
+            "target_distance": 0.04054671090507151,
+            "tolerance": 0.022085826358814398
+          },
+          "phi": {
+            "friction": 0.534860956778123,
+            "mass": 0.08150778179957127
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "0aca1d5c8fc1af25b54d5807d0be8435794dccad2d2cfe243a08c57b3533ba10",
+          "family": "push",
+          "revision": 1,
+          "seed": 4291649735417856080,
+          "index": 1,
+          "theta": {
+            "object_size": 0.02882730095822788,
+            "target_distance": 0.0861005404651631,
+            "tolerance": 0.015579905983343315
+          },
+          "phi": {
+            "friction": 0.6820672041668525,
+            "mass": 0.1015412989064986
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "0aca1d5c8fc1af25b54d5807d0be8435794dccad2d2cfe243a08c57b3533ba10",
+          "family": "push",
+          "revision": 1,
+          "seed": 15793589648914413626,
+          "index": 2,
+          "theta": {
+            "object_size": 0.034566918529399346,
+            "target_distance": 0.15421443377344524,
+            "tolerance": 0.020259148010351745
+          },
+          "phi": {
+            "friction": 0.6947041762950836,
+            "mass": 0.03991796964066696
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        }
+      ]
+    },
+    {
+      "family_id": "84938b5d94a154cdc184b07a9c7901fc58e79f2378369e34ca8f95f6693874ef",
+      "specification": {
+        "schema_version": "1.0",
+        "family": "lift",
+        "revision": 1,
+        "embodiment": "so101",
+        "scene": {
+          "template": "tabletop",
+          "relations": []
+        },
+        "objects": {
+          "object": {
+            "asset": "cube",
+            "affordances": [
+              "graspable",
+              "pushable"
+            ]
+          },
+          "target": {
+            "asset": "target",
+            "affordances": [
+              "target"
+            ]
+          }
+        },
+        "initial_state": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "task_graph": [
+          {
+            "id": "s0",
+            "skill": "reach",
+            "object": "object",
+            "target": "target",
+            "depends_on": []
+          },
+          {
+            "id": "s1",
+            "skill": "grasp",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s0"
+            ]
+          },
+          {
+            "id": "s2",
+            "skill": "lift",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s1"
+            ]
+          }
+        ],
+        "theta": {
+          "target_distance": [
+            0.04,
+            0.16
+          ],
+          "tolerance": [
+            0.01,
+            0.04
+          ],
+          "object_size": [
+            0.02,
+            0.04
+          ]
+        },
+        "phi": {
+          "mass": [
+            0.03,
+            0.15
+          ],
+          "friction": [
+            0.3,
+            0.8
+          ]
+        },
+        "success": {
+          "object": "object",
+          "predicate": "lifted",
+          "tolerance_parameter": "tolerance"
+        },
+        "reward": [
+          {
+            "term": "progress",
+            "weight": 1.0
+          },
+          {
+            "term": "time",
+            "weight": -0.01
+          }
+        ],
+        "horizon": 300,
+        "interfaces": {
+          "observation": "state_v1",
+          "action": "joint_target_v1"
+        },
+        "provenance": {
+          "engine": "bootstrap",
+          "parents": []
+        }
+      },
+      "novelty": {
+        "structural": 0.33333333333333337,
+        "compositional": 0.4,
+        "objects": 0.0,
+        "parameter": 0.0,
+        "distributional": 0.0
+      },
+      "instances": [
+        {
+          "schema_version": "1.0",
+          "family_id": "84938b5d94a154cdc184b07a9c7901fc58e79f2378369e34ca8f95f6693874ef",
+          "family": "lift",
+          "revision": 1,
+          "seed": 3257861223606593329,
+          "index": 0,
+          "theta": {
+            "object_size": 0.03698164688886927,
+            "target_distance": 0.08062398244549665,
+            "tolerance": 0.029054233195260383
+          },
+          "phi": {
+            "friction": 0.44752678010497143,
+            "mass": 0.12917502996762253
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "84938b5d94a154cdc184b07a9c7901fc58e79f2378369e34ca8f95f6693874ef",
+          "family": "lift",
+          "revision": 1,
+          "seed": 13950019747280277132,
+          "index": 1,
+          "theta": {
+            "object_size": 0.02795457671250224,
+            "target_distance": 0.11830785869656249,
+            "tolerance": 0.027333919577946397
+          },
+          "phi": {
+            "friction": 0.7046623443315783,
+            "mass": 0.12197340034044116
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "84938b5d94a154cdc184b07a9c7901fc58e79f2378369e34ca8f95f6693874ef",
+          "family": "lift",
+          "revision": 1,
+          "seed": 1873654689245672496,
+          "index": 2,
+          "theta": {
+            "object_size": 0.039357740555157734,
+            "target_distance": 0.07865637775665933,
+            "tolerance": 0.026282865152864064
+          },
+          "phi": {
+            "friction": 0.5843697600205382,
+            "mass": 0.1206909262543753
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        }
+      ]
+    },
+    {
+      "family_id": "c6c0addd316a3b0a6a156eae3ebd1b88d8587f015b2afbeabe21b2d4c15120bc",
+      "specification": {
+        "schema_version": "1.0",
+        "family": "transport",
+        "revision": 1,
+        "embodiment": "so101",
+        "scene": {
+          "template": "tabletop",
+          "relations": []
+        },
+        "objects": {
+          "object": {
+            "asset": "cube",
+            "affordances": [
+              "graspable",
+              "pushable"
+            ]
+          },
+          "target": {
+            "asset": "target",
+            "affordances": [
+              "target"
+            ]
+          }
+        },
+        "initial_state": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "task_graph": [
+          {
+            "id": "s0",
+            "skill": "reach",
+            "object": "object",
+            "target": "target",
+            "depends_on": []
+          },
+          {
+            "id": "s1",
+            "skill": "grasp",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s0"
+            ]
+          },
+          {
+            "id": "s2",
+            "skill": "lift",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s1"
+            ]
+          },
+          {
+            "id": "s3",
+            "skill": "transport",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s2"
+            ]
+          }
+        ],
+        "theta": {
+          "target_distance": [
+            0.04,
+            0.16
+          ],
+          "tolerance": [
+            0.01,
+            0.04
+          ],
+          "object_size": [
+            0.02,
+            0.04
+          ]
+        },
+        "phi": {
+          "mass": [
+            0.03,
+            0.15
+          ],
+          "friction": [
+            0.3,
+            0.8
+          ]
+        },
+        "success": {
+          "object": "object",
+          "predicate": "at_target",
+          "tolerance_parameter": "tolerance"
+        },
+        "reward": [
+          {
+            "term": "progress",
+            "weight": 1.0
+          },
+          {
+            "term": "time",
+            "weight": -0.01
+          }
+        ],
+        "horizon": 300,
+        "interfaces": {
+          "observation": "state_v1",
+          "action": "joint_target_v1"
+        },
+        "provenance": {
+          "engine": "bootstrap",
+          "parents": []
+        }
+      },
+      "novelty": {
+        "structural": 0.25,
+        "compositional": 0.2857142857142857,
+        "objects": 0.0,
+        "parameter": 0.0,
+        "distributional": 0.0
+      },
+      "instances": [
+        {
+          "schema_version": "1.0",
+          "family_id": "c6c0addd316a3b0a6a156eae3ebd1b88d8587f015b2afbeabe21b2d4c15120bc",
+          "family": "transport",
+          "revision": 1,
+          "seed": 2464032807485536951,
+          "index": 0,
+          "theta": {
+            "object_size": 0.0369647724929017,
+            "target_distance": 0.1439290311507292,
+            "tolerance": 0.025959553714383833
+          },
+          "phi": {
+            "friction": 0.7759708447428431,
+            "mass": 0.03851567402160361
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "c6c0addd316a3b0a6a156eae3ebd1b88d8587f015b2afbeabe21b2d4c15120bc",
+          "family": "transport",
+          "revision": 1,
+          "seed": 17980753457176438756,
+          "index": 1,
+          "theta": {
+            "object_size": 0.02902070704130911,
+            "target_distance": 0.09319677351956171,
+            "tolerance": 0.013646521309455732
+          },
+          "phi": {
+            "friction": 0.33890929291588834,
+            "mass": 0.05703453162222509
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "c6c0addd316a3b0a6a156eae3ebd1b88d8587f015b2afbeabe21b2d4c15120bc",
+          "family": "transport",
+          "revision": 1,
+          "seed": 6999685715016000333,
+          "index": 2,
+          "theta": {
+            "object_size": 0.03908139884879762,
+            "target_distance": 0.07838227367452374,
+            "tolerance": 0.03760522885947989
+          },
+          "phi": {
+            "friction": 0.690835758908474,
+            "mass": 0.12943723239619223
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        }
+      ]
+    },
+    {
+      "family_id": "d91a1cdc5d6270e791a11998a21f81476b8d86225d74909a68b78122e59aef75",
+      "specification": {
+        "schema_version": "1.0",
+        "family": "pick_place",
+        "revision": 1,
+        "embodiment": "so101",
+        "scene": {
+          "template": "tabletop",
+          "relations": []
+        },
+        "objects": {
+          "object": {
+            "asset": "cube",
+            "affordances": [
+              "graspable",
+              "pushable"
+            ]
+          },
+          "target": {
+            "asset": "target",
+            "affordances": [
+              "target"
+            ]
+          }
+        },
+        "initial_state": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "task_graph": [
+          {
+            "id": "s0",
+            "skill": "reach",
+            "object": "object",
+            "target": "target",
+            "depends_on": []
+          },
+          {
+            "id": "s1",
+            "skill": "grasp",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s0"
+            ]
+          },
+          {
+            "id": "s2",
+            "skill": "lift",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s1"
+            ]
+          },
+          {
+            "id": "s3",
+            "skill": "transport",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s2"
+            ]
+          },
+          {
+            "id": "s4",
+            "skill": "release",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s3"
+            ]
+          }
+        ],
+        "theta": {
+          "target_distance": [
+            0.04,
+            0.16
+          ],
+          "tolerance": [
+            0.01,
+            0.04
+          ],
+          "object_size": [
+            0.02,
+            0.04
+          ]
+        },
+        "phi": {
+          "mass": [
+            0.03,
+            0.15
+          ],
+          "friction": [
+            0.3,
+            0.8
+          ]
+        },
+        "success": {
+          "object": "object",
+          "predicate": "placed",
+          "tolerance_parameter": "tolerance"
+        },
+        "reward": [
+          {
+            "term": "progress",
+            "weight": 1.0
+          },
+          {
+            "term": "time",
+            "weight": -0.01
+          }
+        ],
+        "horizon": 300,
+        "interfaces": {
+          "observation": "state_v1",
+          "action": "joint_target_v1"
+        },
+        "provenance": {
+          "engine": "bootstrap",
+          "parents": []
+        }
+      },
+      "novelty": {
+        "structural": 0.19999999999999996,
+        "compositional": 0.2222222222222222,
+        "objects": 0.0,
+        "parameter": 0.0,
+        "distributional": 0.0
+      },
+      "instances": [
+        {
+          "schema_version": "1.0",
+          "family_id": "d91a1cdc5d6270e791a11998a21f81476b8d86225d74909a68b78122e59aef75",
+          "family": "pick_place",
+          "revision": 1,
+          "seed": 3076443521413309919,
+          "index": 0,
+          "theta": {
+            "object_size": 0.03367053062776378,
+            "target_distance": 0.056881025228696716,
+            "tolerance": 0.02399137309930352
+          },
+          "phi": {
+            "friction": 0.7939954974636853,
+            "mass": 0.1126149687858483
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "d91a1cdc5d6270e791a11998a21f81476b8d86225d74909a68b78122e59aef75",
+          "family": "pick_place",
+          "revision": 1,
+          "seed": 1015914691554603472,
+          "index": 1,
+          "theta": {
+            "object_size": 0.020973581177174398,
+            "target_distance": 0.08945008464864665,
+            "tolerance": 0.029826858191206868
+          },
+          "phi": {
+            "friction": 0.7527882017502203,
+            "mass": 0.08252322388277741
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "d91a1cdc5d6270e791a11998a21f81476b8d86225d74909a68b78122e59aef75",
+          "family": "pick_place",
+          "revision": 1,
+          "seed": 6204829718463961638,
+          "index": 2,
+          "theta": {
+            "object_size": 0.03695409621391453,
+            "target_distance": 0.15227029670802145,
+            "tolerance": 0.038418492094689116
+          },
+          "phi": {
+            "friction": 0.6250770740218323,
+            "mass": 0.030712981401559925
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        }
+      ]
+    },
+    {
+      "family_id": "b8a3639d92bd9a01c7900dd30558215f5084fe4723d4a10f00354d6ba7bd8e3a",
+      "specification": {
+        "schema_version": "1.0",
+        "family": "composed_pick_place",
+        "revision": 1,
+        "embodiment": "so101",
+        "scene": {
+          "template": "tabletop",
+          "relations": []
+        },
+        "objects": {
+          "object": {
+            "asset": "cube",
+            "affordances": [
+              "graspable",
+              "pushable"
+            ]
+          },
+          "target": {
+            "asset": "target",
+            "affordances": [
+              "target"
+            ]
+          }
+        },
+        "initial_state": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "task_graph": [
+          {
+            "id": "s0",
+            "skill": "reach",
+            "object": "object",
+            "target": "target",
+            "depends_on": []
+          },
+          {
+            "id": "s1",
+            "skill": "grasp",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s0"
+            ]
+          },
+          {
+            "id": "s2",
+            "skill": "lift",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s1"
+            ]
+          },
+          {
+            "id": "s3",
+            "skill": "transport",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s2"
+            ]
+          },
+          {
+            "id": "s4",
+            "skill": "release",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s3"
+            ]
+          }
+        ],
+        "theta": {
+          "target_distance": [
+            0.04,
+            0.16
+          ],
+          "tolerance": [
+            0.01,
+            0.04
+          ],
+          "object_size": [
+            0.02,
+            0.04
+          ]
+        },
+        "phi": {
+          "mass": [
+            0.03,
+            0.15
+          ],
+          "friction": [
+            0.3,
+            0.8
+          ]
+        },
+        "success": {
+          "object": "object",
+          "predicate": "placed",
+          "tolerance_parameter": "tolerance"
+        },
+        "reward": [
+          {
+            "term": "progress",
+            "weight": 1.0
+          },
+          {
+            "term": "time",
+            "weight": -0.01
+          }
+        ],
+        "horizon": 300,
+        "interfaces": {
+          "observation": "state_v1",
+          "action": "joint_target_v1"
+        },
+        "provenance": {
+          "engine": "composition",
+          "parents": [
+            "8013f732cdbe78a65169b712b759543b17a1916ff5841947d5ab5ff0a27ecb58"
+          ]
+        }
+      },
+      "novelty": {
+        "structural": 0.0,
+        "compositional": 0.0,
+        "objects": 0.0,
+        "parameter": 0.0,
+        "distributional": 0.0
+      },
+      "instances": [
+        {
+          "schema_version": "1.0",
+          "family_id": "b8a3639d92bd9a01c7900dd30558215f5084fe4723d4a10f00354d6ba7bd8e3a",
+          "family": "composed_pick_place",
+          "revision": 1,
+          "seed": 6349763315062622737,
+          "index": 0,
+          "theta": {
+            "object_size": 0.03041717022013809,
+            "target_distance": 0.12210386042463725,
+            "tolerance": 0.015501542426646054
+          },
+          "phi": {
+            "friction": 0.568110714869861,
+            "mass": 0.13437331147550136
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "b8a3639d92bd9a01c7900dd30558215f5084fe4723d4a10f00354d6ba7bd8e3a",
+          "family": "composed_pick_place",
+          "revision": 1,
+          "seed": 16149386099140983010,
+          "index": 1,
+          "theta": {
+            "object_size": 0.032243001722205476,
+            "target_distance": 0.15094742798812041,
+            "tolerance": 0.023342174869084756
+          },
+          "phi": {
+            "friction": 0.6034227379183865,
+            "mass": 0.06325949999323488
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "b8a3639d92bd9a01c7900dd30558215f5084fe4723d4a10f00354d6ba7bd8e3a",
+          "family": "composed_pick_place",
+          "revision": 1,
+          "seed": 15022284547068307492,
+          "index": 2,
+          "theta": {
+            "object_size": 0.029466751018782704,
+            "target_distance": 0.11797843331839239,
+            "tolerance": 0.03277174139525424
+          },
+          "phi": {
+            "friction": 0.5563631715424875,
+            "mass": 0.13818748873997422
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        }
+      ]
+    },
+    {
+      "family_id": "3cc097bdf3c9fa1bbaca3ebcdf129bc81954dbdaf286a1cd4df2375bc7edd30c",
+      "specification": {
+        "schema_version": "1.0",
+        "family": "pick_place",
+        "revision": 2,
+        "embodiment": "so101",
+        "scene": {
+          "template": "tabletop",
+          "relations": []
+        },
+        "objects": {
+          "object": {
+            "asset": "cube",
+            "affordances": [
+              "graspable",
+              "pushable"
+            ]
+          },
+          "target": {
+            "asset": "target",
+            "affordances": [
+              "target"
+            ]
+          }
+        },
+        "initial_state": {
+          "object": [
+            "reachable",
+            "free"
+          ]
+        },
+        "task_graph": [
+          {
+            "id": "s0",
+            "skill": "reach",
+            "object": "object",
+            "target": "target",
+            "depends_on": []
+          },
+          {
+            "id": "s1",
+            "skill": "grasp",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s0"
+            ]
+          },
+          {
+            "id": "s2",
+            "skill": "lift",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s1"
+            ]
+          },
+          {
+            "id": "s3",
+            "skill": "transport",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s2"
+            ]
+          },
+          {
+            "id": "s4",
+            "skill": "release",
+            "object": "object",
+            "target": "target",
+            "depends_on": [
+              "s3"
+            ]
+          }
+        ],
+        "theta": {
+          "target_distance": [
+            0.04,
+            0.16
+          ],
+          "tolerance": [
+            0.005,
+            0.02
+          ],
+          "object_size": [
+            0.02,
+            0.04
+          ]
+        },
+        "phi": {
+          "mass": [
+            0.03,
+            0.15
+          ],
+          "friction": [
+            0.3,
+            0.8
+          ]
+        },
+        "success": {
+          "object": "object",
+          "predicate": "placed",
+          "tolerance_parameter": "tolerance"
+        },
+        "reward": [
+          {
+            "term": "progress",
+            "weight": 1.0
+          },
+          {
+            "term": "time",
+            "weight": -0.01
+          }
+        ],
+        "horizon": 300,
+        "interfaces": {
+          "observation": "state_v1",
+          "action": "joint_target_v1"
+        },
+        "provenance": {
+          "engine": "mutation",
+          "parents": [
+            "d91a1cdc5d6270e791a11998a21f81476b8d86225d74909a68b78122e59aef75"
+          ],
+          "parameter": "tolerance",
+          "factor": 0.5
+        }
+      },
+      "novelty": {
+        "structural": 0.0,
+        "compositional": 0.0,
+        "objects": 0.0,
+        "parameter": 0.16666666666666666,
+        "distributional": 0.0
+      },
+      "instances": [
+        {
+          "schema_version": "1.0",
+          "family_id": "3cc097bdf3c9fa1bbaca3ebcdf129bc81954dbdaf286a1cd4df2375bc7edd30c",
+          "family": "pick_place",
+          "revision": 2,
+          "seed": 4020463967098960152,
+          "index": 0,
+          "theta": {
+            "object_size": 0.03938646771833916,
+            "target_distance": 0.12995237793226988,
+            "tolerance": 0.014348717291430342
+          },
+          "phi": {
+            "friction": 0.571997340518847,
+            "mass": 0.10153236747514091
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "3cc097bdf3c9fa1bbaca3ebcdf129bc81954dbdaf286a1cd4df2375bc7edd30c",
+          "family": "pick_place",
+          "revision": 2,
+          "seed": 2157620451594050034,
+          "index": 1,
+          "theta": {
+            "object_size": 0.03345652522822933,
+            "target_distance": 0.10315643055396595,
+            "tolerance": 0.011444315850621785
+          },
+          "phi": {
+            "friction": 0.3513898807725597,
+            "mass": 0.06996642008792194
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "family_id": "3cc097bdf3c9fa1bbaca3ebcdf129bc81954dbdaf286a1cd4df2375bc7edd30c",
+          "family": "pick_place",
+          "revision": 2,
+          "seed": 4718583306144635331,
+          "index": 2,
+          "theta": {
+            "object_size": 0.03345338283668948,
+            "target_distance": 0.05816942363490015,
+            "tolerance": 0.015990278656158704
+          },
+          "phi": {
+            "friction": 0.6116670354523556,
+            "mass": 0.03453779881883984
+          },
+          "provenance": {
+            "generator_seed": 42,
+            "generator_version": "0.1.0"
+          },
+          "validation": {
+            "errors": [],
+            "pending": [
+              "kinematics/IK",
+              "collision",
+              "physics",
+              "solvability",
+              "RL learnability"
+            ],
+            "structurally_valid": true,
+            "simulation_approved": false
+          }
+        }
+      ]
+    }
+  ]
+}
