@@ -10,13 +10,18 @@ NOTICE = "SYNTHETIC CARTESIAN SURROGATE: not Isaac Lab, SO-101 physics or robot 
 
 
 class TaskCompiler:
-    version = "local-compiler-1.0"
+    version = "local-compiler-2.0"
 
     def __init__(self, resources=None, semantics=None):
         self.resources = resources or local_resources()
         self.semantics = semantics or default_registry()
 
     def compile(self, task):
+        if task.get('schema_version') == 'semantic-1.0':
+            from semantics.execution import lower
+            task = lower(task, self.semantics)
+        from .bindings import parameter_schema
+        parameter_schema(task)
         report = validate(task)
         if not report.structurally_valid:
             raise ValueError("TaskSpec rejected: " + "; ".join(report.errors))
@@ -31,7 +36,7 @@ class TaskCompiler:
                 matches = self.resources.resolve_role(value["requires"], versions=asset_versions)
                 if not matches:
                     raise ValueError("no exact resource satisfies object role")
-                objects[role] = matches[0]
+                objects[role] = min(matches,key=lambda r:(len(set(r["definition"]["affordances"])-set(value["requires"])),r["name"]))
         scene = self.resources.get("scene", task["scene"]["template"], "1.0.0")
         robot = self.resources.get("robot", "so101-surrogate", "1.0.0")
         observations = {}
@@ -45,7 +50,7 @@ class TaskCompiler:
         actions = {"delta_" + axis: {"type": "float", "bounds": [-.012, .012],
                     "units": "m", "coordinate_frame": "world"} for axis in "xyz"}
         actions["close_gripper"] = {"type": "categorical", "values": [False, True], "units": "1", "coordinate_frame": None}
-        if task["schema_version"] == "1.2":
+        if task["schema_version"] in ("1.2", "1.3"):
             observations.update(orientation_error={"type": "float", "bounds": [0., 4.], "units": "rad", "coordinate_frame": "object"},
                                 drawer_open_fraction={"type": "float", "bounds": [0., 1.], "units": "1", "coordinate_frame": None})
             actions.update(delta_angle={"type": "float", "bounds": [-.12, .12], "units": "rad", "coordinate_frame": "object"},
@@ -57,32 +62,25 @@ class TaskCompiler:
             "initial_state_sampling": "tabletop-layout-1.0", "reference_plan": deepcopy(task["task_graph"]),
             "success": deepcopy(task["success"]), "termination": ["success", "timeout", "workspace_violation"],
             "rewards": deepcopy(task["reward"]),
-            "trajectory_schema": {"schema_id": "local-cartesian-trajectory-1.0", "observations": observations, "actions": actions},
+            "trajectory_schema": {"schema_id": "local-cartesian-trajectory-2.0", "observations": observations, "actions": actions},
             "observation_schema_id": task["interfaces"]["observation"], "action_schema_id": task["interfaces"]["action"]}
+        from semantics.execution import program
+        configuration['semantic_program'] = program(task, self.semantics)
         configuration["compiled_id"] = fingerprint(configuration)
         return configuration
 
-    def contract(self, task, compiled, validation_evidence, *, controller="local-reference@1.0"):
+    def contract(self, task, compiled, validation_evidence, *, controller="local-reference@2.0"):
         if compiled != self.compile(task):
             raise ValueError("compiled artifact does not match pinned inputs")
-        units = {"target_distance": "m", "tolerance": "m", "object_size": "m", "mass": "kg", "friction": "1"}
-        schema = {}
-        for group in ("theta", "phi"):
-            for name, value in task[group].items():
-                if name not in units:
-                    raise ValueError("compiler has no declared application binding for parameter: " + name)
-                schema[name] = {**deepcopy(domain(value)), "name": name, "units": units[name],
-                    "coordinate_frame": "world" if units[name] == "m" else None,
-                    "spatial": units[name] == "m", "sampling_role": group,
-                    "application_stage": "build" if name in ("object_size", "mass", "friction") else "reset",
-                    "dependencies": []}
+        from .bindings import parameter_schema
+        schema = parameter_schema(task)
         from semantics.capabilities import capabilities_for
         return {"schema_version": "2.0", "family_id": fingerprint(task), "family_version": task["revision"],
             "status": "active", "capability_tags": capabilities_for(task),
             "supported_embodiments": [task["embodiment"]], "supported_controller_references": [controller],
             "parameter_schema": schema, "constraints": [],
-            "geometry_checks": [{"id": "local-geometry-1.0", "dependencies": sorted(schema)}],
-            "validation_policy": {"mode": "always", "validator_id": "local-validator-1.0"},
+            "geometry_checks": [{"id": "local-geometry-1.0", "dependencies": ["friction", "mass", "object_size", "target_distance", "tolerance"]}],
+            "validation_policy": {"mode": "always", "validator_id": "local-validator-2.0"},
             "instance_constructor_id": "local-instance-1.0", "compiled_artifact_reference": compiled["compiled_id"],
             "compiled_artifact_hash": fingerprint(compiled), "execution_compatibility_key": fingerprint([compiled["scene"], compiled["objects"], compiled["trajectory_schema"]]),
             "robot_configuration": compiled["robot"], "actuator_configuration": {"mode": "cartesian_delta", "dt": .02},

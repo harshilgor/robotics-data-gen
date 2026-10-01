@@ -74,7 +74,7 @@ def compile_instrumentation(task, instance, evidence, *, lift_height=.02):
     number(lift_height, "lift_height", .000001)
     mapping = {"reach": "near", "grasp": "held", "lift": "lifted",
                "transport": "at_target", "push": "at_target", "release": "placed"}
-    if task["schema_version"] == "1.2":
+    if task["schema_version"] in ("1.2", "1.3"):
         from semantics import default_registry
         registry = default_registry()
         mapping = {node["skill"]: registry.get("execution_skill", node["skill"])["measured_predicate"] for node in task["task_graph"]}
@@ -105,12 +105,19 @@ def measured_predicates(frame, tolerance, lift_height):
             number(metrics[key], key, 0)
         if type(metrics["stack_support"]) is not bool:
             raise ValueError("stack support requires measured boolean")
-        result.update(oriented=held and metrics["orientation_error"] <= .05,
-                      aligned=held and at_target and metrics["orientation_error"] <= .05,
+        orientation_tolerance = frame.get('geometry_measurements',{}).get('orientation_tolerance',.05)
+        number(orientation_tolerance,'orientation tolerance',.000001,.2)
+        result.update(oriented=held and metrics["orientation_error"] <= orientation_tolerance,
+                      aligned=held and at_target and metrics["orientation_error"] <= orientation_tolerance,
                       inserted=held and metrics["insertion_depth"] >= metrics["required_insertion_depth"],
                       opened=metrics["drawer_open_fraction"] >= .9,
                       avoided_obstacle=held and at_target and metrics["obstacle_clearance"] >= .01,
                       stacked=at_target and not held and metrics["stack_support"] and frame["object_speed"] <= .01)
+    if 'recovery_measurements' in frame:
+        telemetry = frame['recovery_measurements']
+        if set(telemetry) != {'disturbance_observed','regrasp_contact'} or any(type(v) is not bool for v in telemetry.values()):
+            raise ValueError('invalid measured recovery events')
+        result['recovered'] = telemetry['disturbance_observed'] and telemetry['regrasp_contact'] and held
     return result
 
 
@@ -149,14 +156,26 @@ class EpisodeTracker:
             raise ValueError("simulation time must increase")
         number(frame.get("reward"), "reward")
         c = self.compiled
-        if c.task["schema_version"] == "1.2" and "extended_measurements" not in frame:
+        if c.task["schema_version"] in ("1.2", "1.3") and "extended_measurements" not in frame:
             raise ValueError("extended task requires measured predicate telemetry")
         predicates = measured_predicates(frame, c.instance["theta"]["tolerance"], c.bindings["lift_height"])
+        if c.task['schema_version'] == '1.3':
+            telemetry = frame.get('semantic_measurements')
+            from semantics.execution import program
+            from semantics import default_registry
+            required_program = program(c.task, default_registry())
+            if not isinstance(telemetry, dict) or set(telemetry) != {'initial','goal','constraints','subgoals'}:
+                raise ValueError('shared semantic telemetry required')
+            if set(telemetry['subgoals']) != set(required_program['subgoals']) or any(type(v) is not bool for v in telemetry['subgoals'].values()):
+                raise ValueError('invalid semantic subgoal measurements')
+            for key in ('initial','goal','constraints'):
+                if len(telemetry[key]) != len(required_program[key]) or any(type(v) is not bool for v in telemetry[key]):
+                    raise ValueError('invalid semantic predicate measurements')
         stages = self.annotation["subgoals"]
         active = next((s for s in stages if self.results[s["id"]] is not True), None)
         # One stage per frame prevents one static observation completing a sequence.
         if active and all(self.results[d] is True for d in active["depends_on"]):
-            self.results[active["id"]] = predicates[c.bindings[active["id"]]]
+            self.results[active["id"]] = (telemetry['subgoals'][active['id']] if c.task['schema_version'] == '1.3' and active['id'] in telemetry['subgoals'] else predicates[c.bindings[active["id"]]])
         active_skill = next((n["skill"] for n in c.task["task_graph"] if active and n["id"] == active["id"]), None)
         intentional_release = active_skill in ("release", "stack")
         self.collisions += int(frame["collision"] and not self.was_collision)
@@ -168,6 +187,8 @@ class EpisodeTracker:
         horizon = len(self.frames) >= c.task["horizon"]
         if frame["terminated"] or frame["truncated"] or horizon:
             success = all(v is True for v in self.results.values()) and predicates[c.bindings["goal"]]
+            if c.task['schema_version'] == '1.3':
+                success = all(v is True for v in self.results.values()) and all(telemetry['goal']) and all(telemetry['constraints'])
             failed_stage = next((s["id"] for s in stages if self.results[s["id"]] is False), None)
             ep = {"episode_id": self.episode_id, "policy_version": self.policy_version,
                 "source": self.source, "task_instance_id": fingerprint(c.instance),
@@ -183,6 +204,16 @@ class EpisodeTracker:
                     "bindings": c.bindings, "randomization": c.instance["phi"], "seed": c.instance["seed"],
                     "frames": deepcopy(self.frames),
                     "termination": {"terminated": frame["terminated"], "truncated": frame["truncated"], "horizon": horizon}}}
+            ep['capability_events'] = {
+                'held_step_count':sum(f['grasp_contact'] and f['gripper_closed'] for f in self.frames),
+                'disturbance_step_count':sum(f.get('recovery_measurements',{}).get('disturbance_observed',False) for f in self.frames),
+                'regrasp_step_count':sum(f.get('recovery_measurements',{}).get('regrasp_contact',False) for f in self.frames)}
+            if c.task['schema_version'] == '1.3':
+                ep['predicate_outcomes'] = deepcopy(telemetry)
+                if not all(telemetry['constraints']):
+                    ep['failure_type'] = 'constraint_violation'
+                elif not all(telemetry['goal']):
+                    ep['failure_type'] = 'compound_goal_not_achieved'
             validate_episode(ep, {(self.annotation["family_id"], self.annotation["family_version"]): self.annotation})
             self.ready = ep
         return deepcopy(self.ready)

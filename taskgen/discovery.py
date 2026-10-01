@@ -1,7 +1,7 @@
 """Library-first bounded discovery; proposals remain validated data."""
 from copy import deepcopy
 from typing import Protocol
-from .bootstrap import broad_bootstrap
+from .bootstrap import coverage_bootstrap
 from .core import fingerprint, validate, novelty, mutate, compose
 from .parameters import restrict
 from semantics.capabilities import capabilities_for
@@ -27,7 +27,7 @@ class TaskDiscovery:
         lookup = self.factory.library.resolve_directive(directive)
         accepted, rejected, remaining, used = [], [], [], 0
         archive = [r["task_spec"] for r in self.factory.library.search()]
-        templates = broad_bootstrap()
+        templates = coverage_bootstrap()
         for gap in lookup["generation_requests"]:
             target = gap["target"]
             candidates = []
@@ -48,6 +48,15 @@ class TaskDiscovery:
                         if set(target.get("capabilities", [])) <= set(capabilities_for(child)):
                             candidates.append((child, "composition"))
                     except (ValueError, KeyError): pass
+            from .structural import mutate_structure
+            for parent in archive:
+                for operation in ('obstacle','layout','approach','geometry','object','spatial'):
+                    try:
+                        child = mutate_structure(parent,operation)
+                        if set(target.get('capabilities',[])) <= set(capabilities_for(child)):
+                            candidates.append((child,'mutation'))
+                    except (ValueError,KeyError):
+                        pass
             candidates.extend((deepcopy(t), "bootstrap") for t in templates
                           if set(target.get("capabilities", [])) <= set(capabilities_for(t)))
             if self.proposals is not None and used < max_candidates:

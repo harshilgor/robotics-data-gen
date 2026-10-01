@@ -210,12 +210,15 @@ def default_registry():
         ("near", 2, {"tolerance": "m"}, [[], []], _near),
         ("inside", 2, {}, [[], ["receptacle"]], _inside),
         ("stable", 1, {"maximum_speed": "m/s"}, [[]], _stable),
+        ("elevated", 1, {"minimum_height":"m"}, [[]], lambda entities,parameters: _position(entities[0])[2]-entities[0]['reset_height'] >= parameters['minimum_height']),
         ("grasped", 1, {}, [["graspable"]], _flag("grasped")),
         ("open", 1, {}, [["openable"]], _flag("open")),
         ("reachable", 1, {}, [[]], _flag("reachable")),
         ("aligned", 2, {"maximum_error": "rad"}, [[], []], _aligned),
         ("contact", 2, {}, [[], []], _contact),
         ("collision", 2, {}, [[], []], _collision),
+        ("avoid_collision", 2, {}, [[], []], lambda entities, parameters: not _collision(entities, parameters)),
+        ("outside", 2, {}, [[], ["receptacle"]], lambda entities, parameters: not _inside(entities, parameters)),
     ):
         registry.register("predicate", name, {"arity": arity, "parameters": parameters,
                                                "affordances": affordances}, implementation)
@@ -230,12 +233,20 @@ def default_registry():
         "insert": ({"object": ["graspable", "insertable"], "target": ["receptacle"]}, ["insert"], [held, at_target], [predicate("inside", "object", "target")], []),
         "open": ({"object": ["openable"]}, ["articulate"], [predicate("reachable", "object")], [predicate("open", "object")], []),
     }
+    definitions.update({
+        'lift': ({'object':['graspable']}, ['lift'], [held], [predicate('elevated','object',minimum_height=.02)], []),
+        'rotate': ({'object':['graspable'],'target':[]}, ['rotate'], [held], [predicate('aligned','object','target',maximum_error=.05)], []),
+        'align': ({'object':['graspable'],'target':[]}, ['align'], [held,at_target], [predicate('aligned','object','target',maximum_error=.05)], []),
+        'place': ({'object':['graspable'],'target':['receptacle']}, ['precision_placement'], [held,at_target],
+            [at_target,predicate('inside','object','target'),predicate('stable','object',maximum_speed=.01)], [held]),
+        'slide': ({'robot':['manipulator'],'object':['pushable'],'target':[]}, ['slide'], [near], [at_target], []),
+    })
     for name, (roles, capabilities, preconditions, effects, deletes) in definitions.items():
         registry.register("skill", name, {"roles": roles, "capabilities": capabilities,
                                           "preconditions": preconditions, "effects": effects, "delete_effects": deletes})
     from .task_spec import EXTENDED_SKILLS
     bindings = {"reach": "near", "grasp": "held", "lift": "lifted", "transport": "at_target",
-                "release": "placed", "push": "at_target", "rotate": "oriented", "align": "aligned",
+                "release": "placed", "push": "at_target", "slide": "at_target", "recover": "recovered", "rotate": "oriented", "align": "aligned",
                 "insert": "inserted", "articulate": "opened", "obstacle_transport": "avoided_obstacle", "stack": "stacked"}
     for name, (preconditions, effects, deletes, affordance) in EXTENDED_SKILLS.items():
         registry.register("execution_skill", name, {"preconditions": sorted(preconditions), "effects": sorted(effects),
@@ -339,7 +350,7 @@ def validate_task(task, registry):
     leaves = set(nodes) - {d for node in nodes.values() for d in node["depends_on"]}
     # A goal must hold in at least one complete terminal branch state.
     goals = {fingerprint(p) for p in task["goal"]}
-    if not any(goals <= available[leaf] for leaf in leaves):
+    if not goals <= set().union(*(available[leaf] for leaf in leaves)) :
         raise ValueError("goal not established by terminal skill state")
     return {"structurally_valid": True, "physical_status": "unknown", "order": order,
             "registry_digest": registry.snapshot()["digest"]}

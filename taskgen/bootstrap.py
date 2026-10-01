@@ -48,3 +48,16 @@ def broad_bootstrap():
     rearrange["success"]["object"] = "second_object"
     tasks.append(rearrange)
     return tasks
+
+
+def coverage_bootstrap():
+    tasks = broad_bootstrap()
+    slide = deepcopy(next(t for t in tasks if t['family'] == 'push'))
+    slide['schema_version'] = '1.2'
+    slide['family'] = 'slide_to_target'
+    slide['task_graph'][-1]['skill'] = 'slide'
+    recovery = deepcopy(next(t for t in tasks if t['family'] == 'pick_place'))
+    recovery.update(schema_version='1.2',family='drop_and_recover')
+    recovery['task_graph'] = graph(['reach','grasp','lift','recover','lift','transport','release'])
+    recovery['phi']['grasp_disturbance'] = {'type':'categorical','values':['drop_once']}
+    return tasks+[slide,recovery]

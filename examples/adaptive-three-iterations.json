@@ -1,0 +1,89 @@
+{
+  "command": "python -m factory --root /tmp/robotics-architecture-final --iterations 3 --episodes 28 --seed 42 --job architecture-demo",
+  "manifest_id": "b23c46f3fc26a78fde4fc1420d9c3f1c0ce5a0b7e9b6e002470d81962ced5073",
+  "job": "architecture-demo",
+  "iterations": [
+    {
+      "iteration": 0,
+      "shortfall": 11,
+      "training_metrics": {
+        "new_action_samples": 938,
+        "retained_samples": 1417,
+        "skill_count": 14
+      },
+      "dataset_id": "20107985cad24a9567c20294c9b8787012419fb7753dac639c09383a6700b22b",
+      "advisor_snapshot_id": "d6609bb6044da8b052623546f2451ef3d190b57308ad056ab0233f5dc1563201",
+      "feedback": {
+        "directive_id": "1a7bf61f2c24d465d88e47968eab06fecafad59bf0d557260e1a2249af38ef19",
+        "requested": 28,
+        "generated": 65,
+        "validated": 17,
+        "scheduled": 17,
+        "executed_episodes": 17,
+        "interrupted_attempts": 0,
+        "feedback_id": "8f0af61050b4d716964c6c7f415013375e6be373ff51d89017048c419539553d"
+      },
+      "unresolved_target_count": 6,
+      "before_success_rate": 0.5714285714285714,
+      "after_success_rate": 0.5714285714285714,
+      "checkpoint_digest": "fe90252d5483b991d4dde255820b728602eec974754c85aca53eee413bcc75e4",
+      "transfer_interpretation": "Observational association only; no causal transfer or skill isolation."
+    },
+    {
+      "iteration": 1,
+      "shortfall": 7,
+      "training_metrics": {
+        "new_action_samples": 609,
+        "retained_samples": 1484,
+        "skill_count": 14
+      },
+      "dataset_id": "95e4cfd9e3268110d97967c28b3ce808d4dac26f6d120c89fedfee66ed675e13",
+      "advisor_snapshot_id": "364dc3efc617622b39755ce8d2d5d272186ac37358f846d049535402941cb16e",
+      "feedback": {
+        "directive_id": "3de0eef2e498e0d6b993abc28dfe19e029f88bb591f0cebb18b09866c04acc93",
+        "requested": 28,
+        "generated": 45,
+        "validated": 21,
+        "scheduled": 21,
+        "executed_episodes": 21,
+        "interrupted_attempts": 0,
+        "feedback_id": "9d05c2244fd2e343605ef358a1020a2887c4eda12f6048e0aa9a2089b88c0e33"
+      },
+      "unresolved_target_count": 6,
+      "before_success_rate": 0.5714285714285714,
+      "after_success_rate": 0.5714285714285714,
+      "checkpoint_digest": "4e3fbf263b99cb220ed9b75f88bf433f997eb8fcc41acc8fdd095921aefdc83e",
+      "transfer_interpretation": "Observational association only; no causal transfer or skill isolation."
+    },
+    {
+      "iteration": 2,
+      "shortfall": 4,
+      "training_metrics": {
+        "new_action_samples": 957,
+        "retained_samples": 1854,
+        "skill_count": 14
+      },
+      "dataset_id": "71ad002feb70076ec1ca5aa7ab914cd170a03cb79b405a70de11b6bd38ab1d31",
+      "advisor_snapshot_id": "cacafde4c315f95a64adb3079aa8591a6549946d513c027f451194a8e9a30417",
+      "feedback": {
+        "directive_id": "702fd6d0c119a2fb2db078a9b8d207afb6bb61e425c75fb3538ae04db4cc4d0e",
+        "requested": 28,
+        "generated": 24,
+        "validated": 24,
+        "scheduled": 24,
+        "executed_episodes": 24,
+        "interrupted_attempts": 0,
+        "feedback_id": "ef8b0027e1120f28349e8b199e99e83e55a6c6b75296b1de98ff4a7ea27e56ff"
+      },
+      "unresolved_target_count": 6,
+      "before_success_rate": 0.5714285714285714,
+      "after_success_rate": 0.5714285714285714,
+      "checkpoint_digest": "65edadcb654a8c1e513c6b1de840de64cd8e051daf1d70daa4ac2d31e9b2b8f5",
+      "transfer_interpretation": "Observational association only; no causal transfer or skill isolation."
+    }
+  ],
+  "sqlite_integrity": "ok",
+  "completion_count": 90,
+  "resume": "Repeated target count preserves canonical report content and completion count; JSON key order is not identity.",
+  "report_content_digest": "59c5532657e3b29a9cf1b69e34609f877694d9a1cd188ef742f2ec00f7fff9cb"
+}

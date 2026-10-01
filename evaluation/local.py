@@ -30,9 +30,11 @@ class LocalProbeRuntime:
         assignment = {"assignment_id": fingerprint([instance, seed]), "sampling_seed": instance["seed"],
                       "task_parameters": instance["theta"], "environment_parameters": instance["phi"],
                       "compiled_artifact_hash": fingerprint(compiled), "policy_checkpoint_id": self.checkpoint["policy_version"]}
-        self.adapter.configure("probe", compiled, "frozen-probe", {k: values[k] for k in ("object_size", "mass", "friction")})
+        from task_compiler.bindings import split_parameters
+        build, reset = split_parameters(compiled["task"], values)
+        self.adapter.configure("probe", compiled, "frozen-probe", build)
         self.adapter.install("probe", assignment, "pending-probe-identity")
-        self.adapter.apply_reset("probe", {k: values[k] for k in ("target_distance", "tolerance")})
+        self.adapter.apply_reset("probe", reset)
         self.adapter.reset("probe", family["task"]["initial_state"], family["task"]["success"])
 
     def step(self, episode_id):
