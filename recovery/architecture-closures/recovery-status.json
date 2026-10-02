@@ -1,0 +1,13 @@
+{
+  "cloud_commit": "ce0bbedcfab47e0a11419eef0a7460c50b030983",
+  "base_commit": "bf80e2e63007ecf76a6e0cd447438b86a8f9a345",
+  "cloud_thread": "6abeb755-89cc-83ed-a37e-1e051a62055d",
+  "source_files_verified": 41,
+  "bundle_complete": true,
+  "runtime_archive_complete": true,
+  "received_chunks": 636,
+  "total_chunks": 636,
+  "zip_size": 5718538,
+  "zip_sha256": "ed5d256cceee73440ea00dc8c0d46222da043203acdddce6857abe03c9ba0c8f",
+  "verification": "135 tests:134 passed,1 live PostgreSQL skipped; Windows locking contention/release verified"
+}

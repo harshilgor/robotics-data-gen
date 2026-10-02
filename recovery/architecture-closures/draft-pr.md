@@ -1,0 +1,7 @@
+# Expand synthetic architecture closures and adaptive operating loop
+
+Expand the synthetic factory with source-pinned role/predicate execution, realized geometry and typed parameters, structural discovery, deduplicated hierarchy evidence, funnel feedback, a reserved frozen suite, per-task/capability transfer reports and resumable full-action imitation training. Add conservative semantic publication classification and optional Isaac/SO-101, hosted proposal, PostgreSQL and S3 bindings. Preserve the canonical architecture and original engine briefs.
+
+Validation: 135 tests ran (134 passed, one live PostgreSQL skipped), plus targeted final IK validation, compile checks and diff checks. Three adaptive iterations executed 17/21/24 guided episodes plus 28 bootstrap demonstrations, with 90 durable completions. Repeated target-count invocation preserved canonical report content and completion count; SQLite integrity was ok. All evaluations scored 8/14: no learning improvement claim.
+
+This is not full architecture completion. The complete governed physical worker bridge, calibrated physical predicate/contact telemetry and real reference-plan validation remain software work. Low-level physical bindings require live API/GPU/USD/hardware validation. No external inference, S3 write, provisioning, credentials changes or physical actuation were performed. See architecture-closure-review.md for every requirement and all 53 sections.

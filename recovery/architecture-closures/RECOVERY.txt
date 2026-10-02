@@ -1,0 +1,35 @@
+Robotics architecture recovery delivery
+
+Commit: ce0bbedcfab47e0a11419eef0a7460c50b030983
+Tree: 4cb78213a9040477a50c41ead7b4303ee73008be
+Base: bf80e2e63007ecf76a6e0cd447438b86a8f9a345
+Branch: codex/architecture-closures
+
+Extract this ZIP. Restore full history:
+  git clone -b codex/architecture-closures robotics-architecture.bundle robotics-data-gen
+  cd robotics-data-gen
+  git rev-parse HEAD
+  python -m unittest discover -s tests -q
+
+Exact changed source files are also under changed-source/. The patch is an
+alternative for a checkout at the base commit:
+  git am ../robotics-architecture.patch
+Do not apply both restoration routes.
+
+The successful synthetic run is included under factory-state/. Its database
+was closed before packaging, passed integrity_check, and has all 90 durable
+completions and checkpoint/payload files. From the restored repository, resume:
+  python -m factory --root ../factory-state --iterations 3 --episodes 28 --seed 42 --job architecture-demo
+Increase --iterations to continue; 3 is the target total, not three new iterations.
+Use a local filesystem for live SQLite, not a file synchronization service.
+
+Publishing failed: Git CLI lacks authentication; GitHub connector rejected
+branch creation with HTTP 403. No draft PR exists. With repository write access:
+  git remote set-url origin https://github.com/harshilgor/robotics-data-gen.git
+  git push -u origin codex/architecture-closures
+Then create a draft PR targeting main using draft-pr.md. Do not merge or force-push.
+
+This is substantial implemented local work, not a declaration that every
+architecture responsibility is complete. The remaining governed physical worker
+software and genuine live validation limits are explicitly listed in
+architecture-closure-review.md. The supplied audit remains unchanged.
