@@ -1,5 +1,11 @@
 # Architecture implementation review
 
+Current scope and test-backed section traceability are recorded in
+`architecture-verification.md` and `architecture-verification.json`. Further
+Isaac worker integration is explicitly deferred by the user. Windows process
+locking was added during recovery; the Unix-only limitation below describes the
+original cloud delivery. This historical review remains preserved for context.
+
 Goal: implement remaining architecture software, verify the complete supported
 synthetic flow, and document genuine external validation limitations.
 

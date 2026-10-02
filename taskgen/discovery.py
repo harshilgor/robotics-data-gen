@@ -62,7 +62,7 @@ class TaskDiscovery:
             if self.proposals is not None and used < max_candidates:
                 vocabulary = {"semantics": self.factory.compiler.semantics.snapshot(),
                               "resources": self.factory.compiler.resources.snapshot(),
-                              "schema_versions": ["1.1", "1.2"]}
+                              "schema_versions": ["1.1", "1.2", "1.3", "semantic-1.0"]}
                 generated = self.proposals.propose(deepcopy(target), vocabulary)
                 if not isinstance(generated, list):
                     raise ValueError("proposal provider must return a list of TaskSpecs")
@@ -73,6 +73,9 @@ class TaskDiscovery:
                     break
                 used += 1
                 try:
+                    if isinstance(candidate, dict) and candidate.get('schema_version') == 'semantic-1.0':
+                        from semantics.execution import lower
+                        candidate = lower(candidate, self.factory.compiler.semantics)
                     if not isinstance(candidate, dict) or not validate(candidate).structurally_valid:
                         raise ValueError("proposal violates trusted declarative grammar")
                     if not set(target.get("capabilities", [])) <= set(capabilities_for(candidate)):

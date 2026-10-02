@@ -1,0 +1,694 @@
+{
+  "baseline_commit": "ae8e6a649bee5ad68b5a264cb1fc82dc9f606ebc",
+  "whole_architecture_complete": false,
+  "scope": "Synthetic runtime first; further Isaac worker integration explicitly deferred by user.",
+  "sections": [
+    {
+      "section": 1,
+      "title": "Fundamental architecture principles",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "semantics/execution.py",
+        "task_library/governance.py"
+      ],
+      "tests": [
+        "tests.test_semantics.SemanticsTests.test_role_based_task_and_exact_registry_pin"
+      ],
+      "scope": "Declarative tasks, separate family/instance identity and component ownership."
+    },
+    {
+      "section": 2,
+      "title": "Major system domains",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "factory/local.py",
+        "factory/adaptive.py"
+      ],
+      "tests": [
+        "tests.test_training_cycle.TrainingCycleTests.test_complete_synthetic_cycle_frozen_suite_and_external_payloads"
+      ],
+      "scope": "Modular monolith covers seven domains in the synthetic flow."
+    },
+    {
+      "section": 3,
+      "title": "Task Semantics Layer",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "semantics/task_spec.py",
+        "semantics/execution.py"
+      ],
+      "tests": [
+        "tests.test_architecture_closures.ClosureTests.test_semantic_source_compound_goal_runs_through_governed_factory"
+      ],
+      "scope": "Source-pinned role semantics lower into the bounded execution grammar."
+    },
+    {
+      "section": 4,
+      "title": "Predicate system",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "semantics/registry.py",
+        "semantics/execution.py"
+      ],
+      "tests": [
+        "tests.test_architecture_closures.ClosureTests.test_semantic_constraints_terminate_and_attribute_failure"
+      ],
+      "scope": "Shared predicates drive initial,goal,constraint,terminal and attribution behavior."
+    },
+    {
+      "section": 5,
+      "title": "Object and affordance ontology",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "semantics/registry.py",
+        "assets/registry.py"
+      ],
+      "tests": [
+        "tests.test_local_factory.LocalFactoryTests.test_resource_role_lookup_and_immutable_versions"
+      ],
+      "scope": "Affordance roles resolve exact procedural assets; physical calibration remains external."
+    },
+    {
+      "section": 6,
+      "title": "Capability ontology",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "semantics/capabilities.py",
+        "semantics/registry.py",
+        "task_advisor/core.py"
+      ],
+      "tests": [
+        "tests.test_task_advisor.AdvisorTests.test_beta_and_small_sample_unknown"
+      ],
+      "scope": "Versioned hierarchy and uncertainty; observational ancestor evidence."
+    },
+    {
+      "section": 7,
+      "title": "Task Grammar",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "semantics/execution.py",
+        "semantics/registry.py"
+      ],
+      "tests": [
+        "tests.test_architecture_closures.ClosureTests.test_disjoint_role_dag_serialization_and_unsafe_shared_role_rejection"
+      ],
+      "scope": "Preconditions/effects and dependencies checked; conflicting unordered roles rejected."
+    },
+    {
+      "section": 8,
+      "title": "Task Library",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_library/library.py"
+      ],
+      "tests": [
+        "tests.test_library_governance.GovernanceTests.test_duplicate_reconciliation_and_recorded_override"
+      ],
+      "scope": "Canonical family identity,indexes,reconciliation and exact versions."
+    },
+    {
+      "section": 9,
+      "title": "Task family lifecycle",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_library/governance.py"
+      ],
+      "tests": [
+        "tests.test_library_governance.GovernanceTests.test_new_assignments_and_leases_respect_updated_approval"
+      ],
+      "scope": "Governed lifecycle and eligibility at sampling and lease."
+    },
+    {
+      "section": 10,
+      "title": "Validation envelopes",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_library/governance.py",
+        "task_validator/validator.py"
+      ],
+      "tests": [
+        "tests.test_curriculum_sampler.SamplerTests.test_outside_envelope_validation_policy_and_reference_failure"
+      ],
+      "scope": "Synthetic bound probes with mandatory per-instance reference execution; no continuous physical certification."
+    },
+    {
+      "section": 11,
+      "title": "Robot compatibility",
+      "status": "deferred_isaac",
+      "implementation": [
+        "task_library/governance.py"
+      ],
+      "tests": [
+        "tests.test_curriculum_sampler.SamplerTests.test_compatibility_and_context_approval_at_lease"
+      ],
+      "scope": "Context-scoped synthetic compatibility; physical approval deferred."
+    },
+    {
+      "section": 12,
+      "title": "Provenance and versioning",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_library/versioning.py",
+        "task_library/library.py"
+      ],
+      "tests": [
+        "tests.test_architecture_closures.ClosureTests.test_publication_patch_minor_major_preserves_exact_versions"
+      ],
+      "scope": "Immutable patch/minor/major publication,lineage and exact dependencies."
+    },
+    {
+      "section": 13,
+      "title": "Task Generator",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "taskgen/discovery.py",
+        "taskgen/structural.py",
+        "taskgen/proposals.py"
+      ],
+      "tests": [
+        "tests.test_discovery_semantic.SemanticDiscoveryTests.test_semantic_proposal_lowered_before_capability_and_parameter_checks"
+      ],
+      "scope": "Bounded library-first discovery,composition,mutation,structural novelty and semantic hosted/offline proposals."
+    },
+    {
+      "section": 14,
+      "title": "What is intentionally NOT in the core Generator",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "taskgen/discovery.py",
+        "taskgen/proposals.py"
+      ],
+      "tests": [
+        "tests.test_architecture_closures.ClosureTests.test_hosted_fixture_transport_and_semantic_allowlist"
+      ],
+      "scope": "Non-goals respected; trusted bounded declarations,not generated code."
+    },
+    {
+      "section": 15,
+      "title": "Task Compiler",
+      "status": "deferred_isaac",
+      "implementation": [
+        "task_compiler/compiler.py",
+        "task_compiler/bindings.py",
+        "integrations/isaac_lab.py"
+      ],
+      "tests": [
+        "tests.test_local_factory.LocalFactoryTests.test_compiler_pinned_resources_and_artifact_tampering"
+      ],
+      "scope": "Synthetic compiler outputs complete supported configuration; governed Isaac worker realization deferred."
+    },
+    {
+      "section": 16,
+      "title": "Asset Registry",
+      "status": "deferred_isaac",
+      "implementation": [
+        "assets/registry.py",
+        "integrations/isaac_lab.py"
+      ],
+      "tests": [
+        "tests.test_local_factory.LocalFactoryTests.test_resource_role_lookup_and_immutable_versions"
+      ],
+      "scope": "Procedural versioned assets and optional USD bindings; real calibrated asset dynamics deferred."
+    },
+    {
+      "section": 17,
+      "title": "Scene Library",
+      "status": "deferred_isaac",
+      "implementation": [
+        "assets/registry.py",
+        "simulation/layout.py"
+      ],
+      "tests": [
+        "tests.test_architecture_closures.ClosureTests.test_spatial_conflicts_are_rejected_before_execution"
+      ],
+      "scope": "Parameterized finite layouts actually affect synthetic state; physical scene realization deferred."
+    },
+    {
+      "section": 18,
+      "title": "Skill Library",
+      "status": "deferred_isaac",
+      "implementation": [
+        "semantics/registry.py",
+        "simulation/local.py"
+      ],
+      "tests": [
+        "tests.test_architecture_closures.ClosureTests.test_slide_and_disturbed_recovery_have_measured_events"
+      ],
+      "scope": "Trusted semantic/reference skills are separate from policy estimates; physical planners deferred."
+    },
+    {
+      "section": 19,
+      "title": "Task Validator",
+      "status": "deferred_isaac",
+      "implementation": [
+        "task_validator/validator.py"
+      ],
+      "tests": [
+        "tests.test_local_factory.LocalFactoryTests.test_validator_layers_and_reference_failure_is_unknown"
+      ],
+      "scope": "Layered synthetic validation and reference evidence; actual SO-101 IK/dynamics/reference validation deferred."
+    },
+    {
+      "section": 20,
+      "title": "Task Intelligence",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_advisor/core.py",
+        "factory/local.py"
+      ],
+      "tests": [
+        "tests.test_instrumentation.InstrumentationTests.test_success_end_to_end_sqlite_advisor"
+      ],
+      "scope": "Measured policy-versioned intelligence produces directives."
+    },
+    {
+      "section": 21,
+      "title": "Evidence Engine",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_advisor/instrumentation.py",
+        "task_advisor/core.py"
+      ],
+      "tests": [
+        "tests.test_instrumentation.InstrumentationTests.test_collision_edges_grasp_loss_and_terminal_goal"
+      ],
+      "scope": "Episode/stage/event evidence aggregated without counting unreached stages as failures."
+    },
+    {
+      "section": 22,
+      "title": "Failure attribution",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_advisor/instrumentation.py"
+      ],
+      "tests": [
+        "tests.test_task_advisor.AdvisorTests.test_stage_attribution"
+      ],
+      "scope": "Deterministic conditional failure attribution; no causal skill-isolation claim."
+    },
+    {
+      "section": 23,
+      "title": "Capability Model",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_advisor/core.py"
+      ],
+      "tests": [
+        "tests.test_task_advisor.AdvisorTests.test_beta_and_small_sample_unknown"
+      ],
+      "scope": "Beta uncertainty,progress,regression and evidence-backed hierarchy."
+    },
+    {
+      "section": 24,
+      "title": "Capability combinations",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_advisor/core.py"
+      ],
+      "tests": [
+        "tests.test_task_advisor.AdvisorTests.test_sparse_combinations_and_directive_weights"
+      ],
+      "scope": "Only observed capability combinations; no independence assumption."
+    },
+    {
+      "section": 25,
+      "title": "Task-space regions",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_advisor/core.py",
+        "task_advisor/curriculum.py"
+      ],
+      "tests": [
+        "tests.test_task_advisor.AdvisorTests.test_distribution_and_versions_not_pooled"
+      ],
+      "scope": "Contextual parameter regions retain version and distribution identity."
+    },
+    {
+      "section": 26,
+      "title": "Task-space states",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_advisor/core.py"
+      ],
+      "tests": [
+        "tests.test_task_advisor.AdvisorTests.test_state_progress_and_retention"
+      ],
+      "scope": "Empirical MASTERED/FRONTIER/STALLED/UNKNOWN/REGRESSING states."
+    },
+    {
+      "section": 27,
+      "title": "Task Advisor",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_advisor/core.py",
+        "factory/local.py"
+      ],
+      "tests": [
+        "tests.test_task_advisor.AdvisorTests.test_state_progress_and_retention"
+      ],
+      "scope": "LEARN/EXPLORE/RETAIN allocations consume measured evidence and funnel/discovery feedback."
+    },
+    {
+      "section": 28,
+      "title": "ExplorationDirective",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_advisor/curriculum.py"
+      ],
+      "tests": [
+        "tests.test_curriculum_sampler.SamplerTests.test_malformed_directives_and_controller_rejected"
+      ],
+      "scope": "Typed checksummed directives,budgets and explicit unsupported targets."
+    },
+    {
+      "section": 29,
+      "title": "Library lookup before generation",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "taskgen/discovery.py",
+        "task_library/library.py"
+      ],
+      "tests": [
+        "tests.test_extended_tasks.ExtendedTaskTests.test_library_first_gap_closure_and_no_redundant_generation"
+      ],
+      "scope": "Existing coverage queried before bounded discovery; unresolved targets explicit."
+    },
+    {
+      "section": 30,
+      "title": "Curriculum Sampler",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_advisor/curriculum.py",
+        "task_advisor/loop.py"
+      ],
+      "tests": [
+        "tests.test_curriculum_sampler.SamplerTests.test_explicit_fallback_and_no_silent_region_widening"
+      ],
+      "scope": "Governed sampling,quotas,fallback,provenance and exact approved regions."
+    },
+    {
+      "section": 31,
+      "title": "Instance Generator",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_compiler/bindings.py",
+        "simulation/layout.py",
+        "taskgen/parameters.py"
+      ],
+      "tests": [
+        "tests.test_architecture_closures.ClosureTests.test_parameters_change_geometry_sensor_and_contact_and_unknown_rejects"
+      ],
+      "scope": "Typed theta/phi/seed and constrained realization; unsupported bindings rejected."
+    },
+    {
+      "section": 32,
+      "title": "Isaac Lab simulation",
+      "status": "deferred_isaac",
+      "implementation": [
+        "task_advisor/worker.py",
+        "simulation/local.py",
+        "integrations/isaac_lab.py"
+      ],
+      "tests": [
+        "tests.test_local_factory.LocalFactoryTests.test_motion_failure_and_environment_isolation"
+      ],
+      "scope": "Independent synthetic environments work; full Isaac AssignmentEnvironments adapter/GPU execution deferred."
+    },
+    {
+      "section": 33,
+      "title": "Episode Assignment",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_advisor/execution.py",
+        "task_advisor/worker.py"
+      ],
+      "tests": [
+        "tests.test_curriculum_sampler.SamplerTests.test_leases_renew_interrupt_retry_fail_cancel_and_idempotence"
+      ],
+      "scope": "Explicit immutable assignments,attempt ownership,leases and retries."
+    },
+    {
+      "section": 34,
+      "title": "Synthetic trajectory recording",
+      "status": "deferred_isaac",
+      "implementation": [
+        "task_advisor/worker.py",
+        "data/modalities.py"
+      ],
+      "tests": [
+        "tests.test_modalities.ModalityTests.test_synchronized_external_sensors_curated_and_corruption_detected"
+      ],
+      "scope": "Configured synchronized synthetic modalities,terminal boundary and privileged separation; physical telemetry deferred."
+    },
+    {
+      "section": 35,
+      "title": "Data layer",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "data/objects.py",
+        "data/catalog.py",
+        "data/s3.py"
+      ],
+      "tests": [
+        "tests.test_data_layer.DataLayerTests.test_external_payload_metadata_and_reopen_checksum"
+      ],
+      "scope": "Metadata/payload separation and content-addressed local/optional S3 transport."
+    },
+    {
+      "section": 36,
+      "title": "Dataset curation",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "data/catalog.py"
+      ],
+      "tests": [
+        "tests.test_data_layer.DataLayerTests.test_integrity_detects_bad_timing_schema_and_terminal"
+      ],
+      "scope": "Curation checks corruption,timestamps,schemas,duplicates and preserves failures."
+    },
+    {
+      "section": 37,
+      "title": "Dataset catalog and manifests",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "data/catalog.py"
+      ],
+      "tests": [
+        "tests.test_data_layer.DataLayerTests.test_manifest_exact_provenance_replay_and_privileged_exclusion"
+      ],
+      "scope": "Immutable manifests with episode/version/configuration provenance."
+    },
+    {
+      "section": 38,
+      "title": "Policy training",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "training/baseline.py",
+        "training/action_cloning.py"
+      ],
+      "tests": [
+        "tests.test_training_cycle.TrainingCycleTests.test_trainer_rejects_empty_or_evaluation_data"
+      ],
+      "scope": "Pluggable baseline/checkpoint boundary; full-action imitation is supported,not general competence."
+    },
+    {
+      "section": 39,
+      "title": "Fixed Evaluation Suite",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "evaluation/suite.py",
+        "evaluation/reservations.py",
+        "task_advisor/evaluation.py"
+      ],
+      "tests": [
+        "tests.test_architecture_closures.AdaptiveRestartTests.test_two_iterations_restart_idempotency_frozen_eval_and_complete_actions"
+      ],
+      "scope": "Frozen14case suite in7partitions and training exclusion; development benchmark only."
+    },
+    {
+      "section": 40,
+      "title": "Transfer measurement",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "evaluation/suite.py",
+        "task_advisor/research.py"
+      ],
+      "tests": [
+        "tests.test_architecture_closures.AdaptiveRestartTests.test_two_iterations_restart_idempotency_frozen_eval_and_complete_actions"
+      ],
+      "scope": "Per-task/capability pre/post deltas and exposure; observational transfer only."
+    },
+    {
+      "section": 41,
+      "title": "Feedback integrity",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "factory/local.py",
+        "task_advisor/execution.py"
+      ],
+      "tests": [
+        "tests.test_curriculum_sampler.SamplerTests.test_detailed_feedback_and_advisor_only_completed_training"
+      ],
+      "scope": "Request-keyed requested/generated/validated/scheduled/executed funnel feeds Advisor."
+    },
+    {
+      "section": 42,
+      "title": "Reproducibility",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "factory/adaptive.py",
+        "training/baseline.py",
+        "task_compiler/compiler.py"
+      ],
+      "tests": [
+        "tests.test_data_layer.DataLayerTests.test_manifest_exact_provenance_replay_and_privileged_exclusion"
+      ],
+      "scope": "Exact registry/artifact/checkpoint/assignment identities and phase journal."
+    },
+    {
+      "section": 43,
+      "title": "Persistence architecture",
+      "status": "external_validation",
+      "implementation": [
+        "data/postgres.py",
+        "data/s3.py",
+        "task_advisor/storage.py"
+      ],
+      "tests": [
+        "tests.test_postgres_transport.PostgresTransportTests.test_parameter_and_schema_translation_preserves_literals_and_precision"
+      ],
+      "scope": "SQLite/local storage verified; PostgreSQL and S3 software have offline tests; live deployment unverified."
+    },
+    {
+      "section": 44,
+      "title": "Suggested repository structure",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "factory/local.py",
+        "factory/adaptive.py"
+      ],
+      "tests": [
+        "tests.test_training_cycle.TrainingCycleTests.test_complete_synthetic_cycle_frozen_suite_and_external_payloads"
+      ],
+      "scope": "Modular monolith implements domain boundaries; directory names are illustrative in architecture."
+    },
+    {
+      "section": 45,
+      "title": "Canonical data contracts",
+      "status": "deferred_isaac",
+      "implementation": [
+        "task_advisor/curriculum.py",
+        "task_compiler/compiler.py",
+        "semantics/task_spec.py"
+      ],
+      "tests": [
+        "tests.test_curriculum_sampler.SamplerTests.test_complete_contract_and_immutable_publication"
+      ],
+      "scope": "Canonical typed/validated dictionaries and immutable contracts; physical contract realization deferred."
+    },
+    {
+      "section": 46,
+      "title": "The standard operating loop",
+      "status": "deferred_isaac",
+      "implementation": [
+        "factory/adaptive.py"
+      ],
+      "tests": [
+        "tests.test_architecture_closures.AdaptiveRestartTests.test_two_iterations_restart_idempotency_frozen_eval_and_complete_actions"
+      ],
+      "scope": "Executed synthetic measure/advise/discover/sample/train/evaluate loop resumes; Isaac execution deferred."
+    },
+    {
+      "section": 47,
+      "title": "Bootstrap strategy",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "taskgen/bootstrap.py"
+      ],
+      "tests": [
+        "tests.test_extended_tasks.ExtendedTaskTests.test_broad_seed_coverage_role_assets_and_multiobject_execution"
+      ],
+      "scope": "Broad seeded mechanics include contact,obstacles,drawer,multiobject and sequencing."
+    },
+    {
+      "section": 48,
+      "title": "Build-order dependency",
+      "status": "deferred_isaac",
+      "implementation": [
+        "factory/adaptive.py",
+        "factory/local.py"
+      ],
+      "tests": [
+        "tests.test_training_cycle.TrainingCycleTests.test_complete_synthetic_cycle_frozen_suite_and_external_payloads"
+      ],
+      "scope": "Dependency order represented; remaining Isaac dependency explicitly deferred."
+    },
+    {
+      "section": 49,
+      "title": "Critical ownership boundaries",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "task_library/governance.py",
+        "taskgen/discovery.py",
+        "task_advisor/core.py"
+      ],
+      "tests": [
+        "tests.test_instrumentation.InstrumentationTests.test_structural_status_cannot_approve_physics"
+      ],
+      "scope": "Knowledge,intelligence,discovery,validation and data ownership kept separate."
+    },
+    {
+      "section": 50,
+      "title": "Explicit architectural non-goals",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "taskgen/proposals.py",
+        "task_advisor/core.py",
+        "task_library/library.py"
+      ],
+      "tests": [
+        "tests.test_task_advisor.AdvisorTests.test_sealed_rejected_and_development_separate"
+      ],
+      "scope": "Architectural non-goals and independent evaluation boundaries respected."
+    },
+    {
+      "section": 51,
+      "title": "What the architecture is ultimately optimizing",
+      "status": "implemented_synthetic",
+      "implementation": [
+        "factory/adaptive.py",
+        "evaluation/suite.py"
+      ],
+      "tests": [
+        "tests.test_architecture_closures.AdaptiveRestartTests.test_two_iterations_restart_idempotency_frozen_eval_and_complete_actions"
+      ],
+      "scope": "Experience selection and measured capability deltas implemented; physical efficiency/generalization not established."
+    },
+    {
+      "section": 52,
+      "title": "Final mental model",
+      "status": "deferred_isaac",
+      "implementation": [
+        "factory/adaptive.py",
+        "factory/local.py"
+      ],
+      "tests": [
+        "tests.test_training_cycle.TrainingCycleTests.test_complete_synthetic_cycle_frozen_suite_and_external_payloads"
+      ],
+      "scope": "Every domain represented in supported synthetic flow; actual robot flow deferred."
+    },
+    {
+      "section": 53,
+      "title": "Final system definition",
+      "status": "deferred_isaac",
+      "implementation": [
+        "factory/adaptive.py"
+      ],
+      "tests": [
+        "tests.test_architecture_closures.AdaptiveRestartTests.test_two_iterations_restart_idempotency_frozen_eval_and_complete_actions"
+      ],
+      "scope": "Complete supported synthetic adaptive flow; full SO-101/Isaac system definition remains deferred."
+    }
+  ]
+}
